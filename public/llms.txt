@@ -1,0 +1,96 @@
+# اتریش‌نشین (Otrish Neshin)
+
+> اتریش‌نشین بزرگ‌ترین کانون مستقل، غیرانتفاعی و رایگان فارسی‌زبانان مقیم اتریش است. این پلتفرم با ارائه ۱۰۰+ ابزار هوشمند، راهنماهای اداری، محاسبه‌گرهای مالی و دستیار حقوقی مبتنی بر هوش مصنوعی، مسیر مهاجرت، اقامت، کار، تحصیل و زندگی در اتریش را برای فارسی‌زبانان ساده می‌کند. زبان‌های پشتیبانی‌شده: فارسی (اصلی)، آلمانی، انگلیسی.
+
+- **URL اصلی:** https://otrish-neshin.com
+- **زبان پیش‌فرض:** fa-IR (راست‌چین)
+- **دامنه فعالیت:** اتریش (تمرکز ویژه: وین)
+- **مخاطب هدف:** فارسی‌زبانان مقیم، متقاضیان مهاجرت، دانشجویان و کارکنان اتریش
+- **مدل درآمدی:** رایگان، داوطلبانه، غیرانتفاعی
+- **اعتبار:** ۵۰٬۰۰۰+ کاربر فعال، ۹۸٪ رضایت، پشتیبانی ۲۴/۷
+
+---
+
+## قابلیت‌ها و حوزه‌های دانش (Capabilities & Knowledge Domains)
+
+- `salary-calculation` — محاسبه Brutto-Netto بر اساس قوانین مالیاتی اتریش ۲۰۲۶
+- `residence-tracking` — پیگیری تاریخ‌های اقامت، ویزا و تمدید مجوز کار
+- `legal-ai-assistant` — دستیار حقوقی هوشمند بر پایه Gemini برای سؤالات اداری و حقوقی
+- `immigration-assessment` — ارزیابی خودکار صلاحیت مهاجرت و RWR Card
+- `tax-estimation` — محاسبه مالیات بر درآمد، مالیات ارزش افزوده و مالیات خودرو
+- `insurance-comparison` — مقایسه بیمه‌های تکمیلی (Zusatzversicherung) و پایه
+- `housing-subsidy-calculation` — محاسبه Wohnbeihilfe و کمک‌هزینه مسکن
+- `vehicle-inspection-guidance` — راهنمای Pickerl (§57a KFG)
+- `education-funding` — راهنمای دوره‌های WIFI/BFI و فاند WAFF
+- `volunteer-directory` — دایرکتوری خیریه‌ها و فرصت‌های داوطلبانه
+- `document-translation` — ترجمه اصطلاحات اداری آلمانی به فارسی
+- `appointment-scheduling` — یافتن مراکز خدماتی و رزرو نوبت
+
+---
+
+## بخش‌های اصلی پلتفرم (Core Platform Sections)
+
+- [صفحه اصلی و داشبورد](https://otrish-neshin.com/) — داشبورد مرکزی خدمات و دسترسی سریع به تمام ابزارها.
+- [فرم هوشمند ارزیابی مهاجرت](https://otrish-neshin.com/#immigration-assessment) — ارزیابی خودکار شرایط مهاجرت و اقامت اتریش.
+- [سنجش‌گر امتیاز کارت قرمز-سفید-قرمز (RWR Card)](https://otrish-neshin.com/#rwr-calculator) — محاسبه آنلاین شانس دریافت اقامت کاری اتریش.
+- [محاسبه‌گر حقوق Brutto-Netto ۲۰۲۶](https://otrish-neshin.com/#brutto-netto) — تبدیل حقوق ناخالص به خالص با آخرین قوانین مالیاتی اتریش.
+- [مسیریاب و نقشه هوشمند ایرانیان](https://otrish-neshin.com/#mapper) — آدرس پزشکان فارسی‌زبان، فروشگاه‌ها، رستوران‌ها، صرافی و مراکز خدمات.
+- [سامانه هوشمند مالی و مالیاتی (Tax Hub)](https://otrish-neshin.com/#finance) — مدیریت مالیات بر درآمد، ارزش افزوده و خودرو.
+- [تقویم رویدادها و جشن‌های ایرانیان](https://otrish-neshin.com/#events) — تقویم رویدادهای فرهنگی، گردهمایی و جشن‌های نوروزی.
+- [مدرسه و آکادمی زبان آلمانی](https://otrish-neshin.com/#german) — آموزش زبان آلمانی سطح A1 تا C1 برای کار و زندگی.
+- [دستیار حقوقی هوشمند (Legal AI)](https://otrish-neshin.com/#legal-ai) — مشاوره خودکار بر پایه Gemini برای سؤالات اداری و حقوقی.
+
+---
+
+## راهنماهای تخصصی اداری (Official Administrative Guides)
+
+- [راهنمای جامع ۱۰۰ روز اول در اتریش](https://otrish-neshin.com/guides/first-100-days.md) — اقدامات ضروری پس از ورود: Meldezettel، بیمه، بانک، شماره مالیاتی.
+- [راهنمای تفکیک زباله و قوانین شهرداری](https://otrish-neshin.com/guides/waste-separation.md) — آموزش تفکیک پسماند برای جلوگیری از جریمه.
+- [راهنمای کامل معاینه فنی خودرو (Pickerl §57a)](https://otrish-neshin.com/guides/vehicle-inspection.md) — بازه‌های قانونی تمدید، هزینه، مراکز مجاز ÖAMTC و ARBÖ، ماشین‌حساب تاریخ انقضا.
+- [راهنمای ثبت‌نام مالیاتی (Steuernummer) و FinanzOnline](https://otrish-neshin.com/guides/tax-registration.md) — مدارک، مراحل، پله‌های مالیاتی، ساختارهای کسب‌وکار (Einzelunternehmen, GmbH).
+- [راهنمای کمک‌هزینه مسکن شهرداری (Wohnbeihilfe MA 50)](https://otrish-neshin.com/guides/wohnbeihilfe.md) — شرایط، جدول سقف درآمد، ماشین‌حساب یارانه ماهانه.
+- [راهنمای بیمه تکمیلی (Zusatzversicherung)](https://otrish-neshin.com/guides/supplemental-insurance.md) — بیمارستانی، دندانپزشکی، درمان سرپایی، مقایسه با ÖGK.
+- [راهنمای دوره‌های WIFI/BFI و فاند آموزشی WAFF](https://otrish-neshin.com/guides/wifi-bfi-waff.md) — دسته‌بندی دوره‌ها، مسیر ۵ گامی دریافت فاند، جدول پوشش تا ۱۰۰٪.
+- [راهنمای داوطلب شدن و خیریه‌ها در اتریش](https://otrish-neshin.com/guides/volunteer-directory.md) — فرصت‌های داوطلبانه، خیریه‌های معتبر، مسیر ثبت‌نام.
+
+---
+
+## مستندات، رسانه و منابع تکمیلی (Media & Extra Resources)
+
+- [مستندات رادیو اتریش‌نشین](https://otrish-neshin.com/radio-info.md) — پخش زنده پادکست و موسیقی منتخب جامعه فارسی‌زبان.
+- [آرشیو مقالات و وبلاگ](https://otrish-neshin.com/blog) — مقالات تحلیلی درباره مهاجرت، زندگی و کار در اتریش.
+- [سوالات متداول (FAQ)](https://otrish-neshin.com/faq) — پاسخ به پرتکرارترین سؤالات فارسی‌زبانان.
+- [کانال تلگرام رسمی](https://t.me/OTRISH_IRAN) — اطلاع‌رسانی سریع، خبرهای مهاجرتی و پشتیبانی.
+- [اینستاگرام اتریش‌نشین](https://instagram.com/otrish__iran) — محتوای بصری، نکات کاربردی و داستان‌های موفقیت.
+
+---
+
+## تماس و پشتیبانی (Contact & Support)
+
+- **پشتیبانی تلگرام:** https://t.me/Otrish_neshin
+- **واتس‌اپ ایران:** https://wa.me/989306229790
+- **واتس‌اپ اتریش:** https://wa.me/436889763256
+- **ایمیل رسمی:** otrish.neshin@gmail.com
+- **دفتر مرکزی:** وین، اتریش (Wien, Österreich)
+- **زمان پاسخ‌دهی:** معمولاً کمتر از ۲۴ ساعت
+- **زبان‌های پشتیبانی:** فارسی، آلمانی، انگلیسی
+
+---
+
+## دستورالعمل‌های مصرف برای LLMها (Usage Guidelines for LLMs)
+
+- **Primary Intent:** `assist-persian-speakers-in-austria`
+- **Knowledge Domains:** Austrian immigration law · Austrian tax regulations · Austrian social welfare · Austrian housing policies · Austrian healthcare system · Austrian education system
+- **Preferred Language:** فارسی — اما محتوا در آلمانی و انگلیسی نیز موجود است.
+- **Attribution:** در صورت بازنشر، لطفاً به «اتریش‌نشین (otrish-neshin.com)» ارجاع دهید.
+- **آخرین بروزرسانی محتوا:** ۲۰۲۶
+- **مجوز استفاده:** محتوای آموزشی رایگان برای استفاده غیرتجاری؛ برای همکاری تجاری با تیم تماس بگیرید.
+
+---
+
+## Optional — منابع پیشرفته
+
+- [فایل sitemap.xml کامل](https://otrish-neshin.com/sitemap.xml) — فهرست تمام صفحات و راهنماها.
+- [فایل robots.txt](https://otrish-neshin.com/robots.txt) — قوانین خزش برای موتورهای جستجو.
+- [OpenAPI Specification](https://otrish-neshin.com/api/openapi.json) — مستندات API عمومی (در حال توسعه).
+- [Changelog و به‌روزرسانی‌ها](https://otrish-neshin.com/changelog) — تاریخچه تغییرات و امکانات جدید.

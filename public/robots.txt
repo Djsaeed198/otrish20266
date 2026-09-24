@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /analytics/
+
+Sitemap: https://otrish-iran.ir/sitemap.xml

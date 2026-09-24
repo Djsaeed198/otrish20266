@@ -1,0 +1,24 @@
+{
+  "short_name": "اتریش‌نشین",
+  "name": "اتریش‌نشین | همیار همه‌جانبه فارسی‌زبانان مقیم اتریش",
+  "icons": [
+    {
+      "src": "assets/images/otrish_logo_1779961596526.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/otrish_logo_1779961596526.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#09090b",
+  "theme_color": "#D11A2A",
+  "display": "standalone",
+  "orientation": "portrait",
+  "description": "پورتال تخصصی و مستقل هموطنان مقیم اتریش. پایش نوبت‌های MA35، فرم‌ساز ملده، محاسبان Brutto-Netto و کانون همسفریابی."
+}
