@@ -7,6 +7,7 @@ import fs from 'fs';
 import Parser from 'rss-parser';
 import { initializeApp, cert } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
+import { enforceMtlsPeerAuth, areMtlsCertsAvailable } from './src/server/mtlsManager';
 // Use fs to read config to support bundling
 function getFilePath(filename: string) {
   // In production (cjs), __dirname is the dist folder
@@ -26,7 +27,54 @@ const db = getFirestore(firebaseApp);
 dotenv.config();
 
 const app = express();
-app.use(express.json());
+app.disable("x-powered-by");
+
+// 🛡️ Block unsafe HTTP methods (TRACE, TRACK per checklist.md)
+app.use((req, res, next) => {
+  if (req.method === "TRACE" || req.method === "TRACK") {
+    return res.status(405).send("Method Not Allowed");
+  }
+  next();
+});
+
+// JSON Body Parser with anti-prototype pollution defense
+app.use(express.json({ limit: "2mb" }));
+app.use((req, res, next) => {
+  if (req.body && typeof req.body === "object") {
+    delete req.body.__proto__;
+    delete req.body.constructor;
+    delete req.body.prototype;
+  }
+  next();
+});
+
+// Route for RFC 9116 security disclosure
+app.get("/.well-known/security.txt", (req, res) => {
+  const securityTxtPath = path.join(process.cwd(), "public", ".well-known", "security.txt");
+  if (fs.existsSync(securityTxtPath)) {
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    return res.sendFile(securityTxtPath);
+  }
+  res.status(404).send("Not Found");
+});
+
+// Performance Caching & Security Headers (Strict Security Baseline per security.md)
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader("X-XSS-Protection", "1; mode=block");
+  res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  
+  // Cache Control for static assets (js, css, images, fonts) to accelerate load in Iran
+  if (req.url.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$/)) {
+    res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+  } else if (req.url === "/sitemap.xml" || req.url === "/robots.txt" || req.url === "/llms.txt" || req.url === "/llms-full.txt") {
+    res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
+  }
+  next();
+});
 
 const PORT = 3000;
 
@@ -139,6 +187,94 @@ function saveAnalyticsToFile() {
     console.error("Could not write to analytics storage file:", error);
   }
 }
+
+// 🔐 SECURITY AUDIT LOGGING ENGINE (security.md compliant)
+const SECURITY_LOG_FILE = getFilePath('security_audit_logs.json');
+let securityEventsList: any[] = [];
+try {
+  if (fs.existsSync(SECURITY_LOG_FILE)) {
+    securityEventsList = JSON.parse(fs.readFileSync(SECURITY_LOG_FILE, 'utf-8'));
+  }
+} catch {
+  securityEventsList = [];
+}
+
+app.post("/api/security/log", (req, res) => {
+  try {
+    const { eventType, severity, action, userId, details } = req.body;
+    if (!eventType || !action) {
+      return res.status(400).json({ error: "Missing security log parameters" });
+    }
+
+    const rawIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || "127.0.0.1";
+    const ip = typeof rawIp === "string" ? rawIp.split(',')[0].trim() : "127.0.0.1";
+
+    const entry = {
+      id: `sec_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
+      timestamp: new Date().toISOString(),
+      eventType,
+      severity: severity || "INFO",
+      action: String(action).slice(0, 200),
+      userId: userId ? String(userId).slice(0, 80) : undefined,
+      ip,
+      details: typeof details === "object" ? details : undefined,
+    };
+
+    securityEventsList.unshift(entry);
+    if (securityEventsList.length > 500) {
+      securityEventsList = securityEventsList.slice(0, 500);
+    }
+
+    try {
+      fs.writeFileSync(SECURITY_LOG_FILE, JSON.stringify(securityEventsList, null, 2), 'utf-8');
+    } catch {
+      // Ignore background file sync errors
+    }
+
+    return res.json({ success: true, id: entry.id });
+  } catch {
+    return res.status(500).json({ error: "Failed to record security event" });
+  }
+});
+
+// 🔒 ZERO TRUST INTERNAL SERVICE-TO-SERVICE COMMUNICATION (mTLS v1.3)
+const internalMtlsRouter = express.Router();
+internalMtlsRouter.use(enforceMtlsPeerAuth);
+
+// Internal microservice status ping
+internalMtlsRouter.get("/v1/status", (req, res) => {
+  return res.json({
+    status: "HEALTHY",
+    protocol: "mTLS v1.3 Zero Trust",
+    authenticatedPeer: req.peerService,
+    nodeEnvironment: process.env.NODE_ENV || "development",
+    timestamp: new Date().toISOString(),
+  });
+});
+
+// Internal microservice secure event relay
+internalMtlsRouter.post("/v1/inter-service-rpc", (req, res) => {
+  return res.json({
+    success: true,
+    message: "Mutual TLS cryptographically verified request",
+    peerIdentity: req.peerService,
+    payloadReceived: req.body,
+    processedAt: new Date().toISOString(),
+  });
+});
+
+app.use("/internal/api", internalMtlsRouter);
+
+// Public status check for mTLS enablement
+app.get("/api/security/mtls-status", (req, res) => {
+  const isReady = areMtlsCertsAvailable();
+  return res.json({
+    mtlsConfigured: isReady,
+    zeroTrustEnforced: true,
+    standard: "TLS 1.3 / X.509 Mutual Certificate Authentication",
+    peerVerification: "Mandatory for all /internal/api/* routes",
+  });
+});
 
 // Analytics REST Actions
 // A. TRACK EVENT: REST endpoint supporting fast client logs
@@ -1065,7 +1201,7 @@ Keep your tone warm, reassuring, list-oriented, and highly practical. Respond co
   }
 });
 
-// SEO Route Handlers for robots.txt and sitemap.xml
+// SEO & AI Search Engine Route Handlers (robots.txt, llms.txt, sitemap.xml)
 app.get("/robots.txt", (req, res) => {
   res.type("text/plain");
   res.send(`User-agent: *
@@ -1074,77 +1210,77 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /analytics/
 
+# AI Crawlers & LLM Engines (Item 19)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://otrish-iran.ir/sitemap.xml`);
+});
+
+// Item 18: llms.txt standard for Large Language Models
+app.get("/llms.txt", (req, res) => {
+  res.type("text/plain; charset=utf-8");
+  try {
+    const llmPath = getFilePath(path.join('public', 'llms.txt'));
+    if (fs.existsSync(llmPath)) {
+      return res.send(fs.readFileSync(llmPath, 'utf-8'));
+    }
+  } catch (e) {}
+  const fallbackPath = path.join(process.cwd(), 'public', 'llms.txt');
+  if (fs.existsSync(fallbackPath)) {
+    return res.send(fs.readFileSync(fallbackPath, 'utf-8'));
+  }
+  res.status(404).send("llms.txt not found");
+});
+
+app.get("/llms-full.txt", (req, res) => {
+  res.type("text/plain; charset=utf-8");
+  try {
+    const fullPath = getFilePath(path.join('public', 'llms-full.txt'));
+    if (fs.existsSync(fullPath)) {
+      return res.send(fs.readFileSync(fullPath, 'utf-8'));
+    }
+  } catch (e) {}
+  const fallbackPath = path.join(process.cwd(), 'public', 'llms-full.txt');
+  if (fs.existsSync(fallbackPath)) {
+    return res.send(fs.readFileSync(fallbackPath, 'utf-8'));
+  }
+  res.status(404).send("llms-full.txt not found");
 });
 
 app.get("/sitemap.xml", (req, res) => {
   res.type("application/xml");
-  res.send(`<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main Portal Home -->
-  <url>
-    <loc>https://otrish-iran.ir/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- MA35 Visa & Appointment tracker -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=tracker</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Finance, Brutto-Netto Calculator & Exchange Rates -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=finance</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Google Maps Interactive Hub & Persian Businesses -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=mapper</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- German Learning Center -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=german</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Carpool Shuttles & Airport Ride share -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=carpool</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Visual Austrian Cities Explorer -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=gallery</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- AI Administrative Legal Companion -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=ai</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>`);
+  try {
+    const sitemapPath = getFilePath(path.join('public', 'sitemap.xml'));
+    if (fs.existsSync(sitemapPath)) {
+      return res.send(fs.readFileSync(sitemapPath, 'utf-8'));
+    }
+  } catch (e) {
+    // Fallback if file read fails
+  }
+  const fallbackPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+  if (fs.existsSync(fallbackPath)) {
+    return res.send(fs.readFileSync(fallbackPath, 'utf-8'));
+  }
+  res.status(404).send("Sitemap not found");
 });
 
 // Ahrefs Webmaster Site Verification Routes

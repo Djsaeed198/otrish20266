@@ -1,98 +1,646 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main Portal Home -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- 1. Home Portal -->
   <url>
     <loc>https://otrish-iran.ir/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/" />
+    <lastmod>2026-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- MA35 Visa & Appointment tracker -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=tracker</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
-  <!-- Finance, Brutto-Netto Calculator & Exchange Rates -->
+  <!-- 2. RWR Card Points Calculator -->
   <url>
-    <loc>https://otrish-iran.ir/?segment=finance</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Google Maps Interactive Hub & Persian Businesses -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=mapper</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- German Learning Center -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=german</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Carpool Shuttles & Airport Ride share -->
-  <url>
-    <loc>https://otrish-iran.ir/?segment=carpool</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://otrish-iran.ir/rwr-card</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/rwr-card" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/rwr-card" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/rwr-card" />
+    <lastmod>2026-10-01</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.95</priority>
   </url>
 
-  <!-- Visual Austrian Cities Explorer -->
+  <!-- 3. Brutto-Netto Salary Calculator 2026 -->
   <url>
-    <loc>https://otrish-iran.ir/?segment=gallery</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://otrish-iran.ir/brutto-netto-rechner</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/brutto-netto-rechner" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 4. MA35 Residence & Appointment Tracker -->
+  <url>
+    <loc>https://otrish-iran.ir/ma35</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/ma35" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/ma35" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/ma35" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 5. FinanzOnline & Tax Return Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/finanzonline</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 6. Housing & Dormitory Guide in Austria -->
+  <url>
+    <loc>https://otrish-iran.ir/wohnen</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 7. Austrian Citizenship & Passport -->
+  <url>
+    <loc>https://otrish-iran.ir/citizenship</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 8. ID Austria Activation Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/id-austria</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 9. Business & Doctor Service Directory -->
+  <url>
+    <loc>https://otrish-iran.ir/mapper</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 10. Tax Number (Steuernummer) Registration -->
+  <url>
+    <loc>https://otrish-iran.ir/steuernummer</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 11. Practical German Language Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/german</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 12. Airport Carpool & Community Transport -->
+  <url>
+    <loc>https://otrish-iran.ir/carpool</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 13. KlimaTicket Austria & Vienna Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/klimaticket</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 14. Rental Betriebskosten & Ancillary Costs Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/betriebskosten</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 15. Familienbonus Plus & Child Allowances -->
+  <url>
+    <loc>https://otrish-iran.ir/familienbonus</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 16. Freelancer & Small Business (Gewerbe) Taxes -->
+  <url>
+    <loc>https://otrish-iran.ir/freelance-tax</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 17. Traffic Fine Appeal & Driving Laws -->
+  <url>
+    <loc>https://otrish-iran.ir/traffic-fine-appeal</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 18. Continuous Residence Maintenance Conditions -->
+  <url>
+    <loc>https://otrish-iran.ir/residency-conditions</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 19. Academic & Professional Nostrification -->
+  <url>
+    <loc>https://otrish-iran.ir/nostrification</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 20. Kassenarzt Public Insurance Doctors Directory -->
+  <url>
+    <loc>https://otrish-iran.ir/kassenarzt-directory</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 21. Emergency Dentistry & Night Clinics -->
+  <url>
+    <loc>https://otrish-iran.ir/emergency-dentistry</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 22. University Graduate Transition Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/student-grad-guide</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 23. Mutter-Kind-Pass & Childbirth Healthcare -->
+  <url>
+    <loc>https://otrish-iran.ir/mutter-kind-pass</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 24. Willhaben Security & Scam Prevention -->
+  <url>
+    <loc>https://otrish-iran.ir/willhaben-security</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 25. Official Forms & Applications Download -->
+  <url>
+    <loc>https://otrish-iran.ir/forms</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.80</priority>
   </url>
 
-  <!-- AI Administrative Legal Companion -->
+  <!-- 26. Live Exchange Rates & Remittances -->
   <url>
-    <loc>https://otrish-iran.ir/?segment=ai</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://otrish-iran.ir/exchange</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 27. Visa Samples & Interactive Examination -->
+  <url>
+    <loc>https://otrish-iran.ir/visa-samples</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
-  <!-- Trust Center, About and Contact -->
+  <!-- 28. Smart Assessment Systems -->
   <url>
-    <loc>https://otrish-iran.ir/?segment=about</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://otrish-iran.ir/smart</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 29. Residence Step Tracker -->
+  <url>
+    <loc>https://otrish-iran.ir/tracker</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 30. Schools & Education System Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/schools</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 31. Insurance Types & Comparison -->
+  <url>
+    <loc>https://otrish-iran.ir/insurance</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 32. Vienna Districts & Neighborhood Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/district</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 33. Certified Experts & Consultants -->
+  <url>
+    <loc>https://otrish-iran.ir/experts</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 34. Sworn Translators Directory -->
+  <url>
+    <loc>https://otrish-iran.ir/translators</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 35. Fact Check & Anti-Rumor Center -->
+  <url>
+    <loc>https://otrish-iran.ir/factcheck</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 36. NoVA Car Tax Calculator -->
+  <url>
+    <loc>https://otrish-iran.ir/nova</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 37. Student Finance & Subsidies Calculator -->
+  <url>
+    <loc>https://otrish-iran.ir/student-finance</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 38. Austrian Public Holidays Calendar -->
+  <url>
+    <loc>https://otrish-iran.ir/holidays</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
-  <!-- Localized SEO Landing Pages: Vienna -->
+  <!-- 39. Driving License Conversion Guide -->
   <url>
-    <loc>https://otrish-iran.ir/?segment=cities&amp;city=vienna</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://otrish-iran.ir/license</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.80</priority>
   </url>
 
-  <!-- Localized SEO Landing Pages: Graz -->
+  <!-- 40. Real Estate Property Purchase & Taxes -->
   <url>
-    <loc>https://otrish-iran.ir/?segment=cities&amp;city=graz</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://otrish-iran.ir/real-estate</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.80</priority>
   </url>
 
-  <!-- Localized SEO Landing Pages: Linz -->
+  <!-- 41. Police Clearance & Criminal Record (Strafregister) -->
   <url>
-    <loc>https://otrish-iran.ir/?segment=cities&amp;city=linz</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://otrish-iran.ir/criminal-record</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 42. Banking, Bank Accounts & Remittances -->
+  <url>
+    <loc>https://otrish-iran.ir/banks</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 43. Public Transport Guide & Metro Wien -->
+  <url>
+    <loc>https://otrish-iran.ir/transport</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 44. §57a Pickerl Vehicle Inspection Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/inspection</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 45. Parking Sticker (Parkpickerl) Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/parking</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 46. Driving License Theory Exam Test Simulation -->
+  <url>
+    <loc>https://otrish-iran.ir/theory-test</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 47. Kindergarten & Childcare Registration -->
+  <url>
+    <loc>https://otrish-iran.ir/kindergarten</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 48. Supplemental Private Healthcare Insurance Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/supplemental-insurance</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 49. Pension & Retirement System Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/pension-guide</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 50. Personal & Household Liability Insurance -->
+  <url>
+    <loc>https://otrish-iran.ir/liability-insurance</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 51. Halal Markets & Restaurants Directory -->
+  <url>
+    <loc>https://otrish-iran.ir/halal-directory</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 52. Marriage, Civil Status & Divorce Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/marriage-divorce</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 53. WIFI & BFI Vocational Courses -->
+  <url>
+    <loc>https://otrish-iran.ir/education-wifi-bfi</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 54. Accounting & Buchhalter Career Roadmap -->
+  <url>
+    <loc>https://otrish-iran.ir/accounting-career</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 55. ÖBB Vorteilscard Discount Railcard Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/obb-vorteilscard</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 56. Contract Cancellation (Kündigung) Wizard -->
+  <url>
+    <loc>https://otrish-iran.ir/contract-cancellation</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 57. Vienna State Opera Standing Tickets Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/opera-standing-tickets</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 58. Vienna Stadtwanderwege Hiking Trails Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/stadtwanderwege</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 59. Phishing & Banking Security Guide -->
+  <url>
+    <loc>https://otrish-iran.ir/phishing-security</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 60. Initial Document Verification Check -->
+  <url>
+    <loc>https://otrish-iran.ir/doccheck</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 61. Service Ratings & Community Reviews -->
+  <url>
+    <loc>https://otrish-iran.ir/ratings</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 62. Immigrant Experiences & Success Stories -->
+  <url>
+    <loc>https://otrish-iran.ir/stories</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 63. Immigration Pathways Comparison Wizard -->
+  <url>
+    <loc>https://otrish-iran.ir/compare</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 64. Administrative & Legal Terms Glossary -->
+  <url>
+    <loc>https://otrish-iran.ir/glossary</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 65. Austrian Cities Cost of Living Comparison -->
+  <url>
+    <loc>https://otrish-iran.ir/compare-living</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 66. Comprehensive Immigration Eligibility Assessment -->
+  <url>
+    <loc>https://otrish-iran.ir/immigration-assessment</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 67. About Us & Trust Center -->
+  <url>
+    <loc>https://otrish-iran.ir/about</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- 68. Iranian Events & Cultural Calendar in Austria -->
+  <url>
+    <loc>https://otrish-iran.ir/events</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 69. Official Austrian Links & Ecosystem Portal -->
+  <url>
+    <loc>https://otrish-iran.ir/ecosystem</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ============================================== -->
+  <!-- AUSTRIAN DUAL MARKET SUBFOLDER (de-AT) URLS   -->
+  <!-- ============================================== -->
+  <!-- 68. Austria German Portal Overview -->
+  <url>
+    <loc>https://otrish-iran.ir/de</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 69. Rot-Weiß-Rot-Karte Rechner (de-AT) -->
+  <url>
+    <loc>https://otrish-iran.ir/de/rwr-card</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/rwr-card" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/rwr-card" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/rwr-card" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 70. Brutto-Netto-Rechner Österreich (de-AT) -->
+  <url>
+    <loc>https://otrish-iran.ir/de/brutto-netto-rechner</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/brutto-netto-rechner" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/brutto-netto-rechner" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 71. MA 35 Einwanderungsbehörde Wien (de-AT) -->
+  <url>
+    <loc>https://otrish-iran.ir/de/ma35</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/ma35" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/ma35" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/ma35" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 72. Arbeitnehmerveranlagung & FinanzOnline (de-AT) -->
+  <url>
+    <loc>https://otrish-iran.ir/de/tax-return</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/tax-return" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/tax-return" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/tax-return" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 73. ID Austria Aktivierung & Bürgerkarte (de-AT) -->
+  <url>
+    <loc>https://otrish-iran.ir/de/id-austria</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/id-austria" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/id-austria" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/id-austria" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 74. Kassenärzte & ÖGK Verzeichnis (de-AT) -->
+  <url>
+    <loc>https://otrish-iran.ir/de/kassenarzt-directory</loc>
+    <xhtml:link rel="alternate" hreflang="fa-IR" href="https://otrish-iran.ir/kassenarzt-directory" />
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://otrish-iran.ir/de/kassenarzt-directory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://otrish-iran.ir/kassenarzt-directory" />
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 </urlset>

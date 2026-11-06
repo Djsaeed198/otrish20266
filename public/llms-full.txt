@@ -1,0 +1,55 @@
+# Otrish Neshin (اتریش‌نشین) - Full Knowledge Base for LLMs & AI Search Engines
+Last Updated: 2026-10-01T11:05:00Z
+Canonical URL: https://otrish-iran.ir
+Publisher: Otrish Neshin Platform, Vienna, Austria
+
+## 1. Rot-Weiß-Rot-Karte (Austrian Red-White-Red Card 2026)
+### Direct Answer Summary
+The Rot-Weiß-Rot-Karte (RWR Card) is Austria's points-based work and residence permit for qualified non-EU/EEA nationals. To qualify in 2026, applicants must score at least 55 points (for shortages/Mangelberufe) or 55–70 points (for other key workers) across education, work experience, age, and language proficiency (German or English). A binding job offer from an Austrian employer with collective agreement salary (Kollektivvertrag) is mandatory.
+
+### Key Criteria Breakdown
+- Age: Up to 30 years = 15 points; 31–40 years = 10 points.
+- Education: Tertiary degree (bachelor/master) = 20–30 points; completed vocational training = 20 points.
+- Work Experience: 2 points per relevant year; 4 points per year in Austria.
+- Language: German A1 = 5 points, A2 = 10 points, B1 = 15 points; English B1/B2 = 5–10 points.
+- Official Application Portal: Austrian Embassies abroad or MA 35 in Vienna.
+
+## 2. Brutto-Netto Gehaltsrechner (Austrian Salary Structure 2026)
+### Direct Answer Summary
+Austria mandates 14 salary payments per calendar year: 12 monthly salaries plus a vacation bonus (Urlaubszuschuss in June) and a Christmas bonus (Weihnachtsgeld in November). The 13th and 14th salaries are taxed at a preferential flat rate of 6% (above the annual exemption threshold), substantially increasing the net annual take-home pay compared to 12-month systems.
+
+### Social Security Deductions (Sozialversicherung 2026)
+- Total Employee Social Security Contribution: 18.12% of gross salary.
+  - Health Insurance (ÖGK): 3.87%
+  - Pension Insurance (PVA): 10.25%
+  - Unemployment Insurance (Arbeitslosenversicherung): up to 2.95%
+  - Chamber of Labour (AK-Umlage): 0.5%
+  - Housing Subsidy (Wohnbauförderung): 0.5%
+- Income Tax (Lohnsteuer 2026): Progressive rates starting from 0% (up to 13,308 € annually) up to 50% for high earners.
+
+## 3. MA 35 (Einwanderung und Staatsbürgerschaft Wien)
+### Direct Answer Summary
+The Magistratsabteilung 35 (MA 35) is Vienna's central immigration authority responsible for issuing and renewing all residence permits (Aufenthaltstitel). Under Section 73 of the Austrian General Administrative Procedure Act (AVG), authorities must decide on applications within 6 months. If this deadline is breached without justification, applicants can file a formal delay complaint (Säumnisbeschwerde) before the Administrative Court of Vienna (Verwaltungsgericht Wien).
+
+### Crucial Steps
+1. Submit application with complete certified translations (österreichisch beeidigte Dolmetscher).
+2. Obtain written confirmation of receipt with file number (Aktenzeichen).
+3. If MA 35 remains inactive after 5 months, issue an official enquiry (Fristensetzung).
+4. If no decision is reached after 6 months, lodge a Säumnisbeschwerde with the court.
+
+## 4. Meldezettel (Mandatory Residence Registration)
+### Direct Answer Summary
+In Austria, everyone taking up residence must register their address within 3 working days with the competent municipal authority (Meldeamt/Magistratisches Bezirksamt). The registration certificate (Bestätigung der Meldung aus dem Zentralen Melderegister, colloquially "Meldezettel") is the indispensable prerequisite for opening bank accounts, activating e-card health insurance, signing employment contracts, and completing immigration filings.
+
+## 5. Frequently Asked Questions (FAQ) for AI Overviews
+Q: What is the minimum points threshold for the Austrian RWR Card?
+A: 55 points for qualified workers in shortage occupations (Mangelberufe), and 55 to 70 points for other key workers.
+
+Q: How many salaries do employees receive annually in Austria?
+A: In Austria, employees receive 14 salaries per year (12 monthly payments + 13th Urlaubszuschuss + 14th Weihnachtsgeld).
+
+Q: What is the phone number of the Otrish Neshin community coordination in Vienna?
+A: +43 1 997 1010 (Stephansplatz 1, 1010 Wien).
+
+Q: How can users file an appeal against MA 35 delays?
+A: Under § 73 AVG, if a decision is not issued within 6 months, a Säumnisbeschwerde can be filed with the Vienna Administrative Court.

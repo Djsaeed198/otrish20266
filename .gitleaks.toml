@@ -1,0 +1,64 @@
+# Gitleaks Configuration for Otrish Neshin Project
+# Enforces Zero Trust and prevents secrets leakage in Git commits
+
+title = "Otrish Neshin Gitleaks Rules"
+
+[extend]
+# Extends standard gitleaks default ruleset if available
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for public sample configs and test fixtures"
+paths = [
+  '''^\.env\.example$''',
+  '''package-lock\.json$''',
+  '''bun\.lock$''',
+  '''node_modules/''',
+  '''dist/''',
+  '''public/''',
+]
+regexes = [
+  '''[a-zA-Z0-9_-]*EXAMPLE[a-zA-Z0-9_-]*''',
+  '''[a-zA-Z0-9_-]*mock[a-zA-Z0-9_-]*''',
+  '''Admin@Otrish2026!''', # Demo test password referenced in developer guidelines
+]
+
+# Rule 1: Google Gemini / API Key Detection
+[[rules]]
+id = "google-api-key"
+description = "Detected Google API / Gemini Key"
+regex = '''AIza[0-9A-Za-z\\-_]{35}'''
+secretGroup = 0
+keywords = ["AIza"]
+
+# Rule 2: Generic High-Entropy Private Secret
+[[rules]]
+id = "generic-api-key"
+description = "Detected Generic API Key or Token"
+regex = '''(?i)(?:key|api|token|secret|password|pwd|auth)[\s]*[=:][\s]*['"][0-9a-zA-Z\-_]{20,}['"]'''
+secretGroup = 0
+keywords = ["key", "api", "token", "secret", "password"]
+
+# Rule 3: AWS Access Key
+[[rules]]
+id = "aws-access-key"
+description = "Detected AWS Access Key ID"
+regex = '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
+secretGroup = 0
+keywords = ["AKIA", "ASIA"]
+
+# Rule 4: Private RSA/EC/OpenSSH Key
+[[rules]]
+id = "private-key"
+description = "Detected Unencrypted Private Key"
+regex = '''-----BEGIN ((?:RSA|DSA|EC|OPENSSH|PGP) )?PRIVATE KEY-----'''
+secretGroup = 0
+keywords = ["-----BEGIN"]
+
+# Rule 5: Database Connection String with Credentials
+[[rules]]
+id = "database-connection-url"
+description = "Detected Database URI containing embedded password"
+regex = '''(?i)(?:postgres|postgresql|mysql|mongodb|redis):\/\/[a-zA-Z0-9_\-\.]+:[^@\s]+@[a-zA-Z0-9_\-\.]+'''
+secretGroup = 0
+keywords = ["postgres://", "postgresql://", "mongodb://", "mysql://"]
