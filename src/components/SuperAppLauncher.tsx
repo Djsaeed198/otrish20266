@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import SEO from "./SEO";
 import AustriaIranNewsBanner from "./AustriaIranNewsBanner";
+import AustriaSmartSuite from "./AustriaSmartSuite";
 import {
   SUPER_APP_PAGES,
   SUPER_APP_CATEGORIES,
@@ -32,6 +33,94 @@ const IMAGES = {
   family: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
   alps: "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?auto=format&fit=crop&w=800&q=80",
 };
+
+// ==========================================
+// SERVICE CARD IMAGES (Austria Themed with Watermark)
+// ==========================================
+const SERVICE_PAGE_IMAGES: Record<string, string> = {
+  // Immigration & Permits
+  "rwr-calculator": "https://images.unsplash.com/photo-1573599852326-2d4da0bbe613?auto=format&fit=crop&w=600&q=80",
+  "ma35": "https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=600&q=80",
+  "visa-status": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80",
+  "student-visa": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80",
+  "citizenship-calc": "https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=600&q=80",
+  "family-reunion": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
+  "chance-calculator": "https://images.unsplash.com/photo-1520503185794-6d9b5463f8cb?auto=format&fit=crop&w=600&q=80",
+  "schengen-calc": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80",
+  "residence-permit-guide": "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=600&q=80",
+  "embassy-appointment": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=600&q=80",
+
+  // Finance & Tax
+  "finance": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
+  "tax-return": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
+  "ams-unemployment": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+  "freelance-calculator": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+  "pension-calculator": "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80",
+  "family-bonus": "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?auto=format&fit=crop&w=600&q=80",
+  "klimabonus": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=600&q=80",
+
+  // Directory & Medical
+  "kassenarzt-directory": "https://images.unsplash.com/photo-1631815588090-d1bcbe9a8551?auto=format&fit=crop&w=600&q=80",
+  "iranian-directory": "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=600&q=80",
+  "lawyer-directory": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80",
+  "translator-directory": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+  "emergency-numbers": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?auto=format&fit=crop&w=600&q=80",
+  "pharmacy-night-service": "https://images.unsplash.com/photo-1586015555751-63bb77f4322a?auto=format&fit=crop&w=600&q=80",
+
+  // Living & Housing
+  "rent-rights": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80",
+  "willhaben-guide": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80",
+  "supermarket-deals": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=600&q=80",
+  "childcare-kindergarten": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80",
+  "utilities-comparison": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+  "austria-cost-of-living": "https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=600&q=80",
+
+  // Language & Education
+  "german-a1-b2": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80",
+  "bmdw-recognition": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
+  "integration-fund-oeif": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80",
+  "german-administrative-terms": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+
+  // Transport & Mobility
+  "driving-license": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80",
+  "oebb-guide": "https://images.unsplash.com/photo-1515165562839-978bbcf18277?auto=format&fit=crop&w=600&q=80",
+  "klimaticket-guide": "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=600&q=80",
+  "car-import-pickerl": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80",
+  "vienna-parking": "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80",
+
+  // Community & Culture
+  "mitfahrgelegenheit": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80",
+  "events-austria": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80",
+  "secondhand-bazaar": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80",
+  "community-forum": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80",
+
+  // Smart Evaluation
+  "smart-assessment": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+  "document-validator": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
+  "wohnbeihilfe-calculator": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80",
+  "form-filler-ai": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80",
+};
+
+const CATEGORY_FALLBACK_IMAGES: Record<string, string> = {
+  immigration: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=600&q=80",
+  finance: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
+  directory: "https://images.unsplash.com/photo-1631815588090-d1bcbe9a8551?auto=format&fit=crop&w=600&q=80",
+  living: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80",
+  language: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80",
+  transport: "https://images.unsplash.com/photo-1515165562839-978bbcf18277?auto=format&fit=crop&w=600&q=80",
+  community: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80",
+  smart: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+};
+
+export function getServicePageCardImage(page: SuperAppPageItem): string {
+  if (SERVICE_PAGE_IMAGES[page.id]) {
+    return SERVICE_PAGE_IMAGES[page.id];
+  }
+  if (page.category && CATEGORY_FALLBACK_IMAGES[page.category]) {
+    return CATEGORY_FALLBACK_IMAGES[page.category];
+  }
+  return IMAGES.hero;
+}
 
 // ==========================================
 // TYPES
@@ -366,217 +455,19 @@ export default function SuperAppLauncher({
         schemaData={seoSchema}
       />
 
-      {/* ========================================== */}
-      {/* HERO SECTION WITH IMAGE */}
-      {/* ========================================== */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-3xl text-white"
-        style={{
-          background:
-            "radial-gradient(80% 150% at 90% 0, #9e142d 0, #38100e 48%, #1e1512 100%)",
-        }}
-      >
-        {/* Background Image */}
-        <div className="absolute inset-0 opacity-25">
-          <img
-            src={IMAGES.hero}
-            alt="وین، اتریش — سوپراپلیکیشن اتریش‌نشین"
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-l from-[#1e1512]/95 via-[#38100e]/85 to-[#9e142d]/60" />
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 w-72 h-72 bg-rose-500/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute -left-10 -bottom-16 text-[260px] opacity-[0.05] pointer-events-none select-none">
-          🇦🇹
-        </div>
 
-        <div className="relative z-10 p-8 md:p-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-[11px] font-black backdrop-blur-sm mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-            سوپراپلیکیشن مستقل فارسی‌زبانان اتریش — نسخه ۲۰۲۶
-          </div>
-
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black leading-tight mb-4 max-w-4xl">
-            ۶۰+ ابزار هوشمند، همه در یک اپ — از مهاجرت تا زندگی روزمره در اتریش
-          </h1>
-
-          <p className="text-sm md:text-base text-rose-100 leading-relaxed max-w-3xl mb-6">
-            از <strong className="text-amber-300">محاسبه‌گر مالیات Brutto-Netto</strong> تا
-            <strong className="text-amber-300"> سنجش امتیاز RWR Card</strong>،
-            <strong className="text-amber-300"> پایش نوبت MA35</strong> و
-            <strong className="text-amber-300"> دفتر پزشکان Kassenarzt</strong> — سوپراپلیکیشن
-            اتریش‌نشین تمام نیازهای یک فارسی‌زبان در اتریش را در یک پلتفرم یکپارچه ارائه می‌دهد.
-          </p>
-
-          {/* Benefits */}
-          <div className="flex items-center gap-4 flex-wrap mb-6">
-            {HERO_BENEFITS.map((b, i) => {
-              const Icon = b.icon;
-              return (
-                <div
-                  key={i}
-                  className="flex items-center gap-1.5 text-[11px] font-bold text-rose-100"
-                >
-                  <Icon className={`w-3.5 h-3.5 ${b.color}`} />
-                  <span>{b.text}</span>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* CTAs */}
-          <div className="flex gap-3 flex-wrap mb-6">
-            <button
-              onClick={onOpenSearch}
-              className="group inline-flex items-center gap-2 bg-white text-[#9e142d] font-black text-xs px-5 py-3 rounded-2xl shadow-lg hover:scale-105 transition-all"
-            >
-              <Search className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-              جستجوی هوشمند در ۶۰+ سرویس
-              <kbd className="hidden sm:inline-block px-1.5 py-0.5 bg-stone-100 border border-stone-300 rounded-md text-[9px] font-mono text-stone-600 ml-1">
-                Ctrl+K
-              </kbd>
-            </button>
-            <a
-              href="https://t.me/Otrish_neshin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white/10 border border-white/25 backdrop-blur-sm text-white font-black text-xs px-5 py-3 rounded-2xl hover:bg-white/20 transition-all"
-            >
-              <Share2 className="w-4 h-4" />
-              پشتیبانی تلگرام
-            </a>
-          </div>
-
-          {/* Stats row inside hero */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
-            {STATS.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.05 }}
-                  className="bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl p-3"
-                >
-                  <Icon className="w-4 h-4 text-amber-300 mb-1" />
-                  <div className="text-lg font-black font-mono" dir="ltr">
-                    {s.value}
-                  </div>
-                  <div className="text-[9px] font-black text-rose-100/70 leading-tight">
-                    {s.label}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </motion.section>
 
       {/* ========================================== */}
-      {/* TRUST / FEATURES BAR */}
+      {/* 1. LIVE AUSTRIA-IRAN NEWS BANNER */}
       {/* ========================================== */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-3"
-      >
-        {[
-          { icon: ShieldCheck, title: "کاملاً رایگان", desc: "بدون ثبت‌نام یا پرداخت", color: "from-emerald-500 to-teal-600" },
-          { icon: Zap, title: "بروزرسانی زنده", desc: "نرخ‌های رسمی ۲۰۲۶", color: "from-amber-500 to-orange-600" },
-          { icon: Heart, title: "ساخته‌شده با عشق", desc: "برای هموطنان ایرانی", color: "from-rose-500 to-red-600" },
-          { icon: Award, title: "۵۰K+ کاربر", desc: "با رضایت ۴.۹ از ۵", color: "from-indigo-500 to-blue-600" },
-        ].map((f, i) => {
-          const Icon = f.icon;
-          return (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 + i * 0.05 }}
-              whileHover={{ y: -4 }}
-              className="bg-white rounded-2xl border border-stone-200 p-4 flex items-center gap-3 hover:shadow-md transition-all"
-            >
-              <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${f.color} flex items-center justify-center text-white shadow-md shrink-0`}>
-                <Icon className="w-5 h-5" />
-              </div>
-              <div className="text-right">
-                <div className="text-[11px] font-black text-stone-900">{f.title}</div>
-                <div className="text-[9.5px] text-stone-500 font-bold mt-0.5">{f.desc}</div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+      <AustriaIranNewsBanner />
 
       {/* ========================================== */}
-      {/* FEATURED CTA BANNER (Moved above Featured Services) */}
+      {/* 2. AUSTRIA SMART SUITE */}
       {/* ========================================== */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0a1128] via-[#001f54] to-[#0a1128] p-8 md:p-12 text-white text-center"
-      >
-        <div className="absolute bottom-0 right-10 w-80 h-80 bg-[#c8102e]/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="relative max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-[11px] font-black backdrop-blur-sm mb-4">
-            <Rocket className="w-3.5 h-3.5 text-amber-300" />
-            سفر شما به اتریش از اینجا شروع می‌شود
-          </div>
-
-          <h2 className="text-2xl md:text-3xl font-black mb-3">
-            آماده‌اید از ۶۰+ ابزار هوشمند استفاده کنید؟
-          </h2>
-
-          <p className="text-sm text-stone-300 font-bold leading-relaxed mb-6">
-            چه تازه به اتریش آمده‌اید، چه سال‌ها اینجا زندگی می‌کنید — سوپراپلیکیشن
-            اتریش‌نشین همراه همیشگی شماست. یکی از ۶۰+ ابزار را انتخاب کنید و مسیر
-            خود را هوشمند بسازید.
-          </p>
-
-          <div className="flex gap-3 justify-center flex-wrap">
-            <button
-              onClick={onOpenSearch}
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-amber-400 to-orange-500 text-stone-900 font-black text-xs px-6 py-3 rounded-2xl shadow-lg hover:scale-105 transition-all"
-            >
-              <Search className="w-4 h-4" />
-              شروع جستجو در ۶۰+ سرویس
-            </button>
-            <a
-              href="https://t.me/Otrish_neshin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-sky-500 to-blue-600 text-white font-black text-xs px-6 py-3 rounded-2xl shadow-lg hover:scale-105 transition-all"
-            >
-              <Share2 className="w-4 h-4" />
-              مشاوره رایگان در تلگرام
-            </a>
-          </div>
-
-          <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-center gap-6 text-[10px] font-bold text-stone-400 flex-wrap">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-              کاملاً رایگان
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Heart className="w-3.5 h-3.5 text-rose-400" />
-              خدمات داوطلبانه
-            </div>
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
-              بدون ثبت‌نام
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <div className="space-y-4">
+        <AustriaSmartSuite />
+      </div>
 
       {/* ========================================== */}
       {/* 🇦🇹 FEATURED VISA SAMPLES (4 Real Cards) */}
@@ -590,7 +481,7 @@ export default function SuperAppLauncher({
         >
           <div className="flex items-center justify-between mb-2 flex-wrap gap-3">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-6 bg-gradient-to-b from-[#c8102e] to-[#970d22] rounded-full" />
+              <span className="w-1.5 h-6 bg-red-600 rounded-full" />
               <h2 className="text-base sm:text-lg font-black text-stone-900 flex items-center gap-2">
                 <span>🇦🇹 نمونه‌های برگزیده ویزا و کارت‌های اقامت اخذشده</span>
               </h2>
@@ -601,14 +492,14 @@ export default function SuperAppLauncher({
             <div className="flex items-center gap-3">
               <button
                 onClick={() => onSelectPage("visa-samples")}
-                className="text-[11px] font-black text-[#c8102e] hover:text-red-700 hover:underline flex items-center gap-1 transition-colors"
+                className="text-[11px] font-black text-red-700 hover:text-red-800 hover:underline flex items-center gap-1 transition-colors"
               >
                 <span>مشاهده آرشیو کامل ویزاها (۴۰+ مدرک)</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
               <button
                 onClick={() => setShowFeatured(false)}
-                className="text-[10px] font-bold text-stone-400 hover:text-stone-600 flex items-center gap-0.5 transition-colors"
+                className="text-[10px] font-bold text-stone-400 hover:text-stone-700 flex items-center gap-0.5 transition-colors"
                 title="بستن این بخش"
               >
                 <span>بستن</span>
@@ -628,7 +519,7 @@ export default function SuperAppLauncher({
                   transition={{ delay: 0.2 + i * 0.08 }}
                   whileHover={{ y: -6 }}
                   onClick={() => onSelectPage("visa-samples")}
-                  className="group relative bg-white rounded-3xl border border-stone-200 hover:border-red-500 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between text-right"
+                  className="group relative bg-white rounded-3xl border border-stone-200 hover:border-red-300 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between text-right"
                 >
                   {/* Image container with badges */}
                   <div className="relative h-48 w-full bg-stone-950 overflow-hidden">
@@ -638,7 +529,7 @@ export default function SuperAppLauncher({
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
 
                     {/* Visa Type Tag (Top Right) */}
                     <div className="absolute top-3 right-3 z-10">
@@ -648,17 +539,9 @@ export default function SuperAppLauncher({
                       </span>
                     </div>
 
-                    {/* Date Tag with Calendar Icon (Top Left) */}
-                    <div className="absolute top-3 left-3 z-10">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-stone-900/90 text-amber-300 border border-stone-700/80 backdrop-blur-md shadow-md" dir="ltr">
-                        <Calendar className="w-3 h-3 text-amber-400" />
-                        <span>{visa.dateTag}</span>
-                      </span>
-                    </div>
-
                     {/* Bottom overlay in image */}
                     <div className="absolute bottom-2.5 right-3 left-3 flex items-center justify-between text-[10px] text-stone-200">
-                      <span className="font-mono text-stone-300 font-bold truncate">{visa.authority}</span>
+                      <span className="font-mono text-stone-200 font-bold truncate">{visa.authority}</span>
                       <span className="px-2 py-0.5 rounded-md bg-white/20 backdrop-blur-xs text-[9px] font-bold text-white shrink-0">
                         {visa.workPermit}
                       </span>
@@ -671,9 +554,6 @@ export default function SuperAppLauncher({
                       <h3 className="text-sm font-black text-stone-900 group-hover:text-red-700 transition-colors leading-snug">
                         {visa.title}
                       </h3>
-                      <p className="text-[10px] text-stone-400 font-mono font-bold mt-0.5 truncate" dir="ltr">
-                        {visa.subTitle}
-                      </p>
                       <p className="text-[11px] text-stone-600 line-clamp-2 leading-relaxed mt-2 font-medium">
                         {visa.description}
                       </p>
@@ -714,11 +594,6 @@ export default function SuperAppLauncher({
       )}
 
       {/* ========================================== */}
-      {/* LIVE AUSTRIA-IRAN NEWS BANNER */}
-      {/* ========================================== */}
-      <AustriaIranNewsBanner />
-
-      {/* ========================================== */}
       {/* FULL CATALOG — HEADER + FILTERS */}
       {/* ========================================== */}
       <motion.div
@@ -728,21 +603,21 @@ export default function SuperAppLauncher({
         className="bg-white border border-stone-200 rounded-3xl p-5 sm:p-6 shadow-sm space-y-5 relative overflow-hidden"
       >
         {/* Decorative Austrian flag line */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#c8102e] via-white to-[#c8102e]" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-amber-500 to-red-600" />
 
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-1">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="w-2.5 h-6 bg-gradient-to-b from-[#c8102e] to-[#970d22] rounded-full inline-block" />
+              <span className="w-2.5 h-6 bg-red-600 rounded-full inline-block" />
               <h2 className="text-lg sm:text-xl font-black text-stone-900">
                 ویترین کامل خدمات و ابزارهای سوپراپ اتریش‌نشین
               </h2>
-              <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-gradient-to-r from-rose-100 to-amber-100 text-[#c8102e] border border-rose-200">
+              <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200">
                 {SUPER_APP_PAGES.length} صفحه مجزا و اختصاصی
               </span>
             </div>
-            <p className="text-xs text-stone-500 font-bold mt-1.5 pr-4 leading-relaxed max-w-2xl">
+            <p className="text-xs text-stone-600 font-normal mt-1.5 pr-4 leading-relaxed max-w-2xl">
               هر کدام از بخش‌های زیر دارای صفحه مستقل، آدرس اینترنتی تمیز، عنوان و متای اختصاصی، تگ H1 و داده‌های ساختاریافته Schema.org جهت تضمین بالاترین رتبه در نتایج گوگل هستند.
             </p>
             {/* Technical SEO Status Badges */}
@@ -751,16 +626,16 @@ export default function SuperAppLauncher({
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 صفحات اختصاصی با URL تمیز و Canonical
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-rose-50 border border-rose-200 text-[#c8102e] text-[10px] font-black">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#c8102e]" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-[10px] font-black">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
                 نقشه سایت XML و robots.txt فعال
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-[10px] font-black">
-                <Zap className="w-3.5 h-3.5 text-amber-600" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-teal-50 border border-teal-200 text-teal-800 text-[10px] font-black">
+                <Zap className="w-3.5 h-3.5 text-teal-600" />
                 بهینه‌سازی Core Web Vitals و موبایل
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 border border-blue-200 text-blue-900 text-[10px] font-black">
-                <Globe className="w-3.5 h-3.5 text-blue-600" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-200 text-sky-800 text-[10px] font-black">
+                <Globe className="w-3.5 h-3.5 text-sky-600" />
                 تاییدیه رسمی Google Search Console
               </span>
             </div>
@@ -771,12 +646,12 @@ export default function SuperAppLauncher({
             {/* Search shortcut */}
             <button
               onClick={onOpenSearch}
-              className="group px-4 py-2.5 bg-gradient-to-br from-stone-50 to-white hover:from-white hover:to-rose-50/40 text-stone-700 hover:text-[#c8102e] rounded-2xl flex items-center justify-center gap-2 text-xs font-black transition-all border-2 border-stone-200 hover:border-[#c8102e]/40 shadow-sm hover:shadow-md"
+              className="group px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-2xl flex items-center justify-center gap-2 text-xs font-black transition-all border border-stone-200 shadow-2xs cursor-pointer"
             >
-              <Search className="w-4 h-4 text-[#c8102e] group-hover:scale-110 transition-transform" />
+              <Search className="w-4 h-4 text-stone-600 group-hover:scale-110 transition-transform" />
               <span className="hidden sm:inline">جستجوی پیشرفته</span>
               <span className="sm:hidden">جستجو</span>
-              <kbd className="hidden md:inline-block px-1.5 py-0.5 bg-white border border-stone-300 rounded-md text-[10px] font-mono text-stone-500">
+              <kbd className="hidden md:inline-block px-1.5 py-0.5 bg-white border border-stone-200 rounded-md text-[10px] font-mono text-stone-600">
                 Ctrl+K
               </kbd>
             </button>
@@ -785,10 +660,10 @@ export default function SuperAppLauncher({
             <div className="flex bg-stone-100 border border-stone-200 rounded-2xl p-0.5">
               <button
                 onClick={() => setViewMode("grid")}
-                className={`p-2 rounded-xl transition-all ${
+                className={`p-2 rounded-xl transition-all cursor-pointer ${
                   viewMode === "grid"
-                    ? "bg-white text-[#c8102e] shadow-sm"
-                    : "text-stone-500 hover:text-stone-700"
+                    ? "bg-white text-stone-900 shadow-xs"
+                    : "text-stone-500 hover:text-stone-900"
                 }`}
                 title="نمایش شبکه‌ای"
               >
@@ -796,10 +671,10 @@ export default function SuperAppLauncher({
               </button>
               <button
                 onClick={() => setViewMode("list")}
-                className={`p-2 rounded-xl transition-all ${
+                className={`p-2 rounded-xl transition-all cursor-pointer ${
                   viewMode === "list"
-                    ? "bg-white text-[#c8102e] shadow-sm"
-                    : "text-stone-500 hover:text-stone-700"
+                    ? "bg-white text-stone-900 shadow-xs"
+                    : "text-stone-500 hover:text-stone-900"
                 }`}
                 title="نمایش لیستی"
               >
@@ -820,20 +695,20 @@ export default function SuperAppLauncher({
                 onClick={() => setActiveCategory(cat.id)}
                 className={`relative px-3.5 py-2 rounded-2xl text-xs font-black flex items-center gap-2 shrink-0 transition-all cursor-pointer overflow-hidden group ${
                   isSelected
-                    ? "bg-gradient-to-br from-[#c8102e] to-[#970d22] text-white shadow-md"
-                    : "bg-stone-50 text-stone-600 hover:bg-stone-100 hover:text-stone-900 border border-stone-200/60"
+                    ? "bg-stone-900 text-white shadow-md font-black"
+                    : "bg-stone-100 text-stone-700 hover:bg-stone-200 hover:text-stone-900 border border-stone-200/60"
                 }`}
               >
                 <CatIcon
                   className={`w-4 h-4 ${
-                    isSelected ? "text-white" : cat.color
+                    isSelected ? "text-red-400" : "text-stone-500 group-hover:text-stone-900"
                   }`}
                 />
                 <span>{cat.shortTitle}</span>
                 {isSelected && (
                   <motion.span
                     layoutId="activeCategoryIndicator"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-amber-300 rounded-full"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-red-500 rounded-full"
                   />
                 )}
               </button>
@@ -844,18 +719,18 @@ export default function SuperAppLauncher({
         {/* Results count */}
         <div className="flex items-center justify-between text-[11px] font-black text-stone-500 px-1">
           <span className="flex items-center gap-1.5">
-            <Target className="w-3.5 h-3.5 text-[#c8102e]" />
-            {displayedPages.length} سرویس در دسترس
+            <Target className="w-3.5 h-3.5 text-red-600" />
+            <span>{displayedPages.length} سرویس در دسترس</span>
             {activeCategory !== "all" && (
               <>
                 {" "}در دسته{" "}
-                <span className="text-[#c8102e]">
+                <span className="text-stone-900 font-bold">
                   {SUPER_APP_CATEGORIES.find((c) => c.id === activeCategory)?.shortTitle}
                 </span>
               </>
             )}
           </span>
-          <span className="text-stone-400 font-mono">اتریش‌نشین 🇦🇹</span>
+          <span className="text-red-700 font-mono font-bold">اتریش‌نشین 🇦🇹</span>
         </div>
 
         {/* Grid/List of App Services */}
@@ -884,47 +759,75 @@ export default function SuperAppLauncher({
                         onSelectPage(page.id);
                       }
                     }}
-                    className="group relative bg-gradient-to-br from-stone-50 to-white hover:from-white hover:to-rose-50/30 border border-stone-200 hover:border-[#c8102e]/40 rounded-2xl p-3.5 flex flex-col justify-between gap-3 cursor-pointer transition-all duration-200 hover:shadow-lg text-right block no-underline"
+                    className="group relative bg-white hover:bg-stone-50/80 border border-stone-200 hover:border-stone-300 rounded-2xl p-2.5 sm:p-3 flex flex-col justify-between gap-2.5 cursor-pointer transition-all duration-200 hover:shadow-lg text-right block no-underline overflow-hidden"
                   >
-                    {/* Top: Icon & Badge */}
-                    <div className="flex items-start justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-gradient-to-br group-hover:from-[#c8102e] group-hover:to-[#970d22] border border-stone-200 group-hover:border-transparent text-stone-700 group-hover:text-white flex items-center justify-center shrink-0 transition-all shadow-sm group-hover:scale-110 group-hover:rotate-3">
-                        <PageIcon className="w-5 h-5" />
+                    {/* Top: Image Banner with Dual Watermark & Icon */}
+                    <div className="relative w-full h-24 sm:h-28 rounded-xl overflow-hidden bg-stone-100 border border-stone-200 shadow-inner">
+                      <img
+                        src={getServicePageCardImage(page)}
+                        alt={page.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = IMAGES.hero;
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent" />
+
+                      {/* Official اتریش‌نشین badge watermark */}
+                      <div className="absolute top-1.5 right-1.5 z-10 px-1.5 py-0.5 rounded-md bg-white/90 backdrop-blur-md text-stone-800 text-[8.5px] font-black border border-stone-200 flex items-center gap-1 shadow-xs pointer-events-none select-none">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span>اتریش‌نشین 🇦🇹</span>
                       </div>
-                      {page.badge && (
-                        <span
-                          className={`text-[9px] font-black px-1.5 py-0.5 rounded-md ${
-                            page.badge === "پربازدید"
-                              ? "bg-amber-100 text-amber-800 border border-amber-200"
-                              : page.badge === "هوشمند"
-                              ? "bg-purple-100 text-purple-800 border border-purple-200"
-                              : page.badge === "ضروری"
-                              ? "bg-red-100 text-red-700 border border-red-200"
-                              : "bg-emerald-100 text-emerald-800 border border-emerald-200"
-                          }`}
-                        >
-                          {page.badge}
+
+                      {/* Subtle diagonal watermark */}
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+                        <span className="text-white/30 text-[10px] sm:text-xs font-black tracking-widest uppercase rotate-[-12deg] drop-shadow-sm">
+                          OTRISH-IRAN
                         </span>
-                      )}
+                      </div>
+
+                      {/* Bottom banner: Floating Category Icon & Badge */}
+                      <div className="absolute bottom-1.5 right-1.5 left-1.5 flex items-center justify-between z-10">
+                        <div className="w-7 h-7 rounded-lg bg-white group-hover:bg-red-600 text-stone-700 group-hover:text-white flex items-center justify-center shadow-md transition-colors border border-stone-200">
+                          <PageIcon className="w-4 h-4" />
+                        </div>
+                        {page.badge && (
+                          <span
+                            className={`text-[8.5px] font-black px-1.5 py-0.5 rounded-md shadow-sm backdrop-blur-sm ${
+                              page.badge === "پربازدید"
+                                ? "bg-amber-400 text-stone-950 font-black"
+                                : page.badge === "هوشمند"
+                                ? "bg-cyan-600 text-white"
+                                : page.badge === "ضروری"
+                                ? "bg-red-600 text-white"
+                                : "bg-emerald-600 text-white"
+                            }`}
+                          >
+                            {page.badge}
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     {/* Content */}
                     <div className="space-y-1">
-                      <h4 className="text-xs font-black text-stone-900 group-hover:text-[#c8102e] transition-colors line-clamp-2 leading-snug">
+                      <h4 className="text-xs font-black text-stone-900 group-hover:text-red-700 transition-colors line-clamp-2 leading-snug">
                         {page.shortTitle || page.title}
                       </h4>
-                      <p className="text-[10px] text-stone-500 line-clamp-2 leading-relaxed font-bold">
+                      <p className="text-[10px] text-stone-600 line-clamp-2 leading-relaxed font-normal">
                         {page.description}
                       </p>
                     </div>
 
                     {/* Footer Action */}
-                    <div className="pt-2 border-t border-stone-200/60 group-hover:border-[#c8102e]/20 flex items-center justify-between text-[10px] font-black text-stone-400 group-hover:text-[#c8102e] transition-colors">
-                      <span className="font-mono text-[9px] text-stone-400 group-hover:text-[#c8102e] dir-ltr text-left px-1.5 py-0.5 rounded bg-stone-100 group-hover:bg-rose-100/60">
-                        {getPageCleanPath(page.id)}
+                    <div className="pt-2 border-t border-stone-100 group-hover:border-stone-200 flex items-center justify-between text-[10px] font-black text-stone-600 group-hover:text-red-700 transition-colors">
+                      <span className="text-[9.5px] font-black text-[#c8102e] text-right px-2 py-0.5 rounded bg-rose-50/80 border border-red-200/60 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#c8102e]" />
+                        <span>صفحه {page.shortTitle || page.title}</span>
                       </span>
-                      <span className="flex items-center gap-0.5">
-                        <span>ورود به صفحه</span>
+                      <span className="flex items-center gap-0.5 font-bold text-stone-700 group-hover:text-red-700">
+                        <span>ورود به بخش</span>
                         <ChevronLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
                       </span>
                     </div>
@@ -955,42 +858,60 @@ export default function SuperAppLauncher({
                         onSelectPage(page.id);
                       }
                     }}
-                    className="group bg-stone-50/70 hover:bg-white border border-stone-200 hover:border-[#c8102e]/40 rounded-2xl p-3 flex items-center justify-between gap-3 cursor-pointer transition-all hover:shadow-md text-right block no-underline"
+                    className="group bg-white hover:bg-stone-50/80 border border-stone-200 hover:border-stone-300 rounded-2xl p-3 flex items-center justify-between gap-3 cursor-pointer transition-all hover:shadow-md text-right block no-underline"
                   >
                     <div className="flex items-center gap-3 min-w-0 flex-1">
-                      <div className="w-11 h-11 rounded-xl bg-white group-hover:bg-gradient-to-br group-hover:from-[#c8102e] group-hover:to-[#970d22] border border-stone-200 group-hover:border-transparent text-stone-700 group-hover:text-white flex items-center justify-center shrink-0 transition-all shadow-sm">
+                      {/* List Thumbnail Image with Watermark */}
+                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-stone-100 border border-stone-200 shrink-0">
+                        <img
+                          src={getServicePageCardImage(page)}
+                          alt={page.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = IMAGES.hero;
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent" />
+                        <div className="absolute bottom-1 right-1 px-1 py-0.5 rounded bg-white/90 backdrop-blur-md text-stone-800 text-[7.5px] font-black border border-stone-200 pointer-events-none select-none flex items-center gap-0.5">
+                          <span className="w-1 h-1 rounded-full bg-emerald-500" />
+                          <span>اتریش‌نشین 🇦🇹</span>
+                        </div>
+                      </div>
+
+                      <div className="w-10 h-10 rounded-xl bg-stone-100 group-hover:bg-red-600 border border-stone-200 text-stone-700 group-hover:text-white flex items-center justify-center shrink-0 transition-all shadow-2xs">
                         <PageIcon className="w-5 h-5" />
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className="text-sm font-black text-stone-900 group-hover:text-[#c8102e] transition-colors truncate">
+                          <h4 className="text-sm font-black text-stone-900 group-hover:text-red-700 transition-colors truncate">
                             {page.title}
                           </h4>
-                          <span className="font-mono text-[9px] text-stone-400 group-hover:text-[#c8102e] dir-ltr px-1.5 py-0.5 rounded bg-stone-100 group-hover:bg-rose-100/60 shrink-0">
-                            {getPageCleanPath(page.id)}
+                          <span className="text-[10px] font-black text-[#c8102e] px-2 py-0.5 rounded bg-rose-50 border border-red-200/60 shrink-0">
+                            {page.shortTitle || page.title}
                           </span>
                           {page.badge && (
                             <span
                               className={`text-[9px] font-black px-1.5 py-0.5 rounded-md shrink-0 ${
                                 page.badge === "پربازدید"
-                                  ? "bg-amber-100 text-amber-800"
+                                  ? "bg-amber-400 text-stone-950 font-black"
                                   : page.badge === "هوشمند"
-                                  ? "bg-purple-100 text-purple-800"
+                                  ? "bg-cyan-600 text-white"
                                   : page.badge === "ضروری"
-                                  ? "bg-red-100 text-red-700"
-                                  : "bg-emerald-100 text-emerald-800"
+                                  ? "bg-red-600 text-white"
+                                  : "bg-emerald-600 text-white"
                               }`}
                             >
                               {page.badge}
                             </span>
                           )}
                         </div>
-                        <p className="text-[11px] text-stone-500 line-clamp-1 mt-0.5 font-bold">
+                        <p className="text-[11px] text-stone-600 line-clamp-1 mt-0.5 font-normal">
                           {page.description}
                         </p>
                       </div>
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-stone-100 group-hover:bg-[#c8102e] group-hover:text-white flex items-center justify-center text-stone-400 transition-all shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-stone-100 group-hover:bg-red-600 group-hover:text-white flex items-center justify-center text-stone-600 transition-all shrink-0">
                       <ChevronLeft className="w-4 h-4" />
                     </div>
                   </motion.a>
@@ -1005,7 +926,7 @@ export default function SuperAppLauncher({
           <div className="pt-2 flex justify-center">
             <button
               onClick={() => setActiveCategory(SUPER_APP_CATEGORIES[1]?.id || "all")}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-2xl text-xs font-black transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-2xl text-xs font-black transition-all border border-stone-200 cursor-pointer"
             >
               <span>مشاهده همه {SUPER_APP_PAGES.length} سرویس</span>
               <ArrowLeft className="w-4 h-4" />

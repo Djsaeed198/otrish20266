@@ -1393,19 +1393,19 @@ const MigrationStories: React.FC = () => {
 
                     <div className="relative grid grid-cols-2 gap-3 mb-4">
                       <div>
-                        <div className="text-[8px] font-black opacity-70 mb-0.5">FAMILIE</div>
+                        <div className="text-[9px] font-black text-rose-200 mb-0.5">خانواده</div>
                         <div className="text-xs font-black">{selectedStory.familyName}</div>
                       </div>
                       <div>
-                        <div className="text-[8px] font-black opacity-70 mb-0.5">STADT</div>
+                        <div className="text-[9px] font-black text-rose-200 mb-0.5">شهر اقامت</div>
                         <div className="text-xs font-black">{selectedStory.city}</div>
                       </div>
                       <div>
-                        <div className="text-[8px] font-black opacity-70 mb-0.5">JAHR</div>
+                        <div className="text-[9px] font-black text-rose-200 mb-0.5">سال ورود</div>
                         <div className="text-xs font-black">{selectedStory.year}</div>
                       </div>
                       <div>
-                        <div className="text-[8px] font-black opacity-70 mb-0.5">MITGLIEDER</div>
+                        <div className="text-[9px] font-black text-rose-200 mb-0.5">اعضای خانواده</div>
                         <div className="text-xs font-black">{selectedStory.members} نفر</div>
                       </div>
                     </div>

@@ -5,7 +5,8 @@ import {
   Share2, ChevronDown, CheckCircle, ExternalLink, RefreshCw,
   X, Eye, Landmark, HeartPulse, TrendingUp, Home,
   GraduationCap, Flame, MapPin, Sparkles, Filter, SlidersHorizontal,
-  RotateCcw, ArrowUpDown, Calendar, HelpCircle
+  RotateCcw, ArrowUpDown, Calendar, HelpCircle,
+  ChevronLeft, ChevronRight, Play, Pause
 } from "lucide-react";
 import { toast } from "../utils/toast";
 import { NewsItem, COMPREHENSIVE_NEWS_ARCHIVE, getNewsCardImage } from "./NewsModal";
@@ -33,6 +34,14 @@ export interface SmartCategory {
   bgLight: string;
   borderLight: string;
   activeBg: string;
+  // 🎨 Colorful per-topic theme styling
+  cardBg: string;
+  cardBorder: string;
+  glowShadow: string;
+  badgeBg: string;
+  accentBar: string;
+  actionBtn: string;
+  accentText: string;
   matcher: (item: NewsItem) => boolean;
 }
 
@@ -45,6 +54,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-stone-100",
     borderLight: "border-stone-200",
     activeBg: "bg-stone-900 text-white",
+    cardBg: "bg-gradient-to-b from-stone-50 via-white to-stone-100/70",
+    cardBorder: "border-stone-200/90 hover:border-stone-400",
+    glowShadow: "hover:shadow-stone-400/20",
+    badgeBg: "bg-stone-900 text-white border-stone-700",
+    accentBar: "from-stone-600 via-stone-400 to-stone-600",
+    actionBtn: "bg-stone-900 hover:bg-black text-white",
+    accentText: "text-stone-800",
     matcher: () => true,
   },
   {
@@ -55,6 +71,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-indigo-50",
     borderLight: "border-indigo-200",
     activeBg: "bg-indigo-600 text-white",
+    cardBg: "bg-gradient-to-b from-indigo-50/95 via-white to-blue-50/60",
+    cardBorder: "border-indigo-200 hover:border-indigo-500",
+    glowShadow: "hover:shadow-indigo-500/25",
+    badgeBg: "bg-gradient-to-r from-indigo-600 to-blue-700 text-white border-indigo-400/30",
+    accentBar: "from-indigo-600 via-blue-500 to-indigo-700",
+    actionBtn: "bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-600/30",
+    accentText: "text-indigo-700",
     matcher: (item: NewsItem) => {
       const corpus = `${item.category} ${item.title} ${item.summary} ${(item.tags || []).join(" ")} ${item.source} ${item.residentAdvice || ""}`.toLowerCase();
       return /مهاجرت|اقامت|قوانین|rwr|قرمز|ma35|ویزا|پاسپورت|پناهند|شهروندی|تابعیت|bmaw|اداره اقامت|اتباع|مقیمان|الحاق خانواده/i.test(corpus);
@@ -68,6 +91,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-cyan-50",
     borderLight: "border-cyan-200",
     activeBg: "bg-cyan-600 text-white",
+    cardBg: "bg-gradient-to-b from-cyan-50/95 via-white to-sky-50/60",
+    cardBorder: "border-cyan-200 hover:border-cyan-500",
+    glowShadow: "hover:shadow-cyan-500/25",
+    badgeBg: "bg-gradient-to-r from-cyan-600 to-sky-700 text-white border-cyan-400/30",
+    accentBar: "from-cyan-500 via-sky-400 to-blue-600",
+    actionBtn: "bg-cyan-600 hover:bg-cyan-700 text-white shadow-cyan-600/30",
+    accentText: "text-cyan-700",
     matcher: (item: NewsItem) => {
       const corpus = `${item.category} ${item.title} ${item.summary} ${(item.tags || []).join(" ")} ${item.source} ${item.residentAdvice || ""}`.toLowerCase();
       return /رویداد|رویدادهای شهری|شهری|خدمات شهری|شهرداری|وین|klimaticket|حمل‌و‌نقل|حمل و نقل|مترو|wiener linien|اتوبوس|فستیوال|جشنواره|فرهنگی|ترافیک|donauinsel|festwochen/i.test(corpus);
@@ -81,6 +111,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-emerald-50",
     borderLight: "border-emerald-200",
     activeBg: "bg-emerald-600 text-white",
+    cardBg: "bg-gradient-to-b from-emerald-50/95 via-white to-teal-50/60",
+    cardBorder: "border-emerald-200 hover:border-emerald-500",
+    glowShadow: "hover:shadow-emerald-500/25",
+    badgeBg: "bg-gradient-to-r from-emerald-600 to-teal-700 text-white border-emerald-400/30",
+    accentBar: "from-emerald-500 via-green-400 to-teal-600",
+    actionBtn: "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-600/30",
+    accentText: "text-emerald-700",
     matcher: (item: NewsItem) => {
       const corpus = `${item.category} ${item.title} ${item.summary} ${(item.tags || []).join(" ")} ${item.source} ${item.residentAdvice || ""}`.toLowerCase();
       return /مالیات|مالیاتی|اخبار مالیاتی|bmf|finanzamt|steuertarif|kalte progression|بروتو|حقوق|درآمد|تورم|یورو|مالی|سود|کسورات|کار و مالیات|ams|مشاغل کمبود|wko|معافیت/i.test(corpus);
@@ -94,6 +131,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-teal-50",
     borderLight: "border-teal-200",
     activeBg: "bg-teal-600 text-white",
+    cardBg: "bg-gradient-to-b from-teal-50/95 via-white to-emerald-50/60",
+    cardBorder: "border-teal-200 hover:border-teal-500",
+    glowShadow: "hover:shadow-teal-500/25",
+    badgeBg: "bg-gradient-to-r from-teal-600 to-emerald-700 text-white border-teal-400/30",
+    accentBar: "from-teal-500 via-emerald-400 to-teal-600",
+    actionBtn: "bg-teal-600 hover:bg-teal-700 text-white shadow-teal-600/30",
+    accentText: "text-teal-700",
     matcher: (item: NewsItem) => {
       const corpus = `${item.category} ${item.title} ${item.summary} ${(item.tags || []).join(" ")}`.toLowerCase();
       return /بیمه|سلامت|ögk|ogk|e-card|دندان|پزشک|درمان|دارو/i.test(corpus);
@@ -107,6 +151,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-amber-50",
     borderLight: "border-amber-200",
     activeBg: "bg-amber-600 text-white",
+    cardBg: "bg-gradient-to-b from-amber-50/95 via-white to-orange-50/60",
+    cardBorder: "border-amber-200 hover:border-amber-500",
+    glowShadow: "hover:shadow-amber-500/25",
+    badgeBg: "bg-gradient-to-r from-amber-600 to-orange-700 text-white border-amber-400/30",
+    accentBar: "from-amber-500 via-orange-400 to-amber-600",
+    actionBtn: "bg-amber-600 hover:bg-amber-700 text-white shadow-amber-600/30",
+    accentText: "text-amber-700",
     matcher: (item: NewsItem) => {
       const corpus = `${item.category} ${item.title} ${item.summary} ${(item.tags || []).join(" ")}`.toLowerCase();
       return /مسکن|اجاره|wohnbeihilfe|ودیعه|ملک|آپارتمان|شارژ|mietpreisbremse/i.test(corpus);
@@ -120,6 +171,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-blue-50",
     borderLight: "border-blue-200",
     activeBg: "bg-blue-600 text-white",
+    cardBg: "bg-gradient-to-b from-violet-50/95 via-white to-purple-50/60",
+    cardBorder: "border-violet-200 hover:border-violet-500",
+    glowShadow: "hover:shadow-violet-500/25",
+    badgeBg: "bg-gradient-to-r from-violet-600 to-purple-700 text-white border-violet-400/30",
+    accentBar: "from-violet-500 via-purple-400 to-indigo-600",
+    actionBtn: "bg-violet-600 hover:bg-violet-700 text-white shadow-violet-600/30",
+    accentText: "text-violet-700",
     matcher: (item: NewsItem) => {
       const corpus = `${item.category} ${item.title} ${item.summary} ${(item.tags || []).join(" ")}`.toLowerCase();
       return /تحصیل|دانشگاه|دانشجو|پذیرش|مدرک|آکادمیک|شهریه/i.test(corpus);
@@ -133,6 +191,13 @@ export const SMART_CATEGORIES: SmartCategory[] = [
     bgLight: "bg-rose-50",
     borderLight: "border-rose-200",
     activeBg: "bg-rose-600 text-white",
+    cardBg: "bg-gradient-to-b from-rose-50/95 via-white to-red-50/60",
+    cardBorder: "border-rose-200 hover:border-rose-500",
+    glowShadow: "hover:shadow-rose-500/25",
+    badgeBg: "bg-gradient-to-r from-rose-600 to-red-700 text-white border-rose-400/30",
+    accentBar: "from-rose-500 via-red-400 to-red-600",
+    actionBtn: "bg-rose-600 hover:bg-rose-700 text-white shadow-rose-600/30",
+    accentText: "text-rose-700",
     matcher: (item: NewsItem) => {
       const corpus = `${item.category} ${item.title} ${item.summary} ${(item.tags || []).join(" ")}`.toLowerCase();
       return /ایران|سفارت|کنسولی|تهران|گذرنامه|پرواز/i.test(corpus);
@@ -338,6 +403,99 @@ export default function NewsArchiveHub({
     }
   };
 
+  // ============================================================
+  // 🎠 AUTOMATIC SLIDER / CAROUSEL CONTROLS & STATE
+  // ============================================================
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isAutoPlay, setIsAutoPlay] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
+
+  const selectedArticle = useMemo(() => {
+    if (!selectedArticleId) return null;
+    return allNews.find((n) => n.id === selectedArticleId) || null;
+  }, [allNews, selectedArticleId]);
+
+  const scrollToSlide = (index: number) => {
+    if (!sliderRef.current || filteredNews.length === 0) return;
+    const targetIdx = Math.max(0, Math.min(index, filteredNews.length - 1));
+    const cards = sliderRef.current.children;
+    if (cards && cards[targetIdx]) {
+      (cards[targetIdx] as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+      setActiveSlideIndex(targetIdx);
+    }
+  };
+
+  const handleNextSlide = () => {
+    if (filteredNews.length <= 1) return;
+    const nextIdx = (activeSlideIndex + 1) % filteredNews.length;
+    scrollToSlide(nextIdx);
+  };
+
+  const handlePrevSlide = () => {
+    if (filteredNews.length <= 1) return;
+    const prevIdx = (activeSlideIndex - 1 + filteredNews.length) % filteredNews.length;
+    scrollToSlide(prevIdx);
+  };
+
+  // Reset slide index when category/search/filters change
+  useEffect(() => {
+    setActiveSlideIndex(0);
+    if (sliderRef.current && sliderRef.current.children[0]) {
+      (sliderRef.current.children[0] as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
+    }
+  }, [activeCategoryId, searchTitleQuery, filterMode, sortBy, yearFilter]);
+
+  // Automatic slide interval (every 4.2 seconds) with pause on hover
+  useEffect(() => {
+    if (!isAutoPlay || isHovered || filteredNews.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveSlideIndex((prev) => {
+        const next = (prev + 1) % filteredNews.length;
+        if (sliderRef.current && sliderRef.current.children[next]) {
+          (sliderRef.current.children[next] as HTMLElement).scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+        return next;
+      });
+    }, 4200);
+    return () => clearInterval(interval);
+  }, [isAutoPlay, isHovered, filteredNews.length]);
+
+  // Synchronize activeSlideIndex on manual scroll
+  const handleScroll = () => {
+    if (!sliderRef.current || filteredNews.length === 0) return;
+    const container = sliderRef.current;
+    const cards = Array.from(container.children) as HTMLElement[];
+    if (!cards.length) return;
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+
+    let closestIdx = 0;
+    let minDistance = Infinity;
+    cards.forEach((card, idx) => {
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(cardCenter - containerCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIdx = idx;
+      }
+    });
+    setActiveSlideIndex(closestIdx);
+  };
+
   const handleManualRefresh = async () => {
     setIsRefreshingLocal(true);
     if (onRefresh) {
@@ -372,9 +530,12 @@ export default function NewsArchiveHub({
               <span>{title}</span>
               <span className="text-xs font-serif italic text-[#c8102e]" dir="ltr">2026</span>
             </h2>
+            <span className="inline-flex items-center gap-1 text-[9.5px] font-black bg-emerald-50 text-emerald-800 border border-emerald-300 px-2.5 py-0.5 rounded-full shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+              <span>به‌روزرسانی تازه ({newsLastUpdated})</span>
+            </span>
             <span className="inline-flex items-center gap-1 text-[9.5px] font-black bg-amber-50 text-amber-800 border border-amber-300 px-2 py-0.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
-              <span>پایش ۱۰ رسانه فدرال</span>
+              <span>۱۰ منبع رسمی فدرال و شهری اتریش</span>
             </span>
           </div>
           <p className="text-[11px] sm:text-xs text-stone-500 font-bold leading-relaxed max-w-2xl">
@@ -725,191 +886,396 @@ export default function NewsArchiveHub({
               </button>
             </motion.div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {filteredNews.map((item, idx) => {
-                // Find category styling
-                const matchedSmartCat = SMART_CATEGORIES.find((c) => c.matcher(item)) || SMART_CATEGORIES[0];
-                const CatIcon = matchedSmartCat.icon;
-                const isSelected = selectedArticleId === item.id;
-                const isSaved = item.id ? savedNewsIds.includes(item.id) : false;
-                const cardImageUrl = getNewsCardImage(item);
-
-                return (
-                  <motion.article
-                    key={item.id || idx}
-                    layout
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.28,
-                      delay: Math.min(idx * 0.035, 0.25),
-                      ease: [0.16, 1, 0.3, 1]
-                    }}
-                    onClick={() => setSelectedArticleId(isSelected ? null : item.id || null)}
-                    className={`group bg-stone-50/60 hover:bg-white border rounded-2xl p-3.5 transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between shadow-2xs hover:shadow-md ${
-                      isSelected
-                        ? "border-[#c8102e]/60 ring-2 ring-[#c8102e]/10 bg-white"
-                        : "border-stone-200 hover:border-stone-300"
+            <div className="space-y-3">
+              {/* 🎛️ Slider Navigation & Autoplay Toolbar */}
+              <div className="flex items-center justify-between gap-3 px-1 py-1.5 bg-stone-50 border border-stone-200/90 rounded-2xl text-xs font-bold">
+                {/* Autoplay status toggle */}
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsAutoPlay(!isAutoPlay)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-black transition-all cursor-pointer border ${
+                      isAutoPlay
+                        ? "bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100 shadow-2xs"
+                        : "bg-stone-100 text-stone-700 border-stone-300 hover:bg-stone-200"
                     }`}
+                    title={isAutoPlay ? "توقف اسلاید خودکار" : "شروع اسلاید خودکار"}
                   >
-                    {/* 🖼️ Card Media Banner with Official "اتریش‌نشین" Watermark */}
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-3 bg-stone-900 border border-stone-200/80 group-hover:border-[#c8102e]/40 transition-all select-none">
-                      <img
-                        src={cardImageUrl}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src =
-                            "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80";
-                        }}
-                      />
-                      {/* Dark gradient for visual depth & legibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40 pointer-events-none" />
+                    {isAutoPlay ? (
+                      <>
+                        <Pause className="w-3 h-3 text-emerald-600" />
+                        <span>اسلایدر خودکار فعال</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      </>
+                    ) : (
+                      <>
+                        <Play className="w-3 h-3 text-stone-600" />
+                        <span>پخش خودکار اسلایدر</span>
+                      </>
+                    )}
+                  </button>
 
-                      {/* Top Badges: Category + Urgent */}
-                      <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 flex-wrap">
-                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[9.5px] font-black border backdrop-blur-md shadow-sm ${matchedSmartCat.bgLight} ${matchedSmartCat.color} ${matchedSmartCat.borderLight}`}>
-                          <CatIcon className="w-2.5 h-2.5" />
-                          <span>{item.category || matchedSmartCat.label}</span>
-                        </span>
+                  <span className="hidden sm:inline-block text-[10px] text-stone-400 font-bold">
+                    (توقف موقت با هاور ماوس)
+                  </span>
+                </div>
 
-                        {item.urgent && (
-                          <span className="inline-flex items-center gap-0.5 px-2 py-1 rounded-md text-[9px] font-black bg-red-600 text-white shadow-sm animate-pulse">
-                            <Zap className="w-2.5 h-2.5" />
-                            فوری
+                {/* Right controls: Next, Prev, Slide counter */}
+                <div className="flex items-center gap-2 mr-auto">
+                  <span className="text-[11px] font-mono font-bold text-stone-600 bg-white border border-stone-200 px-2.5 py-1 rounded-xl shadow-2xs" dir="ltr">
+                    {activeSlideIndex + 1} / {filteredNews.length}
+                  </span>
+
+                  <div className="inline-flex items-center gap-1 bg-white border border-stone-200 p-0.5 rounded-xl shadow-2xs">
+                    <button
+                      type="button"
+                      onClick={handleNextSlide}
+                      className="p-1.5 rounded-lg text-stone-700 hover:text-white hover:bg-[#c8102e] transition-all cursor-pointer active:scale-95"
+                      title="کارت بعدی"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handlePrevSlide}
+                      className="p-1.5 rounded-lg text-stone-700 hover:text-white hover:bg-[#c8102e] transition-all cursor-pointer active:scale-95"
+                      title="کارت قبلی"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* 🎠 Automatic Square-Card Carousel */}
+              <div
+                ref={sliderRef}
+                onScroll={handleScroll}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="flex gap-2 sm:gap-3 overflow-x-auto scrollbar-hide py-2 px-1 snap-x snap-mandatory scroll-smooth items-stretch"
+                dir="rtl"
+              >
+                {filteredNews.map((item, idx) => {
+                  const matchedSmartCat = SMART_CATEGORIES.find((c) => c.matcher(item)) || SMART_CATEGORIES[0];
+                  const CatIcon = matchedSmartCat.icon;
+                  const isSaved = item.id ? savedNewsIds.includes(item.id) : false;
+                  const cardImageUrl = getNewsCardImage(item);
+                  const isCurrentSlide = activeSlideIndex === idx;
+
+                  return (
+                    <motion.article
+                      key={item.id || idx}
+                      layout
+                      initial={{ opacity: 0, scale: 0.94 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.28,
+                        delay: Math.min(idx * 0.03, 0.2),
+                        ease: [0.16, 1, 0.3, 1]
+                      }}
+                      onClick={() => setSelectedArticleId(item.id || null)}
+                      className={`group relative w-[calc(25%-6px)] sm:w-[calc(25%-9px)] min-w-[110px] aspect-[2/3] shrink-0 rounded-2xl ${matchedSmartCat.cardBg} ${matchedSmartCat.cardBorder} ${matchedSmartCat.glowShadow} border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden snap-center select-none shadow-sm hover:shadow-xl ${
+                        isCurrentSlide
+                          ? "ring-2 ring-offset-1 ring-[#c8102e]/35 scale-[1.01]"
+                          : ""
+                      }`}
+                    >
+                      {/* 🎨 Top Vibrant Topic Accent Stripe */}
+                      <div className={`h-1 w-full bg-gradient-to-r ${matchedSmartCat.accentBar}`} />
+
+                      {/* 🖼️ Upper Section (~44% height): Watermarked Media Banner */}
+                      <div className="relative h-[44%] w-full overflow-hidden bg-stone-900 border-b border-stone-200/80 group-hover:border-[#c8102e]/40 transition-all select-none shrink-0">
+                        <img
+                          src={cardImageUrl}
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                          loading="lazy"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src =
+                              "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80";
+                          }}
+                        />
+                        {/* Dark gradient for visual depth & legibility */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/40 pointer-events-none" />
+
+                        {/* Top Badges: Thematic Category + Urgent */}
+                        <div className="absolute top-1 right-1 z-10 flex items-center gap-0.5 flex-wrap">
+                          <span className={`inline-flex items-center gap-0.5 px-1 sm:px-1.5 py-0.5 rounded text-[7px] sm:text-[8px] font-black border backdrop-blur-md shadow-xs ${matchedSmartCat.badgeBg}`}>
+                            <CatIcon className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
+                            <span className="truncate max-w-[50px] sm:max-w-none">{item.category || matchedSmartCat.label}</span>
                           </span>
-                        )}
-                      </div>
 
-                      {/* Top-Left: Bookmark & Share Actions */}
-                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1">
-                        {item.id && (
+                          {item.urgent && (
+                            <span className="inline-flex items-center gap-0.5 px-1 py-0.5 rounded text-[6.5px] sm:text-[7.5px] font-black bg-red-600 text-white shadow-xs animate-pulse">
+                              <Zap className="w-1.5 h-1.5" />
+                              فوری
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Top-Left: Bookmark & Share Actions */}
+                        <div className="absolute top-1 left-1 z-10 flex items-center gap-0.5">
+                          {item.id && (
+                            <button
+                              type="button"
+                              onClick={(e) => toggleBookmark(item.id!, e)}
+                              className={`p-1 rounded border text-[8px] backdrop-blur-md transition-all cursor-pointer shadow-xs ${
+                                isSaved
+                                  ? "bg-amber-400 text-stone-950 border-amber-300 font-black"
+                                  : "bg-black/60 border-white/25 text-white hover:bg-black/85"
+                              }`}
+                              title={isSaved ? "نشان‌شده" : "نشان کردن خبر"}
+                            >
+                              {isSaved ? (
+                                <BookmarkCheck className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
+                              ) : (
+                                <Bookmark className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
+                              )}
+                            </button>
+                          )}
+
                           <button
                             type="button"
-                            onClick={(e) => toggleBookmark(item.id!, e)}
-                            className={`p-1.5 rounded-lg border text-[11px] backdrop-blur-md transition-all cursor-pointer shadow-sm ${
-                              isSaved
-                                ? "bg-amber-400 text-stone-950 border-amber-300 font-black"
-                                : "bg-black/55 border-white/20 text-white hover:bg-black/80"
-                            }`}
-                            title={isSaved ? "نشان‌شده" : "نشان کردن خبر"}
+                            onClick={(e) => handleShare(item, e)}
+                            className="p-1 rounded border border-white/25 bg-black/60 hover:bg-black/85 text-white backdrop-blur-md transition-all cursor-pointer shadow-xs"
+                            title="اشتراک و کپی خلاصه خبر"
                           >
-                            {isSaved ? (
-                              <BookmarkCheck className="w-3.5 h-3.5" />
-                            ) : (
-                              <Bookmark className="w-3.5 h-3.5" />
-                            )}
+                            <Share2 className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
                           </button>
-                        )}
+                        </div>
 
-                        <button
-                          type="button"
-                          onClick={(e) => handleShare(item, e)}
-                          className="p-1.5 rounded-lg border border-white/20 bg-black/55 hover:bg-black/80 text-white backdrop-blur-md transition-all cursor-pointer shadow-sm"
-                          title="اشتراک و کپی خلاصه خبر"
-                        >
-                          <Share2 className="w-3.5 h-3.5" />
-                        </button>
+                        {/* 🔒 Center Subtle Security Watermark across the image */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+                          <span className="text-white/30 text-[7px] sm:text-[8px] font-black tracking-wider rotate-[-12deg] drop-shadow-[0_1px_2px_rgba(0,0,0,0.95)] uppercase border border-white/25 px-1 py-0.2 rounded backdrop-blur-[1px]">
+                            اتریش‌نشین
+                          </span>
+                        </div>
+
+                        {/* 🇦🇹 Bottom-Right Official Watermark Badge */}
+                        <div className="absolute bottom-1 right-1 z-10 flex items-center gap-0.5 px-1 sm:px-1.5 py-0.5 rounded bg-stone-950/90 backdrop-blur-md border border-white/25 text-white shadow-xs">
+                          <span className="flex h-1 w-1 relative">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-1 w-1 bg-[#c8102e]"></span>
+                          </span>
+                          <span className="text-[6.5px] sm:text-[7.5px] font-black tracking-tight text-white select-none">
+                            اتریش‌نشین 🇦🇹
+                          </span>
+                        </div>
+
+                        {/* Bottom-Left Date Badge */}
+                        <div className="absolute bottom-1 left-1 z-10">
+                          <span className="inline-flex items-center gap-0.5 px-1 py-0.5 rounded bg-black/70 text-stone-200 text-[6.5px] sm:text-[7.5px] font-mono backdrop-blur-md border border-white/10" dir="ltr">
+                            <Clock className="w-1.5 h-1.5 text-amber-300" />
+                            <span>{item.date}</span>
+                          </span>
+                        </div>
                       </div>
 
-                      {/* 🔒 Center Subtle Security Watermark across the image */}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-                        <span className="text-white/25 text-base sm:text-lg font-black tracking-widest rotate-[-12deg] drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] uppercase border border-white/20 px-3 py-1 rounded-xl backdrop-blur-[1px]">
-                          اتریش‌نشین • OTRISH NESHIN
-                        </span>
+                      {/* 📝 Lower Section (~56% height): Title, Summary & Themed Action */}
+                      <div className="h-[56%] p-2 sm:p-2.5 flex flex-col justify-between text-right shrink-0">
+                        <div>
+                          {/* Title with live search keyword highlight */}
+                          <h3 className="text-[10px] sm:text-[11px] md:text-xs font-black text-stone-900 group-hover:text-[#c8102e] transition-colors leading-tight line-clamp-2 mb-1">
+                            <HighlightMatch text={item.title} query={searchTitleQuery} />
+                          </h3>
+
+                          {/* Summary */}
+                          <p className="line-clamp-2 sm:line-clamp-3 text-[8px] sm:text-[9px] text-stone-600 font-bold leading-snug">
+                            {item.summary}
+                          </p>
+                        </div>
+
+                        {/* Bottom Metadata & Thematic Action Guidance Prompt */}
+                        <div className="pt-1 border-t border-stone-200/70 flex items-center justify-between text-[7.5px] sm:text-[8.5px] font-bold">
+                          <span className="truncate max-w-[50px] sm:max-w-[70px] text-stone-600">
+                            <strong className={`font-black ${matchedSmartCat.accentText}`}>{item.source}</strong>
+                          </span>
+
+                          <span className={`text-[7.5px] sm:text-[8.5px] font-black flex items-center gap-0.5 px-1.5 py-0.5 rounded transition-all shadow-2xs cursor-pointer ${matchedSmartCat.actionBtn}`}>
+                            <span>راهنما</span>
+                            <ChevronDown className="w-2 h-2 sm:w-2.5 sm:h-2.5 -rotate-90" />
+                          </span>
+                        </div>
                       </div>
+                    </motion.article>
+                  );
+                })}
+              </div>
 
-                      {/* 🇦🇹 Bottom-Right Official Watermark Badge */}
-                      <div className="absolute bottom-2.5 right-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-stone-950/90 backdrop-blur-md border border-white/25 text-white shadow-lg">
-                        <span className="flex h-2 w-2 relative">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8102e]"></span>
-                        </span>
-                        <span className="text-[10px] font-black tracking-tight text-white select-none">
-                          واترمارک رسمی اتریش‌نشین 🇦🇹
-                        </span>
-                      </div>
-
-                      {/* Bottom-Left Date Badge */}
-                      <div className="absolute bottom-2.5 left-2.5 z-10">
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/65 text-stone-200 text-[9px] font-mono backdrop-blur-md border border-white/10" dir="ltr">
-                          <Clock className="w-2.5 h-2.5 text-amber-300" />
-                          <span>{item.date}</span>
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content Section: Title & Summary */}
-                    <div>
-                      {/* Title with live search keyword highlight */}
-                      <h3 className="text-xs sm:text-[13px] font-black text-stone-900 group-hover:text-[#c8102e] transition-colors leading-snug mb-1.5">
-                        <HighlightMatch text={item.title} query={searchTitleQuery} />
-                      </h3>
-
-                      {/* Summary */}
-                      <p className="text-[11px] text-stone-600 font-bold leading-relaxed line-clamp-2">
-                        {item.summary}
-                      </p>
-                    </div>
-
-                    {/* Bottom Metadata & Expand */}
-                    <div className="mt-3 pt-2 border-t border-stone-150/80 flex items-center justify-between text-[9.5px] font-bold text-stone-400">
-                      <span className="truncate">
-                        مرجع: <span className="font-extrabold text-stone-700">{item.source}</span>
-                      </span>
-
-                      <span className="text-[#c8102e] font-black flex items-center gap-0.5 shrink-0">
-                        {isSelected ? "بستن راهنما" : "راهنمای اقدام"}
-                        <ChevronDown className={`w-3 h-3 transition-transform ${isSelected ? "rotate-180" : ""}`} />
-                      </span>
-                    </div>
-
-                    {/* Expandable Action Guidance with Smooth Motion */}
-                    <AnimatePresence>
-                      {isSelected && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.24, ease: "easeOut" }}
-                          className="mt-3 pt-2.5 border-t border-dashed border-stone-200 space-y-2 text-right overflow-hidden"
-                        >
-                          <div className="bg-amber-50/90 border border-amber-200 p-2.5 rounded-xl text-[10.5px] text-amber-950 font-bold leading-relaxed">
-                            <span className="font-black text-amber-800 flex items-center gap-1 mb-1">
-                              <Zap className="w-3 h-3 text-amber-600" />
-                              راهکار اختصاصی برای مقیمان اتریش:
-                            </span>
-                            {item.residentAdvice || "این قانون برای سال جدید معتبر است. مدارک خود را با مراجع رسمی تطبیق دهید."}
-                          </div>
-
-                          <div className="flex items-center justify-between pt-1">
-                            <span className="text-[9px] text-emerald-700 font-black flex items-center gap-1">
-                              <CheckCircle className="w-3 h-3" />
-                              تایید مراجع رسمی فدرال
-                            </span>
-
-                            {item.link && (
-                              <a
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                                className="inline-flex items-center gap-1 text-[9.5px] font-black text-stone-800 hover:text-[#c8102e] bg-stone-100 hover:bg-stone-200 px-2 py-1 rounded-lg transition-colors"
-                              >
-                                <span>تارنمای مرجع</span>
-                                <ExternalLink className="w-2.5 h-2.5" />
-                              </a>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.article>
-                );
-              })}
+              {/* 🔘 Slide Pagination Dots (Quick click to jump) */}
+              {filteredNews.length > 1 && (
+                <div className="flex items-center justify-center gap-1.5 pt-1 overflow-x-auto scrollbar-hide py-1">
+                  {filteredNews.slice(0, 16).map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      type="button"
+                      onClick={() => scrollToSlide(dotIdx)}
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                        activeSlideIndex === dotIdx
+                          ? "w-6 bg-[#c8102e] shadow-xs"
+                          : "w-2 bg-stone-300 hover:bg-stone-400"
+                      }`}
+                      title={`اسلاید شماره ${dotIdx + 1}`}
+                    />
+                  ))}
+                  {filteredNews.length > 16 && (
+                    <span className="text-[9px] font-mono text-stone-400 font-bold px-1">
+                      +{filteredNews.length - 16}
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           )}
+
+          {/* 🔍 Article Focus & Full Guidance Modal (Triggered on Card Click) */}
+          <AnimatePresence>
+            {selectedArticle && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 bg-black/65 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 select-text"
+                onClick={() => setSelectedArticleId(null)}
+              >
+                <motion.div
+                  initial={{ scale: 0.94, opacity: 0, y: 15 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.94, opacity: 0, y: 15 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="bg-white rounded-3xl max-w-xl w-full max-h-[88vh] overflow-y-auto border border-stone-200 shadow-2xl relative text-right p-5 sm:p-6 space-y-4"
+                  dir="rtl"
+                >
+                  {/* Close button */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedArticleId(null)}
+                    className="absolute top-4 left-4 p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-900 transition-all cursor-pointer shadow-xs"
+                    title="بستن"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+
+                  {/* Header Image with Watermark in Modal */}
+                  <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden bg-stone-900 border border-stone-200 select-none">
+                    <img
+                      src={getNewsCardImage(selectedArticle)}
+                      alt={selectedArticle.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40" />
+
+                    {/* Category badge */}
+                    <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                      <span className="px-2.5 py-1 rounded-md text-[10px] font-black bg-stone-900/80 text-white border border-white/20 backdrop-blur-md">
+                        {selectedArticle.category}
+                      </span>
+                      {selectedArticle.urgent && (
+                        <span className="px-2 py-1 rounded-md text-[9.5px] font-black bg-red-600 text-white shadow-sm animate-pulse">
+                          فوری
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Official watermark */}
+                    <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1 rounded-lg bg-stone-950/90 backdrop-blur-md border border-white/25 text-white shadow-lg">
+                      <span className="flex h-2 w-2 relative">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8102e]"></span>
+                      </span>
+                      <span className="text-[10px] font-black text-white">
+                        واترمارک رسمی اتریش‌نشین 🇦🇹
+                      </span>
+                    </div>
+
+                    {/* Date */}
+                    <div className="absolute bottom-3 left-3">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-black/70 text-stone-200 text-[10px] font-mono border border-white/10" dir="ltr">
+                        <Clock className="w-3 h-3 text-amber-300" />
+                        <span>{selectedArticle.date}</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Headline & Meta */}
+                  <div className="space-y-2">
+                    <h2 className="text-base sm:text-lg font-black text-stone-900 leading-snug">
+                      {selectedArticle.title}
+                    </h2>
+                    <div className="flex items-center gap-3 text-xs text-stone-500 font-bold">
+                      <span>مرجع خبر: <strong className="text-stone-800">{selectedArticle.source}</strong></span>
+                      {selectedArticle.viewsCount && (
+                        <span>بازدید: <strong className="font-mono text-stone-700">{selectedArticle.viewsCount.toLocaleString("fa-IR")}</strong></span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Summary */}
+                  <div className="bg-stone-50 border border-stone-200 p-3.5 rounded-2xl text-xs text-stone-700 font-bold leading-relaxed">
+                    {selectedArticle.summary}
+                  </div>
+
+                  {/* 🇦🇹 Resident Practical Advice Box */}
+                  <div className="bg-amber-50/90 border border-amber-300 p-4 rounded-2xl space-y-2">
+                    <div className="flex items-center gap-1.5 text-xs font-black text-amber-900">
+                      <Zap className="w-4 h-4 text-amber-600" />
+                      <span>راهکار اختصاصی برای فارسی‌زبانان و مقیمان اتریش:</span>
+                    </div>
+                    <p className="text-xs text-amber-950 font-bold leading-relaxed">
+                      {selectedArticle.residentAdvice || "این مصوبه قانونی برای سال جدید لازم‌الاجرا است. توصیه می‌شود قبل از اقدام، مدارک خود را با مراجع رسمی تطبیق دهید."}
+                    </p>
+                  </div>
+
+                  {/* Tags */}
+                  {selectedArticle.tags && selectedArticle.tags.length > 0 && (
+                    <div className="flex items-center gap-1.5 flex-wrap pt-1">
+                      {selectedArticle.tags.map((tag, tIdx) => (
+                        <span key={tIdx} className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 text-[10px] font-bold border border-stone-200">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Action buttons */}
+                  <div className="pt-3 border-t border-stone-200 flex items-center justify-between gap-2 flex-wrap">
+                    <button
+                      type="button"
+                      onClick={(e) => handleShare(selectedArticle, e)}
+                      className="px-3.5 py-2 rounded-xl border border-stone-300 text-stone-700 hover:bg-stone-100 text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5"
+                    >
+                      <Share2 className="w-3.5 h-3.5" />
+                      <span>اشتراک و کپی خلاصه</span>
+                    </button>
+
+                    <div className="flex items-center gap-2">
+                      {selectedArticle.link && (
+                        <a
+                          href={selectedArticle.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3.5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-xs"
+                        >
+                          <span>تارنمای رسمی منبع</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => setSelectedArticleId(null)}
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#c8102e] to-[#970d22] text-white text-xs font-black shadow-xs hover:shadow-md transition-all cursor-pointer"
+                      >
+                        بستن
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </AnimatePresence>
 

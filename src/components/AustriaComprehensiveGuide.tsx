@@ -722,7 +722,7 @@ export default function AustriaComprehensiveGuide() {
               <div className="relative space-y-5">
                 <div className="flex items-center gap-3 justify-end border-b border-stone-800 pb-4">
                   <div className="text-right">
-                    <h3 className="text-[11px] font-black text-red-400 tracking-wider">NOSTRIFIZIERUNG PROZESS</h3>
+                    <h3 className="text-[11px] font-black text-rose-300 tracking-wider">مراحل معادل‌سازی مدارک تحصیلی (Nostrifizierung)</h3>
                     <h2 className="font-black text-white text-base md:text-lg mt-1">
                       ارزشیابی مدارک تحصیلی ایرانیان در اتریش
                     </h2>

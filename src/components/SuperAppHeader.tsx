@@ -349,15 +349,19 @@ export default function SuperAppHeader({
           </div>
 
           {/* Assessment Button */}
-          <button
-            onClick={() => onSelectSegment("immigration-assessment")}
+          <a
+            href="https://tally.so/r/eqyy5E"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative overflow-hidden p-2 sm:p-2.5 px-3 sm:px-3.5 bg-gradient-to-br from-[#c8102e] to-[#970d22] hover:scale-105 text-white rounded-xl sm:rounded-2xl text-xs font-black transition-all shadow-md shadow-red-500/30 flex items-center gap-1.5 shrink-0"
+            title="فرم ارزیابی هوشمند اقامت اتریش (Apply)"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/30 to-amber-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             <Zap className="w-3.5 h-3.5 relative z-10 shrink-0" />
             <span className="relative z-10">ارزیابی</span>
             <span className="relative z-10 hidden sm:inline">رایگان</span>
-          </button>
+            <ExternalLink className="w-3 h-3 relative z-10 opacity-70 group-hover:opacity-100" />
+          </a>
         </div>
       </motion.div>
 

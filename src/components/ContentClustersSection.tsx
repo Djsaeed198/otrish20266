@@ -128,8 +128,8 @@ export default function ContentClustersSection({
             </div>
 
             <div className="pt-4 border-t border-white/15 space-y-3">
-              <div className="text-[11px] text-stone-400 font-bold">
-                آدرس صفحه ستون اصلی در ساختار سئو:
+              <div className="text-[11px] text-stone-200 font-bold">
+                صفحه ستون اصلی این بخش:
               </div>
               <a
                 href={activePillar.pillarPath}
@@ -140,11 +140,11 @@ export default function ContentClustersSection({
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className="w-full inline-flex items-center justify-between p-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-black transition-all border border-white/20 group no-underline"
+                className="w-full inline-flex items-center justify-between p-3 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-black transition-all border border-white/30 group no-underline shadow-sm"
               >
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-amber-300 text-xs dir-ltr">{activePillar.pillarPath}</span>
-                  <span className="text-stone-300 text-[11px]">| ورود مستقیم</span>
+                  <span className="text-amber-300 font-black text-xs">{activePillar.titleFa.replace("خوشه موضوعی: ", "")}</span>
+                  <span className="text-stone-200 text-[11px]">| ورود مستقیم به بخش</span>
                 </div>
                 <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-white" />
               </a>
@@ -176,23 +176,23 @@ export default function ContentClustersSection({
                   >
                     <div>
                       <div className="flex items-center justify-between gap-1 mb-1">
-                        <span className={`text-[9px] font-black px-1.5 py-0.5 rounded border ${intentMeta.badgeColor}`}>
+                        <span className={`text-[9.5px] font-black px-1.5 py-0.5 rounded border ${intentMeta.badgeColor}`}>
                           {intentMeta.labelFa.split(" ")[1]}
                         </span>
-                        <span className="font-mono text-[9px] text-stone-400 dir-ltr group-hover:text-[#c8102e]">
-                          {link.path}
+                        <span className="text-[9.5px] font-black text-rose-800 bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200">
+                          {link.title.split("(")[0].trim()}
                         </span>
                       </div>
                       <h4 className="text-xs font-black text-stone-900 group-hover:text-[#c8102e] transition-colors leading-snug line-clamp-1">
                         {link.title}
                       </h4>
-                      <p className="text-[10px] text-stone-500 font-medium leading-relaxed mt-1 line-clamp-2">
+                      <p className="text-[11px] text-stone-700 font-medium leading-relaxed mt-1 line-clamp-2">
                         {link.shortDesc}
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-stone-200/60 flex items-center justify-between text-[10px] font-black text-stone-400 group-hover:text-[#c8102e]">
-                      <span>مشاهده راهنما</span>
+                    <div className="pt-2 border-t border-stone-200/80 flex items-center justify-between text-[11px] font-black text-stone-700 group-hover:text-[#c8102e]">
+                      <span>مشاهده راهنمای کامل</span>
                       <ChevronLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
                     </div>
                   </a>

@@ -67,92 +67,9 @@ export default function WelcomeNotification() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // 1. Check if first-time visitor
-    const hasBeenWelcomed = localStorage.getItem("otrishneshin_welcomed_v6");
-    if (hasBeenWelcomed === "true") {
-      setIsLoading(false);
-      return;
-    }
-
-    // Delay appearance slightly for optimal aesthetic look
-    const timer = setTimeout(async () => {
-      setIsOpen(true);
-
-      // Guess country locally first
-      let guessedCountry: DetectedCountry = {
-        name: "ایران",
-        flag: "🇮🇷",
-        code: "IR",
-        info: "بر اساس منطقه زمانی سیستم فارسی‌زبان شما",
-      };
-
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-      if (
-        tz.includes("Vienna") ||
-        tz.includes("Europe/Vienna") ||
-        tz.includes("Europe/Berlin") ||
-        tz.includes("Europe/Zurich")
-      ) {
-        guessedCountry = {
-          name: "اتریش",
-          flag: "🇦🇹",
-          code: "AT",
-          info: "جغرافیای فعال در کشور اتریش",
-        };
-      }
-
-      // Try live geolocation discovery
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 1200);
-
-        const geoResponse = await fetch("https://ipapi.co/json/", {
-          signal: controller.signal,
-        });
-        clearTimeout(timeoutId);
-
-        if (geoResponse.ok) {
-          const geoData = await geoResponse.json();
-          if (geoData.country_name) {
-            let countryName = geoData.country_name;
-            let flag = "🌍";
-            let code = geoData.country;
-
-            if (code === "IR") {
-              countryName = "ایران";
-              flag = "🇮🇷";
-            } else if (code === "AT") {
-              countryName = "اتریش";
-              flag = "🇦🇹";
-            } else if (code === "DE") {
-              countryName = "آلمان";
-              flag = "🇩🇪";
-            }
-
-            guessedCountry = {
-              name: countryName,
-              flag: flag,
-              code: code,
-              city: geoData.city,
-              isp: geoData.org,
-              info: `محاسبه برخط از طریق پروتکل آدرس IP شما (${geoData.ip})`,
-            };
-          }
-        }
-      } catch (err) {
-        console.log("Welcome geolocation detection fallback:", err);
-      }
-
-      setCountry(guessedCountry);
-      setIsLoading(false);
-
-      trackEvent("welcome_popup_shown", "action", {
-        estimatedCountry: guessedCountry.name,
-        estimatedCode: guessedCountry.code,
-      });
-    }, 1200);
-
-    return () => clearTimeout(timer);
+    // Welcome popup disabled on page start per user request
+    setIsLoading(false);
+    setIsOpen(false);
   }, []);
 
   const handleClose = (confirmedCountry?: string) => {

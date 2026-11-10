@@ -418,7 +418,6 @@ export default function App() {
     <>
       <SEO title={seoState.title} description={seoState.description} keywords={seoState.keywords} schemaData={seoState.schema} />
       <style>{GLOBAL_CSS}</style>
-      <WelcomeNotification />
 
       <div className="app-shell" dir="rtl">
         {/* ========== TICKER ========== */}

@@ -847,7 +847,31 @@ export const SUPER_APP_PAGES: SuperAppPageItem[] = [
 ];
 
 export function getPageItem(id: string): SuperAppPageItem | undefined {
-  return SUPER_APP_PAGES.find(p => p.id === id);
+  const direct = SUPER_APP_PAGES.find(p => p.id === id);
+  if (direct) return direct;
+
+  const aliasMap: Record<string, string> = {
+    "rwr-card": "rwr-calculator",
+    "rwr": "rwr-calculator",
+    "brutto-netto-rechner": "finance",
+    "brutto-netto": "finance",
+    "finanzonline": "tax-return",
+    "steuernummer": "tax-reg",
+    "wohnen": "housesearch",
+    "appointment": "ma35",
+    "appointments": "ma35",
+    "id-austria": "id-austria-guide",
+    "staatsbuergerschaft": "citizenship",
+    "links": "ecosystem",
+    "seo": "international-seo",
+    "geo": "geo-optimization"
+  };
+
+  const targetId = aliasMap[id];
+  if (targetId) {
+    return SUPER_APP_PAGES.find(p => p.id === targetId);
+  }
+  return undefined;
 }
 
 export function getCategory(id: string): SuperAppCategory | undefined {

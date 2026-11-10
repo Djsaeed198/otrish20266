@@ -508,8 +508,8 @@ const DanubeFestivalGuide: React.FC = () => {
               </div>
               <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-[#c8102e] to-[#970d22] text-white rounded-2xl p-4 shadow-xl">
                 <Music className="w-6 h-6 mb-1" />
-                <div className="text-[10px] font-black opacity-80">Donauinselfest</div>
-                <div className="text-xs font-black">رایگان برای همه</div>
+                <div className="text-[10px] font-black text-amber-300">فستیوال بزرگ جزیره دانوب</div>
+                <div className="text-xs font-black">ورود رایگان برای عموم</div>
               </div>
             </div>
 

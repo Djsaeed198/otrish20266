@@ -367,7 +367,7 @@ export default function AppointmentsManager() {
             >
               <div className="flex items-center justify-between mb-1.5">
                 <span className={`${s.tint.split(' ').pop()}`}>{s.icon}</span>
-                <span className="text-[9px] font-black opacity-60">LIVE</span>
+                <span className="text-[9px] font-black text-rose-700 bg-rose-50 px-1 rounded border border-rose-200">زنده</span>
               </div>
               <div className="font-black text-lg leading-none text-stone-900">{s.value}</div>
               <div className="text-[10px] font-bold text-stone-500 mt-1">{s.label}</div>

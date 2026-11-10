@@ -35,6 +35,13 @@ export const trackEvent = async (
       }
     };
 
+    // Trigger Statcounter virtual pageview for SPA routing if available
+    if (category === "navigation" && typeof (window as any)._statcounter !== "undefined") {
+      try {
+        (window as any)._statcounter.record_pageview();
+      } catch (_) {}
+    }
+
     // Fire & Forget securely
     fetch("/api/analytics/track", {
       method: "POST",

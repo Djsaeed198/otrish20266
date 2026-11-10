@@ -593,8 +593,8 @@ const SupplementalInsuranceGuide: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             <div className="absolute bottom-5 right-5 text-white">
-              <div className="text-[10px] font-black opacity-80 mb-1">ZAHNZUSATZ</div>
-              <div className="text-base font-black">شکاف ۸۵٪ ایمپلنت</div>
+              <div className="text-[10px] font-black text-amber-300 mb-1">بیمه تکمیلی دندانپزشکی (Zahnzusatz)</div>
+              <div className="text-base font-black">پوشش تا ۸۵٪ هزینه ایمپلنت</div>
             </div>
           </div>
 

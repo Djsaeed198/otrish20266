@@ -200,13 +200,13 @@ export default function DynamicBreadcrumb({
 
         {/* Right side: Canonical URL Badge & Quick Actions */}
         <div className="flex items-center gap-2 text-xs shrink-0 self-end sm:self-auto">
-          {/* Canonical path badge */}
+          {/* Section badge */}
           <div 
-            className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-stone-100 border border-stone-200 text-stone-600 font-mono text-[10px] dir-ltr text-left"
-            title="آدرس استاندارد و یکتای این صفحه برای موتورهای جستجو"
+            className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-rose-50 border border-red-200 text-[#c8102e] font-black text-[11px]"
+            title="بخش فعال در سوپراپلیکیشن اتریش‌نشین"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            <span>{canonicalPath}</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>بخش رسمی: {pageItem?.shortTitle || pageItem?.title || seoData.breadcrumbName || "پورتال اتریش‌نشین"}</span>
           </div>
 
           {/* Copy link button */}

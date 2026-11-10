@@ -20,8 +20,8 @@ export default function SuperAppQuickHeroStrip({
   const items = [
     {
       img: IMAGES.viennaHero,
-      label: "RWR Card",
-      sub: "محاسبه امتیاز",
+      label: "کارت قرمز-سفید-قرمز",
+      sub: "محاسبه امتیاز اقامت کاری",
       segment: "rwr-calculator",
       icon: Award,
       gradient: "from-[#c8102e] to-[#970d22]",
@@ -36,8 +36,8 @@ export default function SuperAppQuickHeroStrip({
     },
     {
       img: IMAGES.parliament,
-      label: "MA35",
-      sub: "اقامت و مدارک",
+      label: "اداره اقامت MA35",
+      sub: "پایش نوبت و تمدید پرونده",
       segment: "ma35",
       icon: Landmark,
       gradient: "from-indigo-600 to-blue-700",

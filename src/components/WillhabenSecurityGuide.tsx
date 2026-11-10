@@ -695,8 +695,8 @@ const WillhabenSecurityGuide: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             <div className="absolute bottom-5 right-5 text-white">
-              <div className="text-[10px] font-black opacity-80 mb-1">PAYLIVERY</div>
-              <div className="text-base font-black">سیستم امن رسمی Willhaben</div>
+              <div className="text-[10px] font-black text-amber-300 mb-1">سامانه پرداخت امن (PayLivery)</div>
+              <div className="text-base font-black">سیستم امن رسمی خرید و فروش Willhaben</div>
             </div>
           </div>
 

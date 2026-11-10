@@ -8,7 +8,7 @@ import {
   Trash2, MapPin, ChevronRight, Info, Share2, Check, Zap,
   Compass, Lock, FileText, Settings, Sparkles, TrendingUp, ShieldCheck,
   Globe2, Award, Building2, HeartHandshake, Newspaper, Radio, Mountain,
-  Flag, Star, ArrowUpRight, BadgeCheck, Users2
+  Flag, Star, ArrowUpRight, BadgeCheck, Users2, Layers, Wrench
 } from "lucide-react";
 
 /* ============================================================
@@ -408,441 +408,261 @@ export default function AustriaMainDashboard({ onNavigate, setSelectedCity, onOp
         <meta itemProp="description" content="راهنمای ویزا، اقامت، مالیات، بیمه، مسکن و زندگی روزمره در اتریش" />
 
 
+
+
         {/* ============================================================
-            5) INTERACTIVE ECOSYSTEM HERO HUB
+            8) UNIFIED HUB: CATEGORIES & PRACTICAL TOOLS (مرکز خدمات و ابزارهای اتریش‌نشین)
            ============================================================ */}
-        <section
-          className="bg-gradient-to-br from-[#2D0B12] via-[#1A060A] to-[#120406] text-white p-6 md:p-10 rounded-[32px] relative overflow-hidden border border-[#3D141C] shadow-[0_20px_50px_rgba(45,11,18,0.35)] max-w-5xl mx-auto text-center space-y-6"
-          aria-labelledby="ecosystem-heading"
-        >
-          <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-red-650/10 blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
-
-          <div className="relative flex justify-center md:justify-end select-none">
-            <span className="inline-flex items-center gap-2 bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#E5C158] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-black tracking-tight shadow-[0_4px_12px_rgba(212,175,55,0.1)]">
-              <OtrishLogo size={16} />
-              سرویس‌دهی مستقل — OTRISH-IRAN.IR
-            </span>
-          </div>
-
-          <div className="relative space-y-3.5 max-w-2xl mx-auto">
-            <h2
-              id="ecosystem-heading"
-              className="text-lg sm:text-2xl md:text-3xl font-black text-white leading-tight"
-            >
-              در اتریش، <span className="text-[#EDC575] drop-shadow-[0_2px_10px_rgba(237,197,117,0.2)]">همه چیز در یک جا</span> برای همراهی شما
-            </h2>
-            <p className="text-[11px] sm:text-xs md:text-sm text-stone-350 font-bold leading-relaxed">
-              بزرگترین پورتال هوشمند فارسی‌زبانان — راهنمای اقامت، ابزارهای مالی، محاسبه Brutto–Netto،
-              واژه‌نامه لهجه اتریشی و تسهیل مسیرهای اداری برای شما.
+        <section className="space-y-4 rounded-3xl border border-stone-200/90 dark:border-stone-800 glass-panel p-4 sm:p-5.5 shadow-sm animate-fade-in-up" aria-labelledby="hub-heading">
+          {/* Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-stone-100 dark:border-stone-850">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-5 bg-gradient-to-b from-red-600 via-rose-500 to-amber-500 rounded-full shadow-xs" />
+              <h3 id="hub-heading" className="text-sm sm:text-base font-black text-stone-800 dark:text-stone-100 flex items-center gap-2">
+                مرکز دسته‌بندی‌ها و ابزارهای کاربردی اتریش‌نشین
+                <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-200/60 dark:bg-red-950/40 dark:text-red-400 dark:border-red-800/40">
+                  سرویس‌های مهاجرتی و شهروندی ۲۰۲۶
+                </span>
+              </h3>
+            </div>
+            <p className="text-[11px] text-stone-500 dark:text-stone-400 font-medium">
+              دسترسی سریع به سامانه‌ها، محاسبات مالی و دایرکتوری‌ها
             </p>
           </div>
 
-          <div className="w-full space-y-6 pt-4 text-right" dir="rtl">
-            {/* CTA buttons */}
-            <div className="flex flex-wrap gap-3 justify-center max-w-3xl mx-auto">
-              <button
-                onClick={() => { onNavigate("immigration-assessment"); toast.success("در حال بارگذاری فرم ارزیابی مهاجرت... ⚡"); }}
-                className="bg-gradient-to-r from-[#C8102E] to-[#AA0F26] hover:from-[#E51636] hover:to-[#C8102E] active:scale-95 text-white text-[11px] sm:text-xs font-black px-6 py-3.5 rounded-full shadow-[0_8px_25px_rgba(200,16,46,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#E5455F]/20 hover:shadow-[0_10px_35px_rgba(200,16,46,0.5)]"
-              >
-                <Zap className="w-4 h-4" />
-                <span>محاسبه شانس مهاجرت</span>
-              </button>
+          {/* Sub-block 1: Categories Bento Grid */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs px-1">
+              <span className="font-extrabold text-stone-700 dark:text-stone-300 flex items-center gap-1.5 text-[11px]">
+                <Layers className="w-3.5 h-3.5 text-red-500" />
+                دسته‌بندی‌های کلیدی پرتال
+              </span>
+              <span className="text-[10px] text-stone-400 font-mono">۱۰ بخش اصلی</span>
+            </div>
+            <nav className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5" aria-label="دسته‌بندی‌های کلیدی">
+              {categories.map((cat, idx) => {
+                const IconComponent = cat.icon;
+                return (
+                  <button
+                    key={idx}
+                    id={`cat-${cat.id}`}
+                    onClick={cat.onClick}
+                    title={cat.seo}
+                    aria-label={cat.seo}
+                    className={`p-3 rounded-2xl border text-right flex items-center justify-between gap-2.5 cursor-pointer card-hover-lift shadow-3xs ${cat.color}`}
+                  >
+                    <div className="flex items-center gap-2 overflow-hidden">
+                      <div className="p-1.5 rounded-xl bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 shrink-0 shadow-3xs group-hover:rotate-6 transition-transform">
+                        <IconComponent className="w-4 h-4" />
+                      </div>
+                      <span className="text-[11px] font-black truncate">{cat.title}</span>
+                    </div>
+                    {cat.badge && (
+                      <span className={`text-[8px] text-white font-extrabold px-1.5 py-0.5 rounded-xs shrink-0 ${cat.badgeColor || 'bg-red-500'} animate-pulse`}>
+                        {cat.badge}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </nav>
+          </div>
 
-              <button
-                onClick={() => { onNavigate("finance"); toast.success("بارگذاری محاسبه‌گر پیشرفته Brutto-Netto 📊"); }}
-                className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white text-[11px] sm:text-xs font-black px-5 py-3.5 rounded-full flex items-center gap-2 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
-              >
-                <TrendingUp className="w-4 h-4 text-amber-300" />
-                <span>محاسبه‌گر حقوق خالص (Brutto-Netto)</span>
-              </button>
+          {/* Urgent Announcement Pill inside Hub */}
+          <aside
+            className="bg-red-50/90 dark:bg-red-950/20 border border-red-200/80 dark:border-red-900/40 rounded-2xl p-2.5 sm:p-3 flex items-center justify-between text-xs font-bold gap-3 overflow-hidden shadow-3xs"
+            role="alert"
+            id="news-banner-section"
+          >
+            <div className="flex items-center gap-2.5 overflow-hidden">
+              <span className="text-[9px] text-white font-black px-2 py-0.5 rounded-md bg-red-600 shrink-0 animate-pulse">فوری</span>
+              <p className="text-[11px] text-stone-800 dark:text-stone-200 truncate text-right font-black" id="news-headline">
+                قانون جدید اقامت اتریش ۲۰۲۶ — ابلاغیه جدید قوانین امتیازدهی صادر شد. (تغییرات مهم برای متقاضیان)
+              </p>
+            </div>
+            <button
+              onClick={() => setShow100DaysModal(true)}
+              className="text-[10px] text-red-700 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 cursor-pointer select-none font-black shrink-0 underline"
+            >
+              جزییات تعهدات ←
+            </button>
+          </aside>
 
-              <button
-                onClick={() => { setShow100DaysModal(true); toast.success("بارگذاری چک‌لیست طلایی ورود به اتریش 📋"); }}
-                className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white text-[11px] sm:text-xs font-black px-5 py-3.5 rounded-full flex items-center gap-2 transition-all duration-300 hover:scale-[1.03] cursor-pointer"
-              >
-                <Clipboard className="w-4 h-4 text-emerald-300" />
-                <span>چک‌لیست ۱۰۰ روز اول ورود</span>
-              </button>
+          {/* Sub-block 2: Practical Swiss-Army Tools */}
+          <div className="space-y-2 pt-2 border-t border-stone-100 dark:border-stone-850">
+            <div className="flex items-center justify-between text-xs px-1">
+              <span className="font-extrabold text-stone-700 dark:text-stone-300 flex items-center gap-1.5 text-[11px]">
+                <Wrench className="w-3.5 h-3.5 text-amber-500" />
+                ابزارهای حیاتی و کاربردی اتریش
+              </span>
+              <span className="text-[10px] text-stone-400 font-mono">Swiss-Army Tools</span>
             </div>
 
-            {/* Grouped Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-              {[
-                {
-                  title: "مهاجرت و اقامت اتریش", icon: "💼",
-                  desc: "فرم‌ها، ارزیابی مدارک و پایش دائم پرونده‌های اقامتی",
-                  color: "from-amber-500/10 to-red-500/5 border-red-500/15",
-                  items: [
-                    { id: "doccheck", label: "بررسی مدارک اولیه", icon: "✅", borderColor: "hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]", segment: "doccheck", badge: "هوشمند" },
-                    { id: "appointment", label: "درخواست وقت ملاقات", icon: "📅", borderColor: "hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]", segment: "appointment", badge: "MA35" },
-                    { id: "caseprofile", label: "پروفایل پرونده مهاجرتی", icon: "📁", borderColor: "hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]", segment: "tracker" },
-                    { id: "shortagemap", label: "نقشه مشاغل کمبود", icon: "🗺️", borderColor: "hover:border-amber-500/50 hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]", segment: "mapper" }
-                  ]
-                },
-                {
-                  title: "امور مسکن و معیشت روزمره", icon: "🏠",
-                  desc: "سامانه جستجوی املاک، نیازمندی‌ها و هزینه‌های زندگی",
-                  color: "from-emerald-500/10 to-teal-500/5 border-teal-500/15",
-                  items: [
-                    { id: "housesearch", label: "جستجوی هوشمند مسکن", icon: "🏠", borderColor: "hover:border-rose-500/50 hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]", segment: "housesearch", badge: "طلایی" },
-                    { id: "livingcost", label: "ماشین‌حساب هزینه زندگی", icon: "📊", borderColor: "hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]", segment: "finance" },
-                    { id: "classifieds", label: "نیازمندی‌های ایرانیان", icon: "🛒", borderColor: "hover:border-cyan-500/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]", segment: "carpool" }
-                  ]
-                },
-                {
-                  title: "پرتال حقوقی، اداری و اخبار", icon: "⚖️",
-                  desc: "فسخ و قالب قراردادها، رتبه‌بندی خدمات و خبرنامه فوری",
-                  color: "from-blue-500/10 to-indigo-500/5 border-blue-500/15",
-                  items: [
-                    { id: "contracttmpl", label: "قالب قراردادها", icon: "📄", borderColor: "hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]", segment: "contract-cancellation" },
-                    { id: "ratings", label: "امتیازدهی خدمات", icon: "⭐", borderColor: "hover:border-amber-500/50 hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]", segment: "ratings", badge: "نظرسنجی" },
-                    { id: "newsalerts", label: "اخبار فوری اتریش", icon: "📰", borderColor: "hover:border-rose-500/50 hover:shadow-[0_0_15px_rgba(244,63,94,0.3)]", segment: "home" }
-                  ]
-                },
-                {
-                  title: "سامانه‌های هوشمند و زبان", icon: "🤖",
-                  desc: "ربات‌های کمکی هوشمند، فرم‌سازها و آموزش آلمانی بومی",
-                  color: "from-purple-500/10 to-pink-500/5 border-purple-500/15",
-                  items: [
-                    { id: "smartsearch", label: "دستیار جستجوی هوشمند", icon: "🤖", borderColor: "hover:border-purple-500/50 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]", segment: "smart", badge: "AI" },
-                    { id: "germaneguide", label: "راهنمای یادگیری آلمانی", icon: "📖", borderColor: "hover:border-cyan-500/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]", segment: "german" }
-                  ]
-                }
-              ].map((group, gIdx) => (
-                <div
-                  key={gIdx}
-                  className={`bg-gradient-to-b ${group.color} backdrop-blur-md border rounded-[24px] p-5 text-right space-y-3.5 transition-all duration-300 hover:scale-[1.01]`}
-                >
-                  <div className="flex items-center gap-2.5 border-b border-white/5 pb-2.5">
-                    <span className="text-xl">{group.icon}</span>
-                    <div>
-                      <h3 className="text-[12.5px] font-black text-[#EDC575]">{group.title}</h3>
-                      <p className="text-[10px] text-stone-400 font-bold">{group.desc}</p>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {/* 1) Brutto-Netto */}
+              <div
+                onClick={() => onNavigate("finance")}
+                role="link" tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && onNavigate("finance")}
+                className="flex items-center justify-between p-3.5 rounded-2xl border border-amber-200/70 bg-amber-50/60 dark:bg-amber-950/20 dark:border-amber-900/40 hover:bg-amber-100/40 card-hover-lift cursor-pointer group shadow-3xs"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center text-white shrink-0 shadow-xs group-hover:rotate-6 transition-transform">
+                    <Coins className="w-5 h-5" />
                   </div>
+                  <div className="text-right space-y-0.5">
+                    <h4 className="text-xs font-black text-stone-850 dark:text-stone-150">محاسبه آنلاین حقوق خالص از ناخالص</h4>
+                    <p className="text-[10px] text-amber-700 dark:text-amber-400 font-extrabold font-mono">Brutto ➔ Netto Calculator 2026</p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
+              </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {group.items.map((cat) => (
-                      <button
-                        key={cat.id}
-                        onClick={() => {
-                          if (cat.id === "newsalerts") {
-                            if (onOpenNews) {
-                              onOpenNews();
-                            } else {
-                              onNavigate("home");
-                              const newsEl = document.getElementById("news-banner-section") || document.getElementById("news-headline");
-                              if (newsEl) {
-                                newsEl.scrollIntoView({ behavior: "smooth" });
-                              }
-                            }
-                            toast.success("باز کردن آرشیو جامع اخبار و مصوبات اتریش 📰");
-                          } else {
-                            onNavigate(cat.segment);
-                            toast.success(`بارگذاری سامانه هوشمند: ${cat.label} ⚡`);
-                          }
-                        }}
-                        className={`bg-black/40 backdrop-blur-md border border-white/10 hover:bg-white/10 text-white text-[11px] sm:text-xs font-black p-3.5 rounded-xl flex items-center justify-between transition-all duration-300 hover:scale-[1.02] select-none cursor-pointer ${cat.borderColor}`}
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm shrink-0">{cat.icon}</span>
-                          <span>{cat.label}</span>
-                        </div>
-                        {cat.badge && (
-                          <span className="bg-red-650 text-white text-[7.5px] px-1.5 py-0.5 rounded-full border border-red-500/20 shadow-xs scale-90">
-                            {cat.badge}
-                          </span>
-                        )}
-                      </button>
+              {/* 2) Residence Tracker */}
+              <div
+                onClick={() => onNavigate("tracker")}
+                role="link" tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && onNavigate("tracker")}
+                className="flex items-center justify-between p-3.5 rounded-2xl border border-pink-200/70 bg-pink-50/60 dark:bg-pink-950/20 dark:border-pink-900/40 hover:bg-pink-100/40 card-hover-lift cursor-pointer group shadow-3xs"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-pink-500 rounded-xl flex items-center justify-center text-white shrink-0 shadow-xs group-hover:rotate-6 transition-transform">
+                    <Clipboard className="w-5 h-5" />
+                  </div>
+                  <div className="text-right space-y-0.5">
+                    <h4 className="text-xs font-black text-stone-850 dark:text-stone-150">پرونده اقامت و مانیتورینگ کارتابل</h4>
+                    <p className="text-[10px] text-pink-700 dark:text-pink-400 font-extrabold">پیگیری گام به گام تا صدور کارت سرخ‌سفیدسرخ</p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
+              </div>
+
+              {/* 3) Currency */}
+              <div
+                onClick={() => onNavigate("finance")}
+                role="link" tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && onNavigate("finance")}
+                className="flex items-center justify-between p-2.5 rounded-xl border border-green-200/70 bg-green-50/60 dark:bg-green-950/20 dark:border-green-900/40 hover:bg-green-100/40 card-hover-lift cursor-pointer group shadow-3xs"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
+                    <Coins className="w-4 h-4" />
+                  </div>
+                  <div className="text-right space-y-0">
+                    <h4 className="text-[11px] font-black text-stone-850 dark:text-stone-150">ماشین حساب مبدل نرخ ارز (یورو / تومان)</h4>
+                    <p className="text-[9px] text-green-700 dark:text-green-400 font-extrabold">بروزرسانی زنده صرافی</p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
+              </div>
+
+              {/* 4) 100 days */}
+              <div
+                onClick={() => setShow100DaysModal(true)}
+                role="link" tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setShow100DaysModal(true)}
+                className="flex items-center justify-between p-2.5 rounded-xl border border-sky-200/70 bg-sky-50/60 dark:bg-sky-950/20 dark:border-sky-900/40 hover:bg-sky-100/40 card-hover-lift cursor-pointer group shadow-3xs"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
+                    <Trophy className="w-4 h-4" />
+                  </div>
+                  <div className="text-right space-y-0">
+                    <h4 className="text-[11px] font-black text-stone-850 dark:text-stone-150">۱۰۰ روز اول مهاجرت به اتریش</h4>
+                    <p className="text-[9px] text-sky-700 dark:text-sky-400 font-extrabold">کارهای واجبی که باید در هفته‌های اول انجام دهید</p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
+              </div>
+
+              {/* 5) Doctors */}
+              <div
+                onClick={() => setShowDoctorModal(true)}
+                role="link" tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setShowDoctorModal(true)}
+                className="flex items-center justify-between p-2.5 rounded-xl border border-purple-200/70 bg-purple-50/60 dark:bg-purple-950/20 dark:border-purple-900/40 hover:bg-purple-100/40 card-hover-lift cursor-pointer group shadow-3xs"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
+                    <Stethoscope className="w-4 h-4" />
+                  </div>
+                  <div className="text-right space-y-0">
+                    <h4 className="text-[11px] font-black text-stone-850 dark:text-stone-150">راهنمای سلامت و دایرکتوری پزشکان</h4>
+                    <p className="text-[9px] text-purple-700 dark:text-purple-400 font-extrabold">پیدا کردن متخصصین پزشک فارسی‌زبان</p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
+              </div>
+
+              {/* 6) Waste */}
+              <div
+                onClick={() => setShowMullModal(true)}
+                role="link" tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setShowMullModal(true)}
+                className="flex items-center justify-between p-2.5 rounded-xl border border-emerald-200/70 bg-emerald-50/60 dark:bg-emerald-950/20 dark:border-emerald-900/40 hover:bg-emerald-100/40 transition-all cursor-pointer group shadow-3xs"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
+                    <Trash2 className="w-4 h-4" />
+                  </div>
+                  <div className="text-right space-y-0">
+                    <h4 className="text-[11px] font-black text-stone-850 dark:text-stone-150">راهنمای تفکیک زباله اتریش</h4>
+                    <p className="text-[9px] text-emerald-700 dark:text-emerald-400 font-extrabold">جلوگیری از جریمه شهرداری (Mülltrennung)</p>
+                  </div>
+                </div>
+                <ChevronLeft className="w-4 h-4 text-emerald-400 group-hover:translate-x-[-3px] transition-transform" />
+              </div>
+
+              {/* 7) Radio */}
+              <div className="p-3 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-900 text-white transition-all shadow-xs flex flex-row items-center justify-between gap-2 md:col-span-2 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-950/50 to-transparent pointer-events-none" />
+                <div className="relative flex items-center gap-2.5 text-right">
+                  <button
+                    onClick={() => setIsRadioPlaying(!isRadioPlaying)}
+                    className="w-8 h-8 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
+                    aria-label={isRadioPlaying ? "توقف پخش رادیو" : "پخش رادیو"}
+                  >
+                    {isRadioPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                  </button>
+                  <div className="space-y-0">
+                    <h4 className="text-[11px] font-black text-white flex items-center gap-1.5">
+                      <Radio className="w-3.5 h-3.5 text-red-400" />
+                      رادیو اتریش‌نشین
+                    </h4>
+                    <p className="text-[9px] text-stone-400 font-bold">پخش زنده پادکست و موسیقی مهاجرین</p>
+                  </div>
+                  {/* Equalizer */}
+                  <div className="flex items-end gap-[2px] h-5 ml-3" aria-hidden="true">
+                    {eqBars.map((h, i) => (
+                      <span
+                        key={i}
+                        className="w-[3px] rounded-sm bg-gradient-to-t from-red-600 to-amber-400 transition-all duration-150"
+                        style={{ height: `${h}%` }}
+                      />
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* ============================================================
-            6) FLOW CARDS + STATS
-           ============================================================ */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-5 text-right max-w-5xl mx-auto" aria-label="ویژگی‌های کلیدی اتریش‌نشین">
-          {[
-            { title: "به‌روزرسانی لحظه‌ای", desc: "اخبار، فرم‌ها و مسیرهای مهم در یک فضای سریع و قابل‌فهم.", icon: Zap, color: "text-amber-500 dark:text-amber-400" },
-            { title: "مسیر روشن برای شروع", desc: "از ویزا و اقامت تا مالیات و زندگی روزمره، همه در یک جریان.", icon: Compass, color: "text-amber-600 dark:text-amber-500" },
-            { title: "منابع رسمی و قابل اتکا", desc: "اطلاعات بر پایه منابع معتبر اتریش و دسترسی مستقیم به خدمات مهم.", icon: Lock, color: "text-amber-700 dark:text-amber-650" }
-          ].map((card, i) => {
-            const Icon = card.icon;
-            return (
-              <article key={i} className="bg-stone-50/45 border border-stone-200/50 dark:bg-[#15110f]/45 dark:border-[#2b211d] p-5 rounded-3xl flex items-center justify-between gap-4 shadow-3xs hover:shadow-2xs transition-all duration-300 hover:scale-[1.01]">
-                <div className="space-y-1 flex-1">
-                  <h4 className="text-xs sm:text-sm font-black text-stone-850 dark:text-[#ede4d8]">{card.title}</h4>
-                  <p className="text-[11px] sm:text-xs text-stone-600 dark:text-[#a4917f] font-bold leading-relaxed">{card.desc}</p>
+                <div className="relative flex items-center gap-2 shrink-0">
+                  <Volume2 className="w-4 h-4 text-stone-400" />
+                  <label htmlFor="radio-volume-slider" className="sr-only">میزان صدای رادیو</label>
+                  <input
+                    id="radio-volume-slider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={radioVolume}
+                    onChange={(e) => setRadioVolume(Number(e.target.value))}
+                    className="w-16 sm:w-20 accent-red-600 cursor-pointer h-1 rounded-lg bg-stone-700"
+                    aria-label="میزان صدای رادیو"
+                  />
                 </div>
-                <div className="w-12 h-12 bg-[#FFFDF5] dark:bg-[#2b211d] border border-amber-100 dark:border-[#4d3b33] rounded-full flex items-center justify-center shrink-0 shadow-3xs">
-                  <Icon className={`w-6 h-6 ${card.color}`} />
-                </div>
-              </article>
-            );
-          })}
-        </section>
-
-        {/* ============================================================
-            7) STATS
-           ============================================================ */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center max-w-5xl mx-auto" aria-label="آمار پلتفرم">
-          {[
-            { value: "+۲۵۰۰", label: "سند و مقاله ثبت‌شده", icon: FileText, border: "border-red-500 dark:border-[#e5455f]" },
-            { value: "+۵۰۰", label: "رویداد فعال", icon: Calendar, border: "border-emerald-500 dark:border-emerald-600" },
-            { value: "+۱K", label: "کاربر همیار", icon: Users, border: "border-blue-500 dark:border-blue-600" },
-            { value: "۸", label: "ابزار هوشمند", icon: Settings, border: "border-amber-500 dark:border-amber-600" }
-          ].map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <div key={i} className={`bg-stone-50/20 dark:bg-[#1c1512] border border-stone-200/50 dark:border-[#382b25] p-5 rounded-3xl shadow-3xs hover:shadow-2xs transition-all duration-300 flex flex-col items-center justify-between min-h-[140px] border-b-4 ${s.border} hover:scale-[1.02]`}>
-                <Icon className="w-6 h-6 text-stone-400 dark:text-stone-500 mb-1" />
-                <span className="text-2xl md:text-3xl font-black text-stone-850 dark:text-[#ede4d8] leading-none my-1 tracking-tight font-mono">{s.value}</span>
-                <span className="text-[10px] sm:text-xs text-stone-500 dark:text-[#a4917f] font-extrabold">{s.label}</span>
-              </div>
-            );
-          })}
-        </section>
-
-        {/* ============================================================
-            8) CATEGORIES BENTO GRID
-           ============================================================ */}
-        <section className="space-y-3" aria-labelledby="categories-heading">
-          <h3 id="categories-heading" className="text-xs font-black text-stone-700 flex items-center gap-1.5 px-1">
-            <span className="w-1.5 h-3.5 bg-red-600 rounded-xs" />
-            دسته‌بندی‌های کلیدی اتریش‌نشین (Austria Portal)
-          </h3>
-          <nav className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5" aria-label="دسته‌بندی‌های کلیدی">
-            {categories.map((cat, idx) => {
-              const IconComponent = cat.icon;
-              return (
-                <button
-                  key={idx}
-                  id={`cat-${cat.id}`}
-                  onClick={cat.onClick}
-                  title={cat.seo}
-                  aria-label={cat.seo}
-                  className={`p-3.5 rounded-2xl border text-right flex items-center justify-between gap-3 cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-md shadow-3xs ${cat.color}`}
-                >
-                  <div className="flex items-center gap-2.5 overflow-hidden">
-                    <div className="p-1.5 rounded-xl bg-white text-stone-800 shrink-0 shadow-3xs">
-                      <IconComponent className="w-4 h-4" />
-                    </div>
-                    <span className="text-[11px] font-black truncate">{cat.title}</span>
-                  </div>
-                  {cat.badge && (
-                    <span className={`text-[8px] text-white font-extrabold px-1.5 py-0.5 rounded-xs shrink-0 ${cat.badgeColor || 'bg-red-500'} animate-pulse`}>
-                      {cat.badge}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </nav>
-        </section>
-
-        {/* ============================================================
-            9) URGENT BROADCAST
-           ============================================================ */}
-        <aside
-          className="bg-red-50 border border-red-200 rounded-2xl p-3 flex items-center justify-between text-xs font-bold gap-4 overflow-hidden shadow-2xs max-w-5xl mx-auto"
-          role="alert"
-          id="news-banner-section"
-        >
-          <div className="flex items-center gap-3 overflow-hidden">
-            <span className="text-[9px] text-white font-black px-2 py-1 rounded bg-red-600 shrink-0 animate-pulse">فوری</span>
-            <p className="text-[11px] text-stone-800 truncate text-right font-black" id="news-headline">
-              قانون جدید اقامت اتریش ۲۰۲۶ — ابلاغیه جدید قوانین امتیازدهی صادر شد. (تغییرات مهم برای متقاضیان)
-            </p>
-          </div>
-          <button
-            onClick={() => setShow100DaysModal(true)}
-            className="text-[10px] text-red-700 hover:text-red-900 cursor-pointer select-none font-black shrink-0 underline"
-          >
-            جزییات تعهدات ←
-          </button>
-        </aside>
-
-        {/* ============================================================
-            10) PRACTICAL TOOLS GRID
-           ============================================================ */}
-        <section className="space-y-2 border-t border-stone-150 pt-3" aria-labelledby="tools-heading">
-          <h3 id="tools-heading" className="text-xs sm:text-sm font-black text-stone-850 flex items-center gap-1.5">
-            <span className="p-1 px-1.5 rounded-lg bg-red-50 text-red-600 font-extrabold text-[10px]">ابزارهای ویژه</span>
-            ابزارهای کاربردی و حیاتی (Practical Swiss-Army Tools)
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            {/* 1) Brutto-Netto */}
-            <div
-              onClick={() => onNavigate("finance")}
-              role="link" tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && onNavigate("finance")}
-              className="flex items-center justify-between p-4 rounded-2.5xl border border-amber-100 bg-amber-50/50 hover:bg-amber-100/30 transition-all cursor-pointer group shadow-3xs"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 bg-amber-400 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-xs group-hover:rotate-6 transition-transform">
-                  <Coins className="w-5 h-5" />
-                </div>
-                <div className="text-right space-y-0.5">
-                  <h4 className="text-xs font-black text-stone-800">محاسبه آنلاین حقوق خالص از ناخالص</h4>
-                  <p className="text-[10px] text-amber-700 font-extrabold font-mono">Brutto ➔ Netto Calculator 2026</p>
-                </div>
-              </div>
-              <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
-            </div>
-
-            {/* 2) Residence Tracker */}
-            <div
-              onClick={() => onNavigate("tracker")}
-              role="link" tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && onNavigate("tracker")}
-              className="flex items-center justify-between p-4 rounded-2.5xl border border-pink-100 bg-pink-50/50 hover:bg-pink-100/30 transition-all cursor-pointer group shadow-3xs"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 bg-pink-400 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-xs group-hover:rotate-6 transition-transform">
-                  <Clipboard className="w-5 h-5" />
-                </div>
-                <div className="text-right space-y-0.5">
-                  <h4 className="text-xs font-black text-stone-800">پرونده اقامت و مانیتورینگ کارتابل</h4>
-                  <p className="text-[10px] text-pink-700 font-extrabold">پیگیری گام به گام تا صدور کارت سرخ‌سفیدسرخ</p>
-                </div>
-              </div>
-              <ChevronLeft className="w-5 h-5 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
-            </div>
-
-            {/* 3) Currency */}
-            <div
-              onClick={() => onNavigate("finance")}
-              role="link" tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && onNavigate("finance")}
-              className="flex items-center justify-between p-2 rounded-xl border border-green-100 bg-green-50/50 hover:bg-green-100/30 transition-all cursor-pointer group shadow-3xs"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
-                  <Coins className="w-4 h-4" />
-                </div>
-                <div className="text-right space-y-0">
-                  <h4 className="text-[10px] font-black text-stone-800">ماشین حساب مبدل نرخ ارز (یورو / تومان)</h4>
-                  <p className="text-[9px] text-green-700 font-extrabold">بروزرسانی زنده صرافی</p>
-                </div>
-              </div>
-              <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
-            </div>
-
-            {/* 4) 100 days */}
-            <div
-              onClick={() => setShow100DaysModal(true)}
-              role="link" tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && setShow100DaysModal(true)}
-              className="flex items-center justify-between p-2 rounded-xl border border-sky-100 bg-sky-50/50 hover:bg-sky-100/30 transition-all cursor-pointer group shadow-3xs"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-sky-400 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
-                  <Trophy className="w-4 h-4" />
-                </div>
-                <div className="text-right space-y-0">
-                  <h4 className="text-[10px] font-black text-stone-800">۱۰۰ روز اول مهاجرت به اتریش</h4>
-                  <p className="text-[9px] text-sky-700 font-extrabold">کارهای واجبی که باید در هفته‌های اول انجام دهید</p>
-                </div>
-              </div>
-              <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
-            </div>
-
-            {/* 5) Doctors */}
-            <div
-              onClick={() => setShowDoctorModal(true)}
-              role="link" tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && setShowDoctorModal(true)}
-              className="flex items-center justify-between p-2 rounded-xl border border-purple-100 bg-purple-50/50 hover:bg-purple-100/30 transition-all cursor-pointer group shadow-3xs"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-purple-400 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
-                  <Stethoscope className="w-4 h-4" />
-                </div>
-                <div className="text-right space-y-0">
-                  <h4 className="text-[10px] font-black text-stone-800">راهنمای سلامت و دایرکتوری پزشکان</h4>
-                  <p className="text-[9px] text-purple-700 font-extrabold">پیدا کردن متخصصین پزشک فارسی‌زبان</p>
-                </div>
-              </div>
-              <ChevronLeft className="w-4 h-4 text-stone-400 group-hover:translate-x-[-3px] transition-transform" />
-            </div>
-
-            {/* 6) Waste */}
-            <div
-              onClick={() => setShowMullModal(true)}
-              role="link" tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && setShowMullModal(true)}
-              className="flex items-center justify-between p-2 rounded-xl border border-emerald-100 bg-emerald-50/50 hover:bg-emerald-100/30 transition-all cursor-pointer group shadow-3xs"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white shrink-0 shadow-xs">
-                  <Trash2 className="w-4 h-4" />
-                </div>
-                <div className="text-right space-y-0">
-                  <h4 className="text-[10px] font-black text-stone-800">راهنمای تفکیک زباله</h4>
-                  <p className="text-[9px] text-emerald-700 font-extrabold">جلوگیری از جریمه شهرداری</p>
-                </div>
-              </div>
-              <ChevronLeft className="w-4 h-4 text-emerald-400 group-hover:translate-x-[-3px] transition-transform" />
-            </div>
-
-            {/* 7) Radio */}
-            <div className="p-3 rounded-xl border border-stone-200 bg-stone-900 text-white transition-all shadow-xs flex flex-row items-center justify-between gap-2 md:col-span-2 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-950/40 to-transparent pointer-events-none" />
-              <div className="relative flex items-center gap-2 text-right">
-                <button
-                  onClick={() => setIsRadioPlaying(!isRadioPlaying)}
-                  className="w-8 h-8 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer"
-                  aria-label={isRadioPlaying ? "توقف پخش رادیو" : "پخش رادیو"}
-                >
-                  {isRadioPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                </button>
-                <div className="space-y-0">
-                  <h4 className="text-[10px] font-black text-white flex items-center gap-1.5">
-                    <Radio className="w-3 h-3 text-red-400" />
-                    رادیو اتریش‌نشین
-                  </h4>
-                  <p className="text-[9px] text-stone-400 font-bold">پخش زنده پادکست و موسیقی</p>
-                </div>
-                {/* Equalizer */}
-                <div className="flex items-end gap-[2px] h-5 ml-3" aria-hidden="true">
-                  {eqBars.map((h, i) => (
-                    <span
-                      key={i}
-                      className="w-[3px] rounded-sm bg-gradient-to-t from-red-600 to-amber-400 transition-all duration-150"
-                      style={{ height: `${h}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative flex items-center gap-2 shrink-0">
-                <Volume2 className="w-4 h-4 text-stone-400" />
-                <label htmlFor="radio-volume-slider" className="sr-only">میزان صدای رادیو</label>
-                <input
-                  id="radio-volume-slider"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={radioVolume}
-                  onChange={(e) => setRadioVolume(Number(e.target.value))}
-                  className="w-16 accent-red-600 cursor-pointer h-1 rounded-lg bg-stone-700"
-                  aria-label="میزان صدای رادیو"
-                />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Austria Smart Suite */}
-        <div className="border-t border-stone-150 pt-8 mt-4">
-          <AustriaSmartSuite />
-        </div>
+
 
         {/* ============================================================
             11) SERVICES SLIDER
@@ -1115,60 +935,7 @@ export default function AustriaMainDashboard({ onNavigate, setSelectedCity, onOp
           </div>
         </section>
 
-        {/* ============================================================
-            14) SEO-RICH FOOTER CONTENT
-           ============================================================ */}
-        <footer className="border-t border-stone-150 pt-6 mt-6 space-y-5 max-w-5xl mx-auto" itemScope itemType="https://schema.org/WPFooter">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-right">
-            <div className="space-y-2">
-              <h3 className="text-xs font-black text-stone-850 flex items-center gap-1.5">
-                <Globe2 className="w-3.5 h-3.5 text-[#C8102E]" />
-                درباره اتریش‌نشین
-              </h3>
-              <p className="text-[10.5px] text-stone-500 font-bold leading-relaxed">
-                اتریش‌نشین یک پلتفرم مستقل و غیرانتفاعی است که به منظور تسهیل مسیر ادغام، اقامت و زندگی فارسی‌زبانان در اتریش طراحی شده است.
-                تمام اطلاعات بر اساس منابع رسمی اتریش (migration.gv.at, ÖGK, AMS, MA35, Wien.gv.at) به‌روزرسانی می‌شود.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-xs font-black text-stone-850 flex items-center gap-1.5">
-                <Mountain className="w-3.5 h-3.5 text-[#C8102E]" />
-                شهرهای تحت پوشش
-              </h3>
-              <ul className="text-[10.5px] text-stone-500 font-bold leading-relaxed space-y-1">
-                <li>• وین (Wien) — پایتخت و بزرگترین شهر اتریش</li>
-                <li>• گراتس (Graz) — پایتخت ایالت اشتایرمارک</li>
-                <li>• لینتس (Linz) — اتریش علیا</li>
-                <li>• سالزبورگ (Salzburg) — شهر موتزارت</li>
-                <li>• اینسبروک (Innsbruck) — قلب آلپ</li>
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-xs font-black text-stone-850 flex items-center gap-1.5">
-                <HeartHandshake className="w-3.5 h-3.5 text-[#C8102E]" />
-                خدمات کلیدی
-              </h3>
-              <ul className="text-[10.5px] text-stone-500 font-bold leading-relaxed space-y-1">
-                <li>• مشاوره اقامت و ویزا</li>
-                <li>• محاسبه‌گر Brutto-Netto و مالیات</li>
-                <li>• دایرکتوری پزشکان فارسی‌زبان ÖGK</li>
-                <li>• مسکن و Gemeindewohnung</li>
-                <li>• آموزش آلمانی اتریشی</li>
-              </ul>
-            </div>
-          </div>
 
-          <div className="pt-4 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-stone-400 font-bold">
-            <div className="flex items-center gap-2">
-              <OtrishLogo size={24} />
-              <span>© ۲۰۲۶ اتریش‌نشین · OTRISH-IRAN.IR</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> اطلاعات مستقل و بدون وابستگی</span>
-              <span className="flex items-center gap-1"><BadgeCheck className="w-3 h-3" /> به‌روز ۲۰۲۶</span>
-            </div>
-          </div>
-        </footer>
 
         {/* ============================================================
             MODALS

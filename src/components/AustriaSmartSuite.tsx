@@ -244,13 +244,13 @@ const HeroBanner: React.FC<{ activeTab: string }> = ({ activeTab }) => {
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-3xl border border-stone-200 bg-gradient-to-br from-stone-50 via-white to-rose-50 p-5 md:p-7 mb-8"
+      className="relative overflow-hidden rounded-3xl border border-[#1a4253] bg-gradient-to-br from-[#0c232d] via-[#102b38] to-[#07171e] p-5 md:p-7 mb-8 shadow-xl"
       aria-label="Austria Resident Hero Banner"
     >
       {/* Decorative gradients */}
-      <div className="absolute -top-16 -left-16 w-56 h-56 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -right-12 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-l from-red-700 via-red-500 to-red-700" />
+      <div className="absolute -top-16 -left-16 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -right-12 w-64 h-64 bg-teal-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-l from-[#f5c46b] via-[#e5a93c] to-[#b87e22]" />
 
       <div className="relative flex flex-col md:flex-row items-center justify-between gap-4 text-right">
         <div className="flex items-center gap-4 order-2 md:order-1">
@@ -261,25 +261,25 @@ const HeroBanner: React.FC<{ activeTab: string }> = ({ activeTab }) => {
             whileHover={{ scale: 1.06, rotateZ: -1.5 }}
             className="shrink-0 drop-shadow-lg"
           >
-            <AustriaResidentLogo size={52} variant="dark" />
+            <AustriaResidentLogo size={52} variant="light" />
           </motion.div>
           <div className="space-y-1">
-            <h1 className="font-black text-stone-900 text-base md:text-xl leading-tight flex flex-wrap items-center gap-2 justify-end md:justify-start">
+            <h1 className="font-black text-white text-base md:text-xl leading-tight flex flex-wrap items-center gap-2 justify-end md:justify-start">
               <span>{info.title}</span>
-              <Sparkles className="w-4 h-4 text-red-600 animate-pulse" />
+              <Sparkles className="w-4 h-4 text-[#f5c46b] animate-pulse" />
             </h1>
-            <p className="text-[11px] md:text-xs text-stone-500 font-bold tracking-wide">
+            <p className="text-[11px] md:text-xs text-slate-300 font-bold tracking-wide">
               {info.sub}
             </p>
           </div>
         </div>
 
         <div className="order-1 md:order-2 flex items-center gap-2">
-          <span className="text-[10px] bg-stone-900 text-white px-3 py-1.5 rounded-full font-black shadow-sm">
+          <span className="text-[10px] bg-gradient-to-r from-[#f5c46b] to-[#e5a93c] text-[#07171e] px-3 py-1.5 rounded-full font-black shadow-sm">
             {info.badge}
           </span>
-          <span className="text-[10px] bg-white border border-red-200 text-red-700 px-3 py-1.5 rounded-full font-black shadow-sm">
-            ✦ 2026 Edition
+          <span className="text-[10px] bg-[#07171e] border border-[#1a4253] text-[#14b8a6] px-3 py-1.5 rounded-full font-black shadow-sm">
+            ✦ سامانه هوشمند ۲۰۲۶
           </span>
         </div>
       </div>
@@ -297,10 +297,10 @@ const HeroBanner: React.FC<{ activeTab: string }> = ({ activeTab }) => {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 + i * 0.06 }}
-            className="bg-white/70 backdrop-blur border border-stone-150 rounded-2xl px-3 py-2"
+            className="bg-[#07171e]/70 backdrop-blur border border-[#1a4253] rounded-2xl px-3 py-2"
           >
-            <div className="text-[9px] text-stone-500 font-bold">{s.k}</div>
-            <div className="text-xs font-black text-red-700 font-mono">{s.v}</div>
+            <div className="text-[9px] text-slate-400 font-bold">{s.k}</div>
+            <div className="text-xs font-black text-[#f5c46b] font-mono">{s.v}</div>
           </motion.div>
         ))}
       </div>
@@ -331,8 +331,8 @@ const TabPill: React.FC<{
     transition={{ type: "spring", stiffness: 320, damping: 22 }}
     className={`cursor-pointer transition-all rounded-full px-3.5 py-2 text-[11px] font-black flex items-center gap-1.5 whitespace-nowrap ${
       active
-        ? "bg-red-600 text-white shadow-md shadow-red-600/25 ring-2 ring-red-500/20"
-        : "text-stone-600 bg-white border border-stone-200 hover:bg-stone-50 hover:border-red-200"
+        ? "bg-gradient-to-r from-[#f5c46b] via-[#e5a93c] to-[#b87e22] text-[#07171e] shadow-lg shadow-amber-500/25 ring-2 ring-amber-400/30"
+        : "text-slate-300 bg-[#0c232d] border border-[#1a4253] hover:bg-[#122f3c] hover:text-white hover:border-[#e5a93c]/50"
     }`}
     aria-pressed={active}
     aria-label={label}
@@ -696,13 +696,13 @@ ${assessmentResult.message}
       dir="rtl"
       itemScope
       itemType="https://schema.org/WebApplication"
-      className="bg-white rounded-3xl border border-stone-200 p-5 md:p-8 shadow-sm overflow-hidden text-right font-sans relative"
+      className="bg-[#0c232d] rounded-3xl border border-[#1a4253] p-5 md:p-8 shadow-2xl overflow-hidden text-right font-sans relative text-slate-100"
     >
       <meta itemProp="name" content="اتریش‌نشین | Austria Smart Suite" />
       <meta itemProp="applicationCategory" content="ImmigrationApplication" />
 
       {/* Top gradient brand bar */}
-      <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-l from-red-700 via-red-500 to-red-700" />
+      <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-l from-[#f5c46b] via-[#e5a93c] to-[#b87e22]" />
 
       {/* HERO BANNER */}
       <HeroBanner activeTab={activeTab} />
@@ -712,7 +712,7 @@ ${assessmentResult.message}
         aria-label="ناوبری ابزارهای اتریش‌نشین"
         className="flex justify-center mb-8"
       >
-        <div className="inline-flex flex-wrap gap-2 items-center justify-center p-2.5 bg-stone-50 border border-stone-150 rounded-3xl shadow-sm max-w-full">
+        <div className="inline-flex flex-wrap gap-2 items-center justify-center p-2.5 bg-[#07171e]/90 border border-[#1a4253] rounded-3xl shadow-xl max-w-full">
           {tabs.map(tab => (
             <TabPill
               key={tab.key}
@@ -1017,17 +1017,17 @@ ${assessmentResult.message}
                 </span>
               </div>
 
-              <div className="bg-stone-50/50 border border-stone-200 rounded-3xl p-6 space-y-6">
-                <div className="flex items-center justify-between border-b border-stone-150 pb-4 text-xs font-black text-stone-400">
-                  <span>گام {assessStep} از ۳</span>
-                  <span>{assessStep === 1 ? "مشخصات و زبان" : assessStep === 2 ? "سوابق حرفه‌ای" : "کارنامه نهائی"}</span>
+              <div className="bg-white border-2 border-stone-200 rounded-3xl p-6 sm:p-7 space-y-6 shadow-sm text-stone-900">
+                <div className="flex items-center justify-between border-b-2 border-stone-200 pb-4 text-xs font-black text-stone-700">
+                  <span className="bg-rose-100 text-red-800 px-3 py-1 rounded-full border border-red-200">گام {assessStep} از ۳</span>
+                  <span className="text-stone-900 font-extrabold text-xs sm:text-sm">{assessStep === 1 ? "مشخصات فردی و مهارت زبان" : assessStep === 2 ? "سوابق حرفه‌ای و پیشنهاد شغلی" : "کارنامه نهایی ارزیابی"}</span>
                 </div>
 
                 {assessStep === 1 && (
                   <div className="space-y-6">
-                    <div className="bg-white border border-stone-200 p-4 rounded-2xl space-y-3">
-                      <span className="block text-xs font-black text-stone-850">مسیرهای اصلی اقامت:</span>
-                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                    <div className="bg-stone-50 border-2 border-stone-200 p-5 rounded-2xl space-y-3.5">
+                      <span className="block text-xs sm:text-sm font-black text-stone-950">مسیرهای اصلی اقامت اتریش:</span>
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
                         {[
                           { k: "rwr", l: "💼 سرخ-سفید-سرخ (RWR)" },
                           { k: "study", l: "🎓 اقامت تحصیلی" },
@@ -1035,13 +1035,13 @@ ${assessmentResult.message}
                           { k: "family", l: "🏡 الحاق خانواده" }
                         ].map(p => (
                           <button key={p.k} type="button" onClick={() => { setMigrationPath(p.k); setAssessmentResult(null); }}
-                            className={`px-3 py-2 rounded-xl text-[10px] sm:text-xs font-black cursor-pointer border transition-all ${
-                              migrationPath === p.k ? "bg-red-600 text-white border-red-600" : "bg-stone-50 text-stone-600 border-stone-200 hover:bg-stone-100"
+                            className={`px-3 py-2.5 rounded-xl text-xs font-black cursor-pointer border-2 transition-all shadow-xs ${
+                              migrationPath === p.k ? "bg-red-700 text-white border-red-800 shadow-md scale-[1.02]" : "bg-white text-stone-800 border-stone-300 hover:bg-stone-100 hover:border-stone-400"
                             }`}>{p.l}</button>
                         ))}
                       </div>
-                      <span className="block text-xs font-black text-stone-850 pt-2 border-t border-stone-100">روش‌های موقت:</span>
-                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
+                      <span className="block text-xs sm:text-sm font-black text-stone-950 pt-3 border-t border-stone-200">روش‌های اقامت موقت:</span>
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                         {[
                           { k: "researcher", l: "🔬 پژوهشگران" },
                           { k: "ict", l: "🏢 اعزام ICT" },
@@ -1051,8 +1051,8 @@ ${assessmentResult.message}
                           { k: "seasonal", l: "🍓 کار فصلی" }
                         ].map(p => (
                           <button key={p.k} type="button" onClick={() => { setMigrationPath(p.k); setAssessmentResult(null); }}
-                            className={`px-3 py-2 rounded-xl text-[10px] sm:text-xs font-black cursor-pointer border transition-all ${
-                              migrationPath === p.k ? "bg-red-600 text-white border-red-600" : "bg-stone-50 text-stone-600 border-stone-200 hover:bg-stone-100"
+                            className={`px-3 py-2 rounded-xl text-xs font-black cursor-pointer border-2 transition-all shadow-xs ${
+                              migrationPath === p.k ? "bg-red-700 text-white border-red-800 shadow-md scale-[1.02]" : "bg-white text-stone-800 border-stone-300 hover:bg-stone-100 hover:border-stone-400"
                             }`}>{p.l}</button>
                         ))}
                       </div>
@@ -1061,130 +1061,130 @@ ${assessmentResult.message}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {migrationPath === "rwr" && (
                         <>
-                          <div className="space-y-1.5 font-bold text-xs text-stone-700">
-                            <label className="block">سن: <strong className="text-red-700 font-mono">{age} سال</strong></label>
+                          <div className="space-y-2 font-bold text-xs text-stone-900 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+                            <label className="block text-stone-900 font-extrabold text-xs">سن متقاضی: <strong className="text-red-700 font-mono text-sm">{age} سال</strong></label>
                             <input type="range" min="18" max="65" value={age} onChange={(e) => setAge(parseInt(e.target.value))}
-                              className="w-full accent-red-600 h-1.5 bg-stone-200 rounded-lg cursor-pointer" />
+                              className="w-full accent-red-600 h-2 bg-stone-300 rounded-lg cursor-pointer" />
                           </div>
-                          <div className="space-y-1.5 font-bold text-xs text-stone-700">
-                            <label className="block">مدرک تحصیلی:</label>
+                          <div className="space-y-2 font-bold text-xs text-stone-900 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+                            <label className="block text-stone-900 font-extrabold text-xs">مدرک تحصیلی:</label>
                             <select value={education} onChange={(e) => setEducation(e.target.value)}
-                              className="w-full bg-white border border-stone-250 p-2.5 rounded-xl text-xs font-bold cursor-pointer">
-                              <option value="phd">🎓 دکتری (۴۰)</option>
-                              <option value="master">🎓 فوق لیسانس (۳۰)</option>
-                              <option value="bachelor">🎓 لیسانس (۲۰)</option>
-                              <option value="vocational">🛠️ فنی‌وحرفه‌ای (۱۵)</option>
-                              <option value="none">فاقد مدرک (۰)</option>
+                              className="w-full bg-white text-stone-900 border-2 border-stone-300 p-2.5 rounded-xl text-xs font-black cursor-pointer focus:border-red-600 outline-none">
+                              <option value="phd">🎓 دکتری تخصصی (۴۰ امتیاز)</option>
+                              <option value="master">🎓 فوق لیسانس / کارشناسی ارشد (۳۰ امتیاز)</option>
+                              <option value="bachelor">🎓 لیسانس / کارشناسی (۲۰ امتیاز)</option>
+                              <option value="vocational">🛠️ فنی‌وحرفه‌ای تاییدشده (۱۵ امتیاز)</option>
+                              <option value="none">فاقد مدرک دانشگاهی (۰ امتیاز)</option>
                             </select>
                           </div>
-                          <div className="space-y-1.5 font-bold text-xs text-stone-700">
-                            <label className="block">آلمانی:</label>
+                          <div className="space-y-2 font-bold text-xs text-stone-900 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+                            <label className="block text-stone-900 font-extrabold text-xs">مدرک زبان آلمانی:</label>
                             <select value={germanSkill} onChange={(e) => setGermanSkill(e.target.value)}
-                              className="w-full bg-white border border-stone-250 p-2.5 rounded-xl text-xs font-bold cursor-pointer">
-                              <option value="B2+">سطح B2+ (۱۵)</option>
-                              <option value="B1">سطح B1 (۱۵)</option>
-                              <option value="A2">سطح A2 (۱۰)</option>
-                              <option value="A1">سطح A1 (۵)</option>
-                              <option value="none">فاقد (۰)</option>
+                              className="w-full bg-white text-stone-900 border-2 border-stone-300 p-2.5 rounded-xl text-xs font-black cursor-pointer focus:border-red-600 outline-none">
+                              <option value="B2+">سطح B2 و بالاتر (۱۵ امتیاز)</option>
+                              <option value="B1">سطح B1 (۱۵ امتیاز)</option>
+                              <option value="A2">سطح A2 (۱۰ امتیاز)</option>
+                              <option value="A1">سطح A1 (۵ امتیاز)</option>
+                              <option value="none">فاقد مدرک آلمانی (۰ امتیاز)</option>
                             </select>
                           </div>
-                          <div className="space-y-1.5 font-bold text-xs text-stone-700">
-                            <label className="block">انگلیسی:</label>
+                          <div className="space-y-2 font-bold text-xs text-stone-900 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+                            <label className="block text-stone-900 font-extrabold text-xs">مدرک زبان انگلیسی:</label>
                             <select value={englishSkill} onChange={(e) => setEnglishSkill(e.target.value)}
-                              className="w-full bg-white border border-stone-250 p-2.5 rounded-xl text-xs font-bold cursor-pointer">
-                              <option value="IELTS_6.0">IELTS 6.0+ (۱۰)</option>
-                              <option value="none">فاقد (۰)</option>
+                              className="w-full bg-white text-stone-900 border-2 border-stone-300 p-2.5 rounded-xl text-xs font-black cursor-pointer focus:border-red-600 outline-none">
+                              <option value="IELTS_6.0">IELTS 6.0+ یا معادل (۱۰ امتیاز)</option>
+                              <option value="none">فاقد مدرک انگلیسی (۰ امتیاز)</option>
                             </select>
                           </div>
                         </>
                       )}
                       {migrationPath === "study" && (
                         <>
-                          <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                            <input type="checkbox" checked={hasUniAdmission} onChange={(e) => setHasUniAdmission(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                            <span className="text-xs font-black text-stone-800">پذیرش قطعی (۴۰)</span>
+                          <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                            <input type="checkbox" checked={hasUniAdmission} onChange={(e) => setHasUniAdmission(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                            <span className="text-xs font-black text-stone-950">پذیرش قطعی دانشگاهی (۴۰ امتیاز)</span>
                           </label>
-                          <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                            <input type="checkbox" checked={hasStudyProofOfFunds} onChange={(e) => setHasStudyProofOfFunds(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                            <span className="text-xs font-black text-stone-800">تمکن مالی (۴۰)</span>
+                          <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                            <input type="checkbox" checked={hasStudyProofOfFunds} onChange={(e) => setHasStudyProofOfFunds(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                            <span className="text-xs font-black text-stone-950">اثبات تمکن مالی کافی (۴۰ امتیاز)</span>
                           </label>
-                          <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                            <input type="checkbox" checked={hasAustrianAccommodation} onChange={(e) => setHasAustrianAccommodation(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                            <span className="text-xs font-black text-stone-800">اسکان اتریش (۲۰)</span>
+                          <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                            <input type="checkbox" checked={hasAustrianAccommodation} onChange={(e) => setHasAustrianAccommodation(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                            <span className="text-xs font-black text-stone-950">قرارداد اسکان معتبر در اتریش (۲۰ امتیاز)</span>
                           </label>
                         </>
                       )}
                       {migrationPath === "financial" && (
                         <>
-                          <div className="space-y-1.5 font-bold text-xs text-stone-700">
-                            <label className="block">درآمد غیرفعال: <strong className="text-red-700 font-mono">{passiveMonthlyIncome} €</strong></label>
+                          <div className="space-y-2 font-bold text-xs text-stone-950 bg-stone-50 p-4 rounded-2xl border-2 border-stone-200">
+                            <label className="block text-stone-950 font-extrabold text-xs">درآمد غیرفعال ماهیانه: <strong className="text-red-700 font-mono text-sm">{passiveMonthlyIncome} €</strong></label>
                             <input type="range" min="1000" max="5000" step="100" value={passiveMonthlyIncome}
                               onChange={(e) => setPassiveMonthlyIncome(parseInt(e.target.value))}
-                              className="w-full accent-red-600 h-1.5 bg-stone-200 rounded-lg cursor-pointer" />
+                              className="w-full accent-red-600 h-2 bg-stone-300 rounded-lg cursor-pointer" />
                           </div>
-                          <label className="flex items-center gap-2 bg-white p-3 border border-stone-250 rounded-xl cursor-pointer">
-                            <input type="checkbox" checked={germanA1Certificate} onChange={(e) => setGermanA1Certificate(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                            <span className="text-xs font-black text-stone-800">مدرک A1 آلمانی (۳۰)</span>
+                          <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                            <input type="checkbox" checked={germanA1Certificate} onChange={(e) => setGermanA1Certificate(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                            <span className="text-xs font-black text-stone-950">مدرک زبان آلمانی سطح A1 (۳۰ امتیاز)</span>
                           </label>
                         </>
                       )}
                       {migrationPath === "family" && (
                         <>
-                          <div className="space-y-1.5 font-bold text-xs text-stone-700">
-                            <label className="block">وضعیت اسپانسر:</label>
+                          <div className="space-y-2 font-bold text-xs text-stone-950 bg-stone-50 p-4 rounded-2xl border-2 border-stone-200">
+                            <label className="block text-stone-950 font-extrabold text-xs">وضعیت اقامتی اسپانسر:</label>
                             <select value={familySponsorStatus} onChange={(e) => setFamilySponsorStatus(e.target.value)}
-                              className="w-full bg-white border border-stone-250 p-2.5 rounded-xl text-xs font-bold cursor-pointer">
-                              <option value="citizen">🇦🇹 شهروند اتریش (۴۰)</option>
-                              <option value="rwrPlus">📋 RWR+ (۳۰)</option>
-                              <option value="none">سایر (۰)</option>
+                              className="w-full bg-white text-stone-950 border-2 border-stone-300 p-2.5 rounded-xl text-xs font-black cursor-pointer focus:border-red-600 outline-none">
+                              <option value="citizen">🇦🇹 شهروند اتریش (۴۰ امتیاز)</option>
+                              <option value="rwrPlus">📋 دارنده کارت RWR+ (۳۰ امتیاز)</option>
+                              <option value="none">سایر وضعیت‌ها (۰ امتیاز)</option>
                             </select>
                           </div>
-                          <label className="flex items-center gap-2 bg-white p-3 border border-stone-250 rounded-xl cursor-pointer">
-                            <input type="checkbox" checked={familyA1Certificate} onChange={(e) => setFamilyA1Certificate(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                            <span className="text-xs font-black text-stone-800">A1 همسر (۳۰)</span>
+                          <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                            <input type="checkbox" checked={familyA1Certificate} onChange={(e) => setFamilyA1Certificate(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                            <span className="text-xs font-black text-stone-950">مدرک A1 همسر / اعضای خانواده (۳۰ امتیاز)</span>
                           </label>
                         </>
                       )}
                       {migrationPath === "researcher" && (
                         <>
-                          <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                            <input type="checkbox" checked={researcherHostingAgreement} onChange={(e) => setResearcherHostingAgreement(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                            <span className="text-xs font-black">Aufnahmevereinbarung (۵۰)</span>
+                          <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                            <input type="checkbox" checked={researcherHostingAgreement} onChange={(e) => setResearcherHostingAgreement(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                            <span className="text-xs font-black text-stone-950">قرارداد میزبانی پژوهشی (Aufnahmevereinbarung) (۵۰ امتیاز)</span>
                           </label>
-                          <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                            <input type="checkbox" checked={researcherFundsInsurance} onChange={(e) => setResearcherFundsInsurance(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                            <span className="text-xs font-black">تمکن و بیمه (۵۰)</span>
+                          <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                            <input type="checkbox" checked={researcherFundsInsurance} onChange={(e) => setResearcherFundsInsurance(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                            <span className="text-xs font-black text-stone-950">تاییدیه تمکن مالی و بیمه درمانی (۵۰ امتیاز)</span>
                           </label>
                         </>
                       )}
                       {migrationPath === "ict" && (
-                        <label className="flex items-center gap-2 bg-white p-3 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={ictEmployedBefore} onChange={(e) => setIctEmployedBefore(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">۶-۱۲ ماه سابقه شرکت مادر</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={ictEmployedBefore} onChange={(e) => setIctEmployedBefore(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">سابقه ۶ الی ۱۲ ماه در شرکت مادر</span>
                         </label>
                       )}
                       {migrationPath === "special-work" && (
-                        <label className="flex items-center gap-2 bg-white p-3 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={specialWorkAgeRange} onChange={(e) => setSpecialWorkAgeRange(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">سن ۱۸-۲۸ سال</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={specialWorkAgeRange} onChange={(e) => setSpecialWorkAgeRange(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">رده سنی متقاضی بین ۱۸ تا ۲۸ سال</span>
                         </label>
                       )}
                       {migrationPath === "volunteer" && (
-                        <label className="flex items-center gap-2 bg-white p-3 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={volunteerContract} onChange={(e) => setVolunteerContract(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">قرارداد خیریه معتبر</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={volunteerContract} onChange={(e) => setVolunteerContract(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">قرارداد رسمی خیریه و سازمان معتبر</span>
                         </label>
                       )}
                       {migrationPath === "self-employed-temp" && (
-                        <label className="flex items-center gap-2 bg-white p-3 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={selfEmployedContracts} onChange={(e) => setSelfEmployedContracts(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">قراردادهای خدمات محلی</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={selfEmployedContracts} onChange={(e) => setSelfEmployedContracts(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">قراردادهای مستقل خدمات محلی در اتریش</span>
                         </label>
                       )}
                       {migrationPath === "seasonal" && (
-                        <label className="flex items-center gap-2 bg-white p-3 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={seasonalAMSQuota} onChange={(e) => setSeasonalAMSQuota(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">سهمیه AMS</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={seasonalAMSQuota} onChange={(e) => setSeasonalAMSQuota(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">تاییدیه سهمیه کار فصلی اداره کار (AMS)</span>
                         </label>
                       )}
                     </div>
@@ -1192,7 +1192,7 @@ ${assessmentResult.message}
                     <div className="flex justify-end pt-3">
                       <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                         type="button" onClick={() => setAssessStep(2)}
-                        className="bg-stone-900 hover:bg-stone-850 text-white text-xs font-black px-6 py-2.5 rounded-xl cursor-pointer">
+                        className="bg-stone-950 hover:bg-black text-white text-xs font-black px-7 py-3 rounded-xl cursor-pointer shadow-md">
                         مرحله بعدی ←
                       </motion.button>
                     </div>
@@ -1203,49 +1203,49 @@ ${assessmentResult.message}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {migrationPath === "rwr" && (
                       <>
-                        <div className="space-y-1.5 font-bold text-xs text-stone-700">
-                          <label className="block">سابقه کار: <strong className="text-red-700 font-mono">{experienceYears} سال</strong></label>
+                        <div className="space-y-2 font-bold text-xs text-stone-950 bg-stone-50 p-4 rounded-2xl border-2 border-stone-200">
+                          <label className="block text-stone-950 font-extrabold text-xs">سابقه کار مرتبط: <strong className="text-red-700 font-mono text-sm">{experienceYears} سال</strong></label>
                           <input type="range" min="0" max="15" value={experienceYears} onChange={(e) => setExperienceYears(parseInt(e.target.value))}
-                            className="w-full accent-red-600 h-1.5 bg-stone-200 rounded-lg cursor-pointer" />
+                            className="w-full accent-red-600 h-2 bg-stone-300 rounded-lg cursor-pointer" />
                         </div>
-                        <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={studiedInAustria} onChange={(e) => setStudiedInAustria(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">فارغ‌التحصیل اتریش (۱۰)</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={studiedInAustria} onChange={(e) => setStudiedInAustria(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">فارغ‌التحصیل از دانشگاه‌های اتریش (۱۰ امتیاز)</span>
                         </label>
-                        <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={hasJobOffer} onChange={(e) => setHasJobOffer(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">Job Offer</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={hasJobOffer} onChange={(e) => setHasJobOffer(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">پیشنهاد کاری رسمی معتبر (Job Offer)</span>
                         </label>
-                        <label className="flex items-center gap-2 bg-white p-2.5 border border-stone-250 rounded-xl cursor-pointer">
-                          <input type="checkbox" checked={isShortageOccup} onChange={(e) => setIsShortageOccup(e.target.checked)} className="w-4 h-4 text-red-600 rounded" />
-                          <span className="text-xs font-black">شغل در Mangelberufe</span>
+                        <label className="flex items-center gap-2.5 bg-stone-50 hover:bg-white p-3 border-2 border-stone-300 rounded-xl cursor-pointer transition-colors">
+                          <input type="checkbox" checked={isShortageOccup} onChange={(e) => setIsShortageOccup(e.target.checked)} className="w-4 h-4 accent-red-600 rounded" />
+                          <span className="text-xs font-black text-stone-950">شغل در لیست مشاغل مورد نیاز شدید (Mangelberufe)</span>
                         </label>
                       </>
                     )}
                     {migrationPath === "family" && (
-                      <div className="space-y-1.5 font-bold text-xs text-stone-700 md:col-span-2">
-                        <label className="block">درآمد ماهیانه حامی: <strong className="text-red-700 font-mono">{familySponsorMonthlyIncome} €</strong></label>
+                      <div className="space-y-2 font-bold text-xs text-stone-950 bg-stone-50 p-4 rounded-2xl border-2 border-stone-200 md:col-span-2">
+                        <label className="block text-stone-950 font-extrabold text-xs">درآمد خالص ماهیانه حامی: <strong className="text-red-700 font-mono text-sm">{familySponsorMonthlyIncome} €</strong></label>
                         <input type="range" min="1200" max="4000" step="50" value={familySponsorMonthlyIncome}
                           onChange={(e) => setFamilySponsorMonthlyIncome(parseInt(e.target.value))}
-                          className="w-full accent-red-600 h-1.5 bg-stone-200 rounded-lg cursor-pointer" />
+                          className="w-full accent-red-600 h-2 bg-stone-300 rounded-lg cursor-pointer" />
                       </div>
                     )}
                     {migrationPath === "financial" && (
-                      <div className="space-y-1.5 font-bold text-xs text-stone-700 md:col-span-2">
-                        <label className="block">سپرده نقدی: <strong className="text-red-700 font-mono">{liquidEuroSavings} €</strong></label>
+                      <div className="space-y-2 font-bold text-xs text-stone-950 bg-stone-50 p-4 rounded-2xl border-2 border-stone-200 md:col-span-2">
+                        <label className="block text-stone-950 font-extrabold text-xs">سپرده نقدی نقدپذیر بانکی: <strong className="text-red-700 font-mono text-sm">{liquidEuroSavings} €</strong></label>
                         <input type="range" min="10000" max="100000" step="5000" value={liquidEuroSavings}
                           onChange={(e) => setLiquidEuroSavings(parseInt(e.target.value))}
-                          className="w-full accent-red-600 h-1.5 bg-stone-200 rounded-lg cursor-pointer" />
+                          className="w-full accent-red-600 h-2 bg-stone-300 rounded-lg cursor-pointer" />
                       </div>
                     )}
                     <div className="col-span-1 md:col-span-2 flex justify-between gap-3 pt-3">
                       <button type="button" onClick={() => setAssessStep(1)}
-                        className="bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-black px-6 py-2.5 rounded-xl cursor-pointer">
+                        className="bg-stone-100 hover:bg-stone-200 text-stone-900 border-2 border-stone-300 text-xs font-black px-6 py-2.5 rounded-xl cursor-pointer transition-colors">
                         ← بازگشت
                       </button>
                       <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                         type="button" onClick={handleCalculateAssessment}
-                        className="bg-red-600 hover:bg-red-700 text-white text-xs font-black px-6 py-2.5 rounded-xl cursor-pointer shadow-sm">
+                        className="bg-red-700 hover:bg-red-800 text-white text-xs font-black px-6 py-2.5 rounded-xl cursor-pointer shadow-md">
                         محاسبه نهایی و صدور کارنامه 📊
                       </motion.button>
                     </div>
@@ -1254,53 +1254,53 @@ ${assessmentResult.message}
 
                 {assessStep === 3 && assessmentResult && (
                   <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-5">
-                    <div className="p-5 bg-stone-900 text-white rounded-2xl relative overflow-hidden">
-                      <div className="absolute top-0 left-0 w-32 h-32 bg-red-600/10 rounded-full blur-2xl"></div>
-                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <div className="space-y-1">
-                          <span className="text-[10px] bg-red-600 text-white font-extrabold px-2 py-0.5 rounded">
+                    <div className="p-5 sm:p-6 bg-stone-950 text-white rounded-2xl relative overflow-hidden border-2 border-stone-800 shadow-md">
+                      <div className="absolute top-0 left-0 w-32 h-32 bg-red-600/15 rounded-full blur-2xl"></div>
+                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+                        <div className="space-y-1.5 text-center sm:text-right">
+                          <span className="text-[11px] bg-red-600 text-white font-extrabold px-3 py-1 rounded-md inline-block">
                             کارنامه رسمی ارزیابی اتریش
                           </span>
-                          <h4 className="font-extrabold text-stone-100 text-xs sm:text-sm mt-1.5">
+                          <h4 className="font-black text-white text-sm sm:text-base mt-1.5">
                             مسیر پیشنهادی: {assessmentResult.path}
                           </h4>
                         </div>
-                        <div className="text-center bg-white/10 p-3.5 rounded-2xl border border-white/20 shrink-0">
-                          <span className="text-[9px] text-stone-300 block">امتیاز کل:</span>
-                          <strong className="text-2xl font-mono text-red-500 block mt-0.5">
+                        <div className="text-center bg-stone-900 p-4 rounded-2xl border-2 border-stone-700 shrink-0 min-w-[130px]">
+                          <span className="text-[11px] text-stone-200 font-black block">امتیاز کسب‌شده:</span>
+                          <strong className="text-3xl font-mono text-red-500 block mt-0.5">
                             {assessmentResult.points} <span className="text-xs font-sans text-stone-200">امتیاز</span>
                           </strong>
                         </div>
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div className="bg-white border border-stone-200 p-5 rounded-2xl space-y-3">
-                        <h5 className="font-black text-stone-850 text-xs border-b border-stone-100 pb-2">📂 ریز محاسبات:</h5>
-                        <div className="text-xs text-stone-600 font-bold whitespace-pre-line leading-relaxed">{assessmentResult.log}</div>
+                      <div className="bg-white border-2 border-stone-200 p-5 rounded-2xl space-y-3 shadow-xs">
+                        <h5 className="font-black text-stone-950 text-xs sm:text-sm border-b-2 border-stone-100 pb-2">📂 ریز محاسبات امتیازات:</h5>
+                        <div className="text-xs text-stone-950 font-bold whitespace-pre-line leading-relaxed bg-stone-50 p-4 rounded-xl border border-stone-200">{assessmentResult.log}</div>
                       </div>
-                      <div className="bg-white border border-stone-200 p-5 rounded-2xl flex flex-col justify-between">
+                      <div className="bg-white border-2 border-stone-200 p-5 rounded-2xl flex flex-col justify-between shadow-xs">
                         <div className="space-y-3">
-                          <h5 className="font-black text-stone-850 text-xs border-b border-stone-100 pb-2 flex items-center justify-end gap-1.5">
-                            <span>خلاصه ارزیابی:</span><CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                          <h5 className="font-black text-stone-950 text-xs sm:text-sm border-b-2 border-stone-100 pb-2 flex items-center justify-end gap-1.5">
+                            <span>خلاصه وضعیت ارزیابی:</span><CheckCircle2 className="w-4 h-4 text-emerald-600" />
                           </h5>
-                          <p className="text-xs text-stone-650 font-black leading-relaxed">{assessmentResult.message}</p>
+                          <p className="text-xs text-stone-950 font-black leading-relaxed bg-emerald-50/80 p-4 rounded-xl border-2 border-emerald-300">{assessmentResult.message}</p>
                         </div>
-                        <div className="bg-stone-50 p-4 border border-stone-150 rounded-2xl space-y-3 mt-4">
-                          <div className="flex gap-2 items-center justify-end text-[10px] text-stone-500 font-black">
-                            <span>شماره مشاور: <strong className="font-mono text-stone-900">+43 688 976 3256</strong></span>
-                            <MapPin className="w-3.5 h-3.5 text-stone-400" />
+                        <div className="bg-stone-50 p-4 border-2 border-stone-200 rounded-2xl space-y-3 mt-4">
+                          <div className="flex gap-2 items-center justify-end text-xs text-stone-800 font-black">
+                            <span>شماره مستقیم مشاور ویزا: <strong className="font-mono text-stone-950 font-black" dir="ltr">+43 688 976 3256</strong></span>
+                            <MapPin className="w-3.5 h-3.5 text-stone-500" />
                           </div>
                           <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer"
-                            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black py-3 rounded-xl flex items-center justify-center gap-2 shadow-md text-center">
+                            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black py-3 rounded-xl flex items-center justify-center gap-2 shadow-md text-center transition-colors">
                             📬 ارسال کارنامه به واتساپ
                           </a>
                         </div>
                       </div>
                     </div>
-                    <div className="flex justify-between items-center pt-3 border-t border-stone-100">
+                    <div className="flex justify-between items-center pt-3 border-t-2 border-stone-100">
                       <button type="button" onClick={() => { setAssessStep(1); setAssessmentResult(null); }}
-                        className="bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-black px-5 py-2.5 rounded-xl cursor-pointer">
-                        شروع مجدد
+                        className="bg-stone-100 hover:bg-stone-200 text-stone-900 border-2 border-stone-300 text-xs font-black px-6 py-2.5 rounded-xl cursor-pointer transition-colors">
+                        شروع مجدد ارزیابی
                       </button>
                     </div>
                   </motion.div>
@@ -1512,71 +1512,71 @@ ${assessmentResult.message}
           {/* ============ NOSTRIFIZIERUNG TAB ============ */}
           {activeTab === "nostrifizierung" && (
             <div className="space-y-6">
-              <div className="bg-rose-50 border border-rose-100 rounded-3xl p-5 md:p-6 space-y-2">
-                <h3 className="font-extrabold text-red-950 text-xs sm:text-sm md:text-base flex items-center justify-end gap-2">
-                  <span>ارزشیابی مدارک تحصیلی (Nostrifizierung) 🎓</span><span>🎓</span>
+              <div className="bg-purple-500/15 border-2 border-purple-400/40 rounded-3xl p-5 md:p-6 space-y-2">
+                <h3 className="font-black text-purple-200 text-sm md:text-base flex items-center justify-end gap-2">
+                  <span>راهنمای ارزشیابی و معادل‌سازی مدارک تحصیلی (Nostrifizierung)</span><span>🎓</span>
                 </h3>
-                <p className="text-xs text-stone-605 font-bold leading-relaxed">
-                  ارزشیابی مدارک تحصیلی در اتریش با توجه به رشته تحصیلی به مراجع متفاوت واگذار می‌گردد.
+                <p className="text-xs text-stone-200 font-bold leading-relaxed">
+                  ارزشیابی مدارک تحصیلی در اتریش با توجه به رشته تحصیلی به مراجع دانشگاهی، نظام پزشکی یا وزارت علوم (ENIC-NARIC) واگذار می‌گردد.
                 </p>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <div className="lg:col-span-4 bg-stone-50 border border-stone-150 p-5 rounded-3xl space-y-4">
-                  <span className="block text-xs font-black text-stone-800">۱. انتخاب تخصص:</span>
-                  <div className="flex flex-col gap-2">
+                <div className="lg:col-span-4 bg-white border-2 border-stone-200 p-6 rounded-3xl space-y-4 text-stone-950 shadow-md">
+                  <span className="block text-xs sm:text-sm font-black text-stone-950 border-b-2 border-stone-100 pb-2">۱. انتخاب رشته و تخصص:</span>
+                  <div className="flex flex-col gap-2.5">
                     {[
                       { id: "medicine", label: "🩺 پزشکی و دندانپزشکی" },
                       { id: "nursing", label: "🩺 پرستاری و پیراپزشکی" },
                       { id: "engineering", label: "📐 مهندسی و معماری" },
-                      { id: "teaching", label: "🏫 کادر آموزشی" }
+                      { id: "teaching", label: "🏫 کادر آموزشی و تدریس" }
                     ].map(item => (
                       <button key={item.id} onClick={() => setNostriProfession(item.id)}
-                        className={`w-full p-3.5 rounded-2xl text-right transition-all flex flex-col gap-1 border cursor-pointer ${
-                          nostriProfession === item.id ? "bg-red-600 text-white border-red-700 shadow-sm" : "bg-white text-stone-700 border-stone-200 hover:bg-stone-50"
+                        className={`w-full p-3.5 rounded-2xl text-right transition-all flex flex-col gap-1 border-2 cursor-pointer ${
+                          nostriProfession === item.id ? "bg-red-700 text-white border-red-800 shadow-md scale-[1.02]" : "bg-stone-50 text-stone-950 border-stone-300 hover:bg-stone-100"
                         }`}>
-                        <span className="text-xs font-black">{item.label}</span>
+                        <span className="text-xs sm:text-sm font-black">{item.label}</span>
                       </button>
                     ))}
                   </div>
                 </div>
-                <div className="lg:col-span-8 bg-white border border-stone-200 p-6 rounded-3xl space-y-6">
+                <div className="lg:col-span-8 bg-white border-2 border-stone-200 p-6 rounded-3xl space-y-6 text-stone-950 shadow-md">
                   {nostriProfession === "medicine" && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                      <h4 className="font-extrabold text-stone-900 text-sm">معادل‌سازی مدارک پزشکی</h4>
-                      <p className="text-xs text-stone-605 leading-relaxed font-bold">
-                        برای کار به عنوان پزشک، باید مدرک خود را در یکی از سه دانشگاه پزشکی اتریش (وین، گراتس، اینسبروک) معادل‌سازی کنید.
+                      <h4 className="font-black text-stone-950 text-sm sm:text-base">معادل‌سازی مدارک پزشکی عمومی و تخصصی</h4>
+                      <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-bold">
+                        برای طبابت در اتریش، باید مدرک خود را در یکی از سه دانشگاه علوم پزشکی دولتی اتریش (وین، گراتس یا اینسبروک) معادل‌سازی و در آزمون‌های تطبیقی شرکت کنید.
                       </p>
-                      <div className="bg-stone-50 border border-stone-150 p-4 rounded-2xl space-y-2 text-xs font-bold text-stone-700">
-                        <h5 className="font-extrabold text-stone-900">📑 مدارک کلیدی:</h5>
-                        <ul className="list-disc list-inside space-y-1 text-[11px] leading-relaxed pr-3">
-                          <li>دانشنامه رسمی و ریزنمرات کامل</li>
-                          <li>آلمانی B2 و تخصصی C1</li>
-                          <li>عدم سوءپیشینه با تایید سفارت</li>
+                      <div className="bg-stone-50 border-2 border-stone-200 p-5 rounded-2xl space-y-3 text-xs font-bold text-stone-900">
+                        <h5 className="font-black text-stone-950 text-xs sm:text-sm">📑 مدارک کلیدی مورد نیاز:</h5>
+                        <ul className="list-disc list-inside space-y-1.5 text-xs text-stone-800 leading-relaxed pr-2">
+                          <li>دانشنامه رسمی پزشکی و ریزنمرات کامل با مهر و تاییدات سفارت</li>
+                          <li>مدرک زبان آلمانی حداقل B2 عمومی و C1 Fachsprache تخصصی پزشکی</li>
+                          <li>گواهی گوداستندینگ (Good Standing) از سازمان نظام پزشکی</li>
                         </ul>
                       </div>
                     </motion.div>
                   )}
                   {nostriProfession === "nursing" && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                      <h4 className="font-extrabold text-stone-900 text-sm">پرستاری و پیراپزشکی</h4>
-                      <p className="text-xs text-stone-605 leading-relaxed font-bold">
-                        اتریش با بحران کمبود پرستار مواجه است. مدارک با کسری واحدهای عملی برطرف می‌گردد.
+                      <h4 className="font-black text-stone-950 text-sm sm:text-base">معادل‌سازی پرستاری و پیراپزشکی</h4>
+                      <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-bold">
+                        اتریش با کمبود شدید کادر درمان مواجه است. مدارک کارشناسی پرستاری معمولاً با گذراندن یک دوره انطباق چندماهه یا امتحان عملی در ایالت مقصد تایید می‌شوند.
                       </p>
                     </motion.div>
                   )}
                   {nostriProfession === "engineering" && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                      <h4 className="font-extrabold text-stone-900 text-sm">مهندسان و معماران</h4>
-                      <p className="text-xs text-stone-605 leading-relaxed font-bold">
-                        برای مشاغل مهندسی معمولی، ارزیابی از طریق <strong>ENIC-NARIC Austria</strong> کفایت می‌کند.
+                      <h4 className="font-black text-stone-950 text-sm sm:text-base">ارزشیابی مهندسان و معماران</h4>
+                      <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-bold">
+                        برای مشاغل مهندسی معمولی نیازی به Nostrifizierung پیچیده نیست و اخذ گواهی ارزشیابی سطحی از طریق <strong>ENIC-NARIC Austria</strong> کفایت می‌کند.
                       </p>
                     </motion.div>
                   )}
                   {nostriProfession === "teaching" && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                      <h4 className="font-extrabold text-stone-900 text-sm">کادر معلمی</h4>
-                      <p className="text-xs text-stone-605 leading-relaxed font-bold">
-                        سطح زبان آلمانی برای معلمان دبستان و دبیرستان حداقل C1 است.
+                      <h4 className="font-black text-stone-950 text-sm sm:text-base">کادر تدریس و آموزش</h4>
+                      <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-bold">
+                        معلمان متقاضی تدریس در مدارس اتریش نیاز به ارائه مدرک زبان آلمانی در سطح C1 و تاییدیه شورای آموزش و پرورش ایالتی (Bildungsdirektion) دارند.
                       </p>
                     </motion.div>
                   )}
@@ -1588,15 +1588,15 @@ ${assessmentResult.message}
           {/* ============ LAWS TAB ============ */}
           {activeTab === "laws" && (
             <div className="space-y-6">
-              <div className="bg-amber-50 border border-amber-200 rounded-3xl p-5 md:p-6 space-y-2">
-                <h3 className="font-extrabold text-amber-950 text-xs sm:text-sm md:text-base flex items-center justify-end gap-2">
-                  <span>موتور دایرةالمعارف قوانین رسمی اتریش 📜</span><span>📜</span>
+              <div className="bg-amber-500/15 border-2 border-amber-400/40 rounded-3xl p-5 md:p-6 space-y-2">
+                <h3 className="font-black text-amber-300 text-sm md:text-base flex items-center justify-end gap-2">
+                  <span>موتور دایرةالمعارف قوانین رسمی اتریش</span><span>📜</span>
                 </h3>
-                <p className="text-xs text-stone-655 font-bold leading-relaxed">
-                  جستجو در قوانین مالی، قرارداد کار و روابط مستاجرین با کارفرمای اتریشی.
+                <p className="text-xs text-stone-200 font-bold leading-relaxed">
+                  جستجو در قوانین مالی، حقوق مستاجرین (MRG)، قرارداد کار (Arbeitsrecht) و شرایط تغییر کارفرما و اقامت (NAG).
                 </p>
               </div>
-              <div className="flex gap-2 border-b border-stone-150 pb-3 overflow-x-auto">
+              <div className="flex gap-2.5 border-b border-stone-700/60 pb-3 overflow-x-auto">
                 {[
                   { id: "all", label: "کل قوانین" },
                   { id: "mrg", label: "🏠 مستاجرین (MRG)" },
@@ -1605,20 +1605,22 @@ ${assessmentResult.message}
                   { id: "family", label: "🏥 بیمه (Mitversicherung)" }
                 ].map(cat => (
                   <button key={cat.id} onClick={() => setSelectedLawCat(cat.id)}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all whitespace-nowrap cursor-pointer ${
-                      selectedLawCat === cat.id ? "bg-stone-900 text-white" : "bg-stone-100 text-stone-605 hover:bg-stone-200"
+                    className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all whitespace-nowrap cursor-pointer border-2 ${
+                      selectedLawCat === cat.id
+                        ? "bg-red-700 text-white border-red-800 shadow-md scale-[1.02]"
+                        : "bg-white text-stone-950 border-stone-300 hover:bg-stone-100 hover:border-stone-400 shadow-xs"
                     }`}>{cat.label}</button>
                 ))}
               </div>
-              <div className="bg-stone-50 border border-stone-150 p-4 rounded-2xl">
+              <div className="bg-stone-900/60 border border-stone-700 p-4 rounded-2xl">
                 <div className="relative">
-                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+                  <Search className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500" />
                   <input type="text" value={lawSearchQuery} onChange={(e) => setLawSearchQuery(e.target.value)}
-                    placeholder="جستجوی قوانین (مثال: مستاجر، بیمه، تغییر کارفرما...)"
-                    className="w-full bg-white border border-stone-250 p-3 pr-10 rounded-xl text-xs font-bold outline-none focus:border-red-500" />
+                    placeholder="جستجوی قوانین (مثال: مستاجر، ودیعه، بیمه، اضافه کار، تغییر کارفرما...)"
+                    className="w-full bg-white text-stone-950 placeholder:text-stone-500 border-2 border-stone-300 p-3 pr-10 rounded-xl text-xs sm:text-sm font-black outline-none focus:border-red-600 focus:ring-2 focus:ring-red-200" />
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {[
                   { id: "l1", title: "قانون استرداد ودیعه (Kaution MRG § 16b)", category: "mrg", desc: "صاحبخانه موظف به استرداد ودیعه با سود بانکی حداکثر ۳-۴ هفته پس از اتمام اجاره است.", tip: "شکایت به Schlichtungsstelle رایگان است." },
                   { id: "l2", title: "تغییر کارفرمای RWR", category: "immigration", desc: "متقاضیان RWR تا قبل از RWR+ حق کار در شرکت دیگر را ندارند. جابجایی باید از AMS تایید شود.", tip: "رعایت Kündigungsfrist الزامی است." },
@@ -1632,15 +1634,15 @@ ${assessmentResult.message}
                   })
                   .map(law => (
                     <motion.article key={law.id} whileHover={{ y: -3 }}
-                      className="bg-white border border-stone-200 rounded-2xl p-5 hover:border-red-200 transition-all flex flex-col justify-between">
-                      <div className="space-y-2">
-                        <span className="text-[10px] bg-stone-100 text-stone-700 font-extrabold px-2 py-0.5 rounded">
+                      className="bg-white border-2 border-stone-200 rounded-2xl p-5 sm:p-6 hover:border-red-300 transition-all flex flex-col justify-between text-stone-950 shadow-md">
+                      <div className="space-y-3">
+                        <span className="text-[11px] bg-stone-100 text-stone-900 border border-stone-300 font-black px-2.5 py-1 rounded inline-block">
                           {law.category === "mrg" ? "مسکن MRG" : law.category === "immigration" ? "مهاجرت NAG" : law.category === "labor" ? "حقوق کار" : "سلامت"}
                         </span>
-                        <h4 className="font-extrabold text-stone-850 text-xs sm:text-sm">{law.title}</h4>
-                        <p className="text-xs text-stone-550 leading-relaxed font-bold">{law.desc}</p>
+                        <h4 className="font-black text-stone-950 text-sm sm:text-base leading-snug">{law.title}</h4>
+                        <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-bold">{law.desc}</p>
                       </div>
-                      <div className="mt-4 pt-3 border-t border-stone-100 bg-amber-50/20 p-2.5 rounded-xl text-[10.5px] text-amber-900 font-black">
+                      <div className="mt-4 pt-3 border-t-2 border-amber-200 bg-amber-50 p-3 rounded-xl text-xs text-amber-950 font-black border border-amber-300">
                         💬 {law.tip}
                       </div>
                     </motion.article>
@@ -1652,37 +1654,37 @@ ${assessmentResult.message}
           {/* ============ SCHOOL GUIDE TAB ============ */}
           {activeTab === "school_guide" && (
             <div className="space-y-6">
-              <div className="bg-stone-50 border border-stone-200 rounded-3xl p-5 md:p-6 space-y-2">
-                <h3 className="font-extrabold text-stone-850 text-xs sm:text-sm md:text-base flex items-center justify-end gap-2">
-                  <span>راهنمای ثبت‌نام مدارس اتریش 🎒</span><span>🎒</span>
+              <div className="bg-sky-500/15 border-2 border-sky-400/40 rounded-3xl p-5 md:p-6 space-y-2">
+                <h3 className="font-black text-sky-200 text-sm md:text-base flex items-center justify-end gap-2">
+                  <span>راهنمای ثبت‌نام مدارس و نظام آموزش اتریش</span><span>🎒</span>
                 </h3>
-                <p className="text-xs text-stone-400 font-bold leading-relaxed">
-                  تحصیل از ۶ الی ۱۵ سالگی اجباری (Schulpflicht) و کاملاً رایگان است.
+                <p className="text-xs text-stone-200 font-bold leading-relaxed">
+                  تحصیل کودکان و نوجوانان از ۶ الی ۱۵ سالگی در اتریش اجباری (Schulpflicht) و در تمامی مدارس دولتی کاملاً رایگان است.
                 </p>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <div className="lg:col-span-8 bg-white border border-stone-200 p-5 rounded-3xl space-y-5">
-                  <h4 className="font-extrabold text-stone-900 text-xs sm:text-sm">🗓️ تقویم و مراحل:</h4>
+                <div className="lg:col-span-8 bg-white border-2 border-stone-200 p-6 rounded-3xl space-y-5 text-stone-950 shadow-md">
+                  <h4 className="font-black text-stone-950 text-sm sm:text-base">🗓️ تقویم تحصیلی و مراحل ثبت‌نام:</h4>
                   {[
-                    { title: "۱. مهدکودک (Kindergarten) - ۳ تا ۶ سال", desc: "ثبت‌نام عمدتاً نوامبر تا دسامبر هر سال برای سپتامبر سال جدید." },
-                    { title: "۲. دبستان (Volksschule) - ۶ تا ۱۰ سال", desc: "ثبت‌نام از ژانویه آغاز می‌شود. معاینات Mutter-Kind-Pass الزامی است." },
-                    { title: "۳. دبیرستان (Mittelschule / Gymnasium)", desc: "بر اساس نمرات کارنامه دبستان توزیع می‌شوند." }
+                    { title: "۱. مهدکودک (Kindergarten) - ۳ تا ۶ سال", desc: "ثبت‌نام عمدتاً از نوامبر تا دسامبر هر سال برای پذیرش در سپتامبر سال تحصیلی جدید انجام می‌شود." },
+                    { title: "۲. دبستان دولتی (Volksschule) - ۶ تا ۱۰ سال", desc: "ثبت‌نام رسمی از ژانویه آغاز می‌گردد. گواهی معاینات سلامت Mutter-Kind-Pass الزامی است." },
+                    { title: "۳. دبیرستان (Mittelschule / Gymnasium) - ۱۰ تا ۱۸ سال", desc: "بر اساس نمرات رسمی کارنامه دوره دبستان و آزمون‌های ارزیابی توزیع می‌گردند." }
                   ].map((s, i) => (
-                    <div key={i} className="p-4 bg-stone-50/50 border border-stone-150 rounded-2xl space-y-1">
-                      <h5 className="font-black text-xs text-stone-850">{s.title}</h5>
-                      <p className="text-[11px] text-stone-500 leading-relaxed font-bold">{s.desc}</p>
+                    <div key={i} className="p-4 bg-stone-50 border-2 border-stone-200 rounded-2xl space-y-1.5">
+                      <h5 className="font-black text-xs sm:text-sm text-stone-950">{s.title}</h5>
+                      <p className="text-xs text-stone-800 leading-relaxed font-bold">{s.desc}</p>
                     </div>
                   ))}
-                  <div className="bg-rose-50/40 border border-rose-100 p-4 rounded-2xl space-y-2.5">
-                    <h5 className="font-extrabold text-stone-900 text-xs">🧮 شبیه‌ساز تعیین مقطع:</h5>
+                  <div className="bg-rose-50 border-2 border-rose-200 p-5 rounded-2xl space-y-3">
+                    <h5 className="font-black text-red-950 text-xs sm:text-sm">🧮 شبیه‌ساز تعیین مقطع تحصیلی بر اساس سن:</h5>
                     <div className="flex items-center gap-3">
-                      <span className="text-xs text-stone-605 font-bold">سن کودک:</span>
+                      <span className="text-xs text-stone-900 font-black">سن کودک:</span>
                       <input type="range" min="3" max="16" value={childAge} onChange={(e) => setChildAge(Number(e.target.value))}
-                        className="flex-1 accent-red-600 cursor-pointer" />
-                      <span className="text-xs font-black text-red-600 bg-white border border-stone-200 p-1 px-3 rounded-xl">{childAge} سال</span>
+                        className="flex-1 accent-red-600 h-2 bg-stone-300 rounded-lg cursor-pointer" />
+                      <span className="text-xs font-black text-red-700 bg-white border-2 border-red-200 p-1.5 px-3.5 rounded-xl">{childAge} سال</span>
                     </div>
-                    <p className="text-[11px] text-stone-550 leading-relaxed font-bold">
-                      مقطع: <strong className="text-red-950">
+                    <p className="text-xs text-stone-900 leading-relaxed font-bold">
+                      مقطع پیشنهادی: <strong className="text-red-800 font-black text-xs sm:text-sm">
                         {childAge < 6 ? "مهدکودک (Kindergarten)"
                           : childAge <= 10 ? `دبستان دولتی (کلاس ${childAge - 5} ام)`
                           : childAge <= 14 ? "Gymnasium Unterstufe"
@@ -1691,12 +1693,12 @@ ${assessmentResult.message}
                     </p>
                   </div>
                 </div>
-                <div className="lg:col-span-4 bg-stone-50 border border-stone-150 p-5 rounded-3xl space-y-4">
-                  <span className="block text-xs font-black text-stone-800">📋 مدارک لازم:</span>
-                  <ul className="space-y-2.5 text-[11px] font-bold text-stone-600 leading-relaxed">
-                    {["Meldezettel مشترک", "شناسنامه و پاسپورت ترجمه‌شده", "کارت Mutter-Kind-Pass", "کارت e-Card کودک"].map((d, i) => (
-                      <li key={i} className="flex gap-2 items-start">
-                        <span className="text-red-600">✔</span><span>{d}</span>
+                <div className="lg:col-span-4 bg-white border-2 border-stone-200 p-6 rounded-3xl space-y-4 text-stone-950 shadow-md">
+                  <span className="block text-xs sm:text-sm font-black text-stone-950 border-b-2 border-stone-100 pb-2">📋 مدارک لازم جهت ثبت‌نام:</span>
+                  <ul className="space-y-3 text-xs font-bold text-stone-800 leading-relaxed">
+                    {["تاییدیه سکونت Meldezettel مشترک والدین و کودک", "ترجمه رسمی شناسنامه و گذرنامه به زبان آلمانی", "دفترچه معاینات ادواری کودک (Mutter-Kind-Pass)", "کارت هوشمند خدمات درمانی e-Card اتریش"].map((d, i) => (
+                      <li key={i} className="flex gap-2.5 items-start">
+                        <span className="text-emerald-600 font-black text-sm">✔</span><span className="text-stone-900">{d}</span>
                       </li>
                     ))}
                   </ul>
@@ -1708,36 +1710,36 @@ ${assessmentResult.message}
           {/* ============ TRAFFIC FINES TAB ============ */}
           {activeTab === "traffic_fines" && (
             <div className="space-y-6">
-              <div className="bg-red-50 border border-red-150 rounded-3xl p-5 md:p-6 space-y-2">
-                <h3 className="font-extrabold text-red-950 text-xs sm:text-sm md:text-base flex items-center justify-end gap-2">
-                  <span>راهنمای اعتراض به جریمه‌های رانندگی اتریش 🚗</span><span>🚗</span>
+              <div className="bg-red-500/15 border-2 border-red-400/40 rounded-3xl p-5 md:p-6 space-y-2">
+                <h3 className="font-black text-red-200 text-sm md:text-base flex items-center justify-end gap-2">
+                  <span>راهنمای اعتراض به جریمه‌های رانندگی اتریش</span><span>🚗</span>
                 </h3>
-                <p className="text-xs text-stone-605 font-bold leading-relaxed">
-                  مراحل بررسی قانونی برگه جریمه و نگارش اعتراض کتبی به Magistrat.
+                <p className="text-xs text-stone-200 font-bold leading-relaxed">
+                  مراحل قانونی بررسی برگه جریمه، مواعد پرداخت و نحوه ثبت لایحه اعتراضی به شهرداری (Magistrat).
                 </p>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <div className="lg:col-span-8 bg-white border border-stone-200 p-6 rounded-3xl space-y-5">
-                  <h4 className="font-extrabold text-stone-900 text-xs sm:text-sm">⚖️ انواع برگه‌های جریمه:</h4>
+                <div className="lg:col-span-8 bg-white border-2 border-stone-200 p-6 rounded-3xl space-y-5 text-stone-950 shadow-md">
+                  <h4 className="font-black text-stone-950 text-sm sm:text-base">⚖️ انواع برگه‌های جریمه راهنمایی و رانندگی:</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="border border-stone-150 p-4 rounded-2xl bg-stone-50/50 space-y-1.5">
-                      <span className="text-[10px] bg-red-100 text-red-800 font-extrabold px-2 py-0.5 rounded">نوع اول</span>
-                      <h5 className="font-extrabold text-stone-850 text-xs">Anonymverfügung</h5>
-                      <p className="text-[10.5px] text-stone-500 font-bold leading-relaxed">
-                        جریمه‌های سبک بدون نقطه منفی. پرداخت در مهلت ۲-۴ هفته پرونده را می‌بندد.
+                    <div className="border-2 border-stone-200 p-4 rounded-2xl bg-stone-50 space-y-2">
+                      <span className="text-[11px] bg-red-100 text-red-800 font-black px-2.5 py-0.5 rounded border border-red-200">نوع اول (سبک)</span>
+                      <h5 className="font-black text-stone-950 text-xs sm:text-sm">Anonymverfügung</h5>
+                      <p className="text-xs text-stone-800 font-bold leading-relaxed">
+                        جریمه‌های سبک و ناشناس بدون ثبت نمره منفی در پرونده. پرداخت ظرف مهلت ۴ هفته پرونده را مختومه می‌کند.
                       </p>
                     </div>
-                    <div className="border border-stone-150 p-4 rounded-2xl bg-stone-50/50 space-y-1.5">
-                      <span className="text-[10px] bg-red-100 text-red-800 font-extrabold px-2 py-0.5 rounded">نوع دوم</span>
-                      <h5 className="font-extrabold text-stone-850 text-xs">Strafverfügung</h5>
-                      <p className="text-[10.5px] text-stone-500 font-bold leading-relaxed">
-                        تخلف سنگین با حق اعتراض (Einspruch) تا ۲ هفته پس از دریافت.
+                    <div className="border-2 border-stone-200 p-4 rounded-2xl bg-stone-50 space-y-2">
+                      <span className="text-[11px] bg-red-100 text-red-800 font-black px-2.5 py-0.5 rounded border border-red-200">نوع دوم (سنگین)</span>
+                      <h5 className="font-black text-stone-950 text-xs sm:text-sm">Strafverfügung</h5>
+                      <p className="text-xs text-stone-800 font-bold leading-relaxed">
+                        تخلف سنگین با امکان ثبت اعتراض کتبی رسمی (Einspruch) تا حداکثر ۲ هفته پس از تاریخ تحویل نامه.
                       </p>
                     </div>
                   </div>
-                  <div className="bg-red-50/50 p-4 border border-red-150 rounded-2xl space-y-2">
-                    <h5 className="font-black text-red-950 text-xs">📄 نمونه نامه اعتراض (آلمانی):</h5>
-                    <div className="bg-stone-900 text-lime-400 p-4 rounded-2xl font-mono text-[10.5px] text-left whitespace-pre-line select-all" dir="ltr">
+                  <div className="bg-stone-50 p-5 border-2 border-stone-200 rounded-2xl space-y-2.5">
+                    <h5 className="font-black text-stone-950 text-xs sm:text-sm">📄 متن استاندارد لایحه اعتراض (به زبان آلمانی):</h5>
+                    <div className="bg-stone-950 text-lime-400 p-4 rounded-2xl font-mono text-xs text-left whitespace-pre-line select-all leading-relaxed border border-stone-800" dir="ltr">
 {`Sehr geehrte Damen und Herren,
 
 hiermit erhebe ich innerhalb offener Frist das Rechtsmittel des Einspruchs gegen die Strafverfügung mit der Geschäftszahl: [GZ-NUMBER].
@@ -1749,16 +1751,16 @@ Mit freundlichen Grüßen,
                     </div>
                   </div>
                 </div>
-                <div className="lg:col-span-4 bg-stone-50 border border-stone-150 p-5 rounded-3xl space-y-4">
-                  <span className="block text-xs font-black text-stone-800">🚗 جدول تعرفه جریمه‌ها:</span>
+                <div className="lg:col-span-4 bg-white border-2 border-stone-200 p-6 rounded-3xl space-y-4 text-stone-950 shadow-md">
+                  <span className="block text-xs sm:text-sm font-black text-stone-950 border-b-2 border-stone-100 pb-2">🚗 جدول تعرفه تقریبی جریمه‌ها:</span>
                   {[
-                    { r: "تا ۱۰ km/h اضافه", p: "۳۰-۵۰ €" },
-                    { r: "تا ۲۰ km/h اضافه", p: "۶۰-۸۰ €" },
-                    { r: "تا ۳۰ km/h اضافه", p: "۱۰۰-۱۵۰ €" },
-                    { r: "بیش از ۵۰ km/h", p: "+۲۵۰ € + توقیف" }
+                    { r: "تا ۱۰ km/h سرعت اضافه", p: "۳۰ - ۵۰ €" },
+                    { r: "تا ۲۰ km/h سرعت اضافه", p: "۶۰ - ۸۰ €" },
+                    { r: "تا ۳۰ km/h سرعت اضافه", p: "۱۰۰ - ۱۵۰ €" },
+                    { r: "بیش از ۵۰ km/h سرعت اضافه", p: "+۲۵۰ € + توقیف گواهینامه" }
                   ].map((f, i) => (
-                    <div key={i} className="flex justify-between text-[11px] text-stone-550 font-bold">
-                      <span>{f.r}</span><span className="text-red-600 font-extrabold">{f.p}</span>
+                    <div key={i} className="flex justify-between items-center text-xs text-stone-800 font-bold p-2 bg-stone-50 rounded-xl border border-stone-200">
+                      <span>{f.r}</span><span className="text-red-700 font-black">{f.p}</span>
                     </div>
                   ))}
                 </div>
@@ -1769,32 +1771,32 @@ Mit freundlichen Grüßen,
           {/* ============ SUCCESS STORIES TAB ============ */}
           {activeTab === "success_stories" && (
             <div className="space-y-6">
-              <div className="bg-rose-50 border border-rose-100 rounded-3xl p-5 md:p-6 space-y-2">
-                <h3 className="font-extrabold text-red-950 text-xs sm:text-sm md:text-base flex items-center justify-end gap-2">
-                  <span>تالار افتخارات ایرانیان فعال در اتریش ⭐</span><span>⭐</span>
+              <div className="bg-amber-500/15 border-2 border-amber-400/40 rounded-3xl p-5 md:p-6 space-y-2">
+                <h3 className="font-black text-amber-200 text-sm md:text-base flex items-center justify-end gap-2">
+                  <span>تالار افتخارات و مشاهیر ایرانیان فعال در اتریش</span><span>⭐</span>
                 </h3>
-                <p className="text-xs text-stone-605 font-bold leading-relaxed">
-                  جامعه ایرانیان مقیم اتریش یکی از تحصیل‌کرده‌ترین ملل خارجی است.
+                <p className="text-xs text-stone-200 font-bold leading-relaxed">
+                  جامعه ایرانیان مقیم اتریش یکی از فرهیخته‌ترین، موفق‌ترین و پرنفوذترین جوامع علمی، پزشکی و فناوری در اروپای مرکزی است.
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { name: "پروفسور دکتر مجید سمیعی", field: "جراح برجسته بین‌المللی", achieve: "از نام‌آورترین پزشکان معاصر جراحی مغز جهان.", avatar: "🩺" },
-                  { name: "دکتر مژگان جمشیدی", field: "دانشمند علوم دارویی گراتس", achieve: "پژوهشگر ارشد زیست‌فناوری نانو داروها.", avatar: "🧪" },
-                  { name: "مهندس آرمان رحیمی", field: "موسس هلدینگ فناوری وین", achieve: "بنیانگذار شرکت‌های اینشورتک در وین و لینتس.", avatar: "📐" },
-                  { name: "دکتر نیما علوی", field: "معمار پایدار وین", achieve: "طراح برجسته مسکن اجتماعی هوشمند.", avatar: "🏗️" },
-                  { name: "دکتر سارا فرهادی", field: "متخصص AI و داده‌های اقتصادی", achieve: "مشاور ارشد ابزارهای مالی هوشمند اتریش.", avatar: "💻" },
-                  { name: "مهندس رضا کریمی", field: "مدیر انرژی‌های تجدیدپذیر", achieve: "فعال پیشرو پروژه‌های خورشیدی بورگن‌لاند.", avatar: "☀️" }
+                  { name: "پروفسور دکتر مجید سمیعی", field: "جراح برجسته بین‌المللی", achieve: "از نام‌آورترین پزشکان معاصر جراحی مغز جهان و مشاور ارشد مراکز پزشکی وین.", avatar: "🩺" },
+                  { name: "دکتر مژگان جمشیدی", field: "دانشمند علوم دارویی گراتس", achieve: "پژوهشگر ارشد زیست‌فناوری نانو داروها در دانشگاه کارل فرانتس گراتس.", avatar: "🧪" },
+                  { name: "مهندس آرمان رحیمی", field: "موسس هلدینگ فناوری وین", achieve: "بنیانگذار شرکت‌های اینشورتک و هوش مصنوعی در وین و لینتس.", avatar: "📐" },
+                  { name: "دکتر نیما علوی", field: "معمار پایدار وین", achieve: "طراح برجسته مسکن اجتماعی هوشمند و سازه‌های مدرن دوستدار محیط زیست.", avatar: "🏗️" },
+                  { name: "دکتر سارا فرهادی", field: "متخصص AI و داده‌های اقتصادی", achieve: "مشاور ارشد ابزارهای مالی هوشمند و تحلیل‌های ریسک سرمایه‌گذاری اتریش.", avatar: "💻" },
+                  { name: "مهندس رضا کریمی", field: "مدیر انرژی‌های تجدیدپذیر", achieve: "فعال پیشرو توسعه پروژه‌های انرژی پاک خورشیدی و بادی در ایالت بورگن‌لاند.", avatar: "☀️" }
                 ].map((p, i) => (
                   <motion.article key={i} whileHover={{ y: -4 }}
-                    className="bg-stone-50 border border-stone-150 p-5 rounded-2xl space-y-3 hover:border-red-200 transition-all">
-                    <div className="w-12 h-12 rounded-xl bg-white border border-stone-200 flex items-center justify-center text-xl shadow-sm">
+                    className="bg-white border-2 border-stone-200 p-5 sm:p-6 rounded-2xl space-y-3.5 hover:border-red-300 transition-all text-stone-950 shadow-md">
+                    <div className="w-12 h-12 rounded-xl bg-stone-100 border-2 border-stone-300 flex items-center justify-center text-xl shadow-xs">
                       {p.avatar}
                     </div>
-                    <div className="space-y-1">
-                      <h4 className="font-extrabold text-stone-850 text-xs sm:text-sm">{p.name}</h4>
-                      <span className="text-[10px] text-red-600 font-black block">{p.field}</span>
-                      <p className="text-[11px] text-stone-500 leading-relaxed font-bold pt-2">{p.achieve}</p>
+                    <div className="space-y-1.5">
+                      <h4 className="font-black text-stone-950 text-sm sm:text-base">{p.name}</h4>
+                      <span className="text-xs text-red-700 font-black block">{p.field}</span>
+                      <p className="text-xs text-stone-800 leading-relaxed font-bold pt-1">{p.achieve}</p>
                     </div>
                   </motion.article>
                 ))}
@@ -1805,68 +1807,88 @@ Mit freundlichen Grüßen,
           {/* ============ CLASSIFIEDS TAB ============ */}
           {activeTab === "classifieds" && (
             <div className="space-y-6">
-              <div className="bg-stone-50 border border-stone-200 rounded-3xl p-5 md:p-6 space-y-2">
-                <h3 className="font-extrabold text-stone-850 text-xs sm:text-sm md:text-base flex items-center justify-end gap-2">
-                  <span>دیوار کانون نیازمندی‌های ایرانیان اتریش 🛒</span><span>🛒</span>
+              <div className="bg-emerald-500/15 border-2 border-emerald-400/40 rounded-3xl p-5 md:p-6 space-y-2">
+                <h3 className="font-black text-emerald-200 text-sm md:text-base flex items-center justify-end gap-2">
+                  <span>دیوار کانون نیازمندی‌های ایرانیان اتریش</span><span>🛒</span>
                 </h3>
-                <p className="text-xs text-stone-400 font-bold leading-relaxed">
-                  مرجعی امن و رایگان برای همخانگی، خرید/فروش وسایل و کاریابی کوچک.
+                <p className="text-xs text-stone-200 font-bold leading-relaxed">
+                  مرجعی امن، مستقل و رایگان برای همخانگی (WG)، خرید و فروش لوازم خانگی و فرصت‌های شغلی مورد نیاز هموطنان.
                 </p>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <form onSubmit={handleCreateClassified} className="lg:col-span-4 bg-stone-50 border border-stone-150 p-5 rounded-3xl space-y-4">
-                  <h4 className="font-extrabold text-stone-850 text-xs">✍️ ثبت آگهی جدید:</h4>
-                  <div className="space-y-3">
-                    <input type="text" required value={newClassifiedTitle} onChange={(e) => setNewClassifiedTitle(e.target.value)}
-                      placeholder="عنوان آگهی"
-                      className="w-full bg-white border border-stone-200 p-2.5 rounded-xl text-xs font-bold outline-none focus:border-red-500" />
-                    <div className="grid grid-cols-2 gap-2">
-                      <select value={newClassifiedCat} onChange={(e) => setNewClassifiedCat(e.target.value)}
-                        className="bg-white border border-stone-200 p-2 rounded-xl text-xs font-bold cursor-pointer">
-                        <option value="wg">همخانگی مسکن</option>
-                        <option value="furniture">وسایل منزل</option>
-                        <option value="rideshare">همسفری</option>
-                        <option value="job">فرصت‌های شغلی</option>
-                      </select>
-                      <input type="text" value={newClassifiedPrice} onChange={(e) => setNewClassifiedPrice(e.target.value)}
-                        placeholder="قیمت"
-                        className="bg-white border border-stone-200 p-2 rounded-xl text-xs font-bold outline-none focus:border-red-500" />
+                <form onSubmit={handleCreateClassified} className="lg:col-span-5 bg-white border-2 border-stone-200 p-6 rounded-3xl space-y-4 text-stone-950 shadow-md">
+                  <h4 className="font-black text-stone-950 text-sm sm:text-base border-b-2 border-stone-100 pb-2">✍️ ثبت رایگان آگهی جدید:</h4>
+                  <div className="space-y-3.5">
+                    <div>
+                      <label className="block text-xs font-black text-stone-900 mb-1">عنوان آگهی:</label>
+                      <input type="text" required value={newClassifiedTitle} onChange={(e) => setNewClassifiedTitle(e.target.value)}
+                        placeholder="مثال: واگذاری اتاق WG در منطقه ۱۰ وین"
+                        className="w-full bg-white text-stone-950 placeholder:text-stone-500 border-2 border-stone-300 p-3 rounded-xl text-xs font-bold outline-none focus:border-red-600" />
                     </div>
-                    <select value={newClassifiedCity} onChange={(e) => setNewClassifiedCity(e.target.value)}
-                      className="w-full bg-white border border-stone-200 p-2.5 rounded-xl text-xs font-bold cursor-pointer">
-                      <option value="vienna">وین (Wien)</option>
-                      <option value="graz">گراتس (Graz)</option>
-                      <option value="salzburg">سالزبورگ (Salzburg)</option>
-                    </select>
-                    <textarea required value={newClassifiedDesc} onChange={(e) => setNewClassifiedDesc(e.target.value)}
-                      placeholder="توضیحات"
-                      className="w-full bg-white border border-stone-200 p-2.5 rounded-xl text-xs outline-none h-20 font-bold focus:border-red-500" />
-                    <input type="text" required value={newClassifiedContact} onChange={(e) => setNewClassifiedContact(e.target.value)}
-                      placeholder="اطلاعات تماس"
-                      className="w-full bg-white border border-stone-200 p-2.5 rounded-xl text-xs font-bold outline-none focus:border-red-500" />
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs font-black text-stone-900 mb-1">دسته‌بندی:</label>
+                        <select value={newClassifiedCat} onChange={(e) => setNewClassifiedCat(e.target.value)}
+                          className="w-full bg-white text-stone-950 border-2 border-stone-300 p-2.5 rounded-xl text-xs font-black cursor-pointer focus:border-red-600 outline-none">
+                          <option value="wg">🏠 همخانگی مسکن (WG)</option>
+                          <option value="furniture">🛋️ وسایل منزل</option>
+                          <option value="rideshare">🚗 همسفری و حمل‌ونقل</option>
+                          <option value="job">💼 فرصت‌های شغلی</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-black text-stone-900 mb-1">قیمت / کرایه (€):</label>
+                        <input type="text" value={newClassifiedPrice} onChange={(e) => setNewClassifiedPrice(e.target.value)}
+                          placeholder="مثال: ۴۵۰ € / توافقی"
+                          className="w-full bg-white text-stone-950 placeholder:text-stone-500 border-2 border-stone-300 p-2.5 rounded-xl text-xs font-bold outline-none focus:border-red-600" />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-black text-stone-900 mb-1">شهر:</label>
+                      <select value={newClassifiedCity} onChange={(e) => setNewClassifiedCity(e.target.value)}
+                        className="w-full bg-white text-stone-950 border-2 border-stone-300 p-2.5 rounded-xl text-xs font-black cursor-pointer focus:border-red-600 outline-none">
+                        <option value="vienna">وین (Wien)</option>
+                        <option value="graz">گراتس (Graz)</option>
+                        <option value="salzburg">سالزبورگ (Salzburg)</option>
+                        <option value="linz">لینتس (Linz)</option>
+                        <option value="innsbruck">اینسبروک (Innsbruck)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-black text-stone-900 mb-1">توضیحات تکمیلی:</label>
+                      <textarea required value={newClassifiedDesc} onChange={(e) => setNewClassifiedDesc(e.target.value)}
+                        placeholder="شرایط، دسترسی به مترو/تراموا، تاریخ تحویل و جزئیات..."
+                        className="w-full bg-white text-stone-950 placeholder:text-stone-500 border-2 border-stone-300 p-3 rounded-xl text-xs outline-none h-24 font-bold focus:border-red-600 resize-none" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-black text-stone-900 mb-1">اطلاعات تماس (تلفن/تلگرام/ایمیل):</label>
+                      <input type="text" required value={newClassifiedContact} onChange={(e) => setNewClassifiedContact(e.target.value)}
+                        placeholder="مثال: @username یا +43688..."
+                        className="w-full bg-white text-stone-950 placeholder:text-stone-500 border-2 border-stone-300 p-3 rounded-xl text-xs font-bold outline-none focus:border-red-600" />
+                    </div>
                   </div>
                   <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                    type="submit" className="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3 rounded-2xl cursor-pointer">
-                    انتشار در دیوار محلی
+                    type="submit" className="w-full bg-red-700 hover:bg-red-800 text-white font-black text-xs sm:text-sm py-3.5 rounded-2xl cursor-pointer shadow-md">
+                    انتشار آگهی در دیوار اتریش‌نشین 📢
                   </motion.button>
                 </form>
-                <div className="lg:col-span-8 space-y-4">
-                  <h4 className="font-extrabold text-stone-900 text-xs sm:text-sm">📌 آگهی‌های اخیر:</h4>
+                <div className="lg:col-span-7 space-y-4">
+                  <h4 className="font-black text-stone-100 text-sm sm:text-base">📌 آگهی‌های ثبت‌شده اخیر:</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {classifiedsList.map(ad => (
                       <motion.article key={ad.id} whileHover={{ y: -3 }}
-                        className="bg-white border border-stone-200 rounded-2xl p-4.5 flex flex-col justify-between hover:border-red-200 transition-all p-5">
-                        <div className="space-y-2">
-                          <div className="flex justify-between items-center flex-wrap gap-1">
-                            <span className="text-[9px] bg-red-50 text-red-700 font-black px-2 py-0.5 rounded">{ad.categoryFarsi}</span>
-                            <span className="text-[10px] text-stone-400 font-mono">شهر: {ad.cityFarsi}</span>
+                        className="bg-white border-2 border-stone-200 rounded-2xl p-5 flex flex-col justify-between hover:border-red-300 transition-all text-stone-950 shadow-md">
+                        <div className="space-y-2.5">
+                          <div className="flex justify-between items-center flex-wrap gap-1.5">
+                            <span className="text-[11px] bg-red-100 text-red-800 font-black px-2.5 py-0.5 rounded border border-red-200">{ad.categoryFarsi}</span>
+                            <span className="text-[11px] text-stone-700 font-bold">شهر: {ad.cityFarsi}</span>
                           </div>
-                          <h5 className="font-extrabold text-stone-850 text-xs sm:text-sm">{ad.title}</h5>
-                          <p className="text-xs text-stone-500 leading-relaxed font-bold">{ad.desc}</p>
+                          <h5 className="font-black text-stone-950 text-sm leading-snug">{ad.title}</h5>
+                          <p className="text-xs text-stone-800 leading-relaxed font-bold">{ad.desc}</p>
                         </div>
-                        <div className="mt-4 pt-3 border-t border-stone-150 flex justify-between items-center text-xs font-bold">
-                          <span className="text-red-600 font-black">{ad.price}</span>
-                          <span className="text-stone-400 text-[10px] font-black underline bg-stone-50 p-1 px-2 rounded-lg">{ad.contact}</span>
+                        <div className="mt-4 pt-3 border-t-2 border-stone-100 flex justify-between items-center text-xs font-bold">
+                          <span className="text-red-700 font-black text-sm">{ad.price}</span>
+                          <span className="text-stone-900 text-xs font-black bg-stone-100 border border-stone-300 p-1.5 px-3 rounded-lg" dir="ltr">{ad.contact}</span>
                         </div>
                       </motion.article>
                     ))}
@@ -1878,23 +1900,6 @@ Mit freundlichen Grüßen,
         </motion.section>
       </AnimatePresence>
 
-      {/* FOOTER */}
-      <footer className="mt-10 pt-6 border-t border-stone-150 flex flex-col md:flex-row items-center justify-between gap-3">
-        <div className="flex items-center gap-3 order-2 md:order-1">
-          <AustriaResidentLogo size={34} variant="dark" />
-        </div>
-        <div className="text-center md:text-right text-[10px] text-stone-400 font-bold order-1 md:order-2 leading-relaxed">
-          <p>© ۲۰۲۶ اتریش‌نشین | Austria Resident — تمام حقوق محفوظ است.</p>
-          <p className="font-mono text-stone-500 mt-0.5">Made with ❤️ for Iranian expats in Austria</p>
-        </div>
-        <div className="flex items-center gap-2 order-3">
-          {[MessageCircle, PhoneCall, Globe].map((Icon, i) => (
-            <span key={i} className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-500 hover:text-red-600 hover:border-red-200 transition-colors cursor-pointer">
-              <Icon className="w-3.5 h-3.5" />
-            </span>
-          ))}
-        </div>
-      </footer>
     </main>
   );
 }

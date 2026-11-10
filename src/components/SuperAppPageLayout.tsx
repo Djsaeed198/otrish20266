@@ -114,28 +114,28 @@ export default function SuperAppPageLayout({
         <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
         {/* Top Control Bar: Breadcrumb & Actions */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-stone-100">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-stone-200/80">
           
           {/* Breadcrumb Path */}
-          <div className="flex items-center gap-1.5 text-xs text-stone-500 font-bold flex-wrap">
+          <div className="flex items-center gap-1.5 text-xs text-stone-700 font-bold flex-wrap">
             <button
               onClick={() => onNavigate("home")}
-              className="flex items-center gap-1 text-stone-600 hover:text-red-650 transition-colors"
+              className="flex items-center gap-1 text-stone-800 hover:text-red-700 transition-colors font-black"
             >
-              <Home className="w-3.5 h-3.5" />
-              <span>خانه سوپراپ</span>
+              <Home className="w-3.5 h-3.5 text-[#c8102e]" />
+              <span>پیشخوان اصلی</span>
             </button>
-            <span>/</span>
+            <span className="text-stone-400">/</span>
             {category && (
               <>
-                <span className="text-stone-600">
+                <span className="text-stone-800 font-bold">
                   {category.title}
                 </span>
-                <span>/</span>
+                <span className="text-stone-400">/</span>
               </>
             )}
-            <span className="text-red-650 font-black">
-              {page?.shortTitle || page?.title || pageId}
+            <span className="text-red-700 font-black bg-rose-50 px-2 py-0.5 rounded border border-red-200">
+              {page?.shortTitle || page?.title || seoItem?.breadcrumbName || "راهنمای تخصصی"}
             </span>
           </div>
 
@@ -144,24 +144,24 @@ export default function SuperAppPageLayout({
             <button
               onClick={handleCopyLink}
               title="کپی لینک مستقیم این صفحه"
-              className="p-2 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black flex items-center gap-1.5 transition-all shadow-sm hover:shadow-md border border-emerald-500 active:scale-95"
+              className="p-2 px-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-black flex items-center gap-1.5 transition-all shadow-sm hover:shadow-md border border-emerald-600 active:scale-95 cursor-pointer"
             >
-              <Copy className="w-3.5 h-3.5 text-emerald-100" />
-              <span>کپی لینک</span>
+              <Copy className="w-3.5 h-3.5 text-white" />
+              <span>کپی پیوند</span>
             </button>
 
             <button
               onClick={handleShare}
               title="اشتراک‌گذاری این صفحه"
-              className="p-2 px-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-black flex items-center gap-1.5 transition-all shadow-sm hover:shadow-md border border-blue-500 active:scale-95"
+              className="p-2 px-3.5 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-xs font-black flex items-center gap-1.5 transition-all shadow-sm hover:shadow-md border border-blue-600 active:scale-95 cursor-pointer"
             >
-              <Share2 className="w-3.5 h-3.5 text-blue-100" />
+              <Share2 className="w-3.5 h-3.5 text-white" />
               <span>اشتراک‌گذاری</span>
             </button>
 
             <button
               onClick={() => onNavigate("home")}
-              className="p-2 px-4 rounded-xl bg-gradient-to-r from-[#c8102e] to-[#990011] hover:from-red-700 hover:to-red-900 text-white text-xs font-black flex items-center gap-1.5 transition-all shadow-sm hover:shadow-md border border-red-500/50 active:scale-95"
+              className="p-2 px-4 rounded-xl bg-gradient-to-r from-[#c8102e] to-[#990011] hover:from-red-700 hover:to-red-900 text-white text-xs font-black flex items-center gap-1.5 transition-all shadow-sm hover:shadow-md border border-red-600 active:scale-95 cursor-pointer"
             >
               <span>بازگشت به خانه</span>
               <ChevronLeft className="w-4 h-4 text-white" />
@@ -171,41 +171,41 @@ export default function SuperAppPageLayout({
 
         {/* Middle: Tool Title, Badges & Description */}
         <div className="pt-5 flex flex-col md:flex-row items-start gap-4 sm:gap-5">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-red-50 to-rose-100 border border-red-200 text-red-650 flex items-center justify-center shrink-0 shadow-xs">
-            <IconComp className="w-7 h-7 sm:w-8 sm:h-8" />
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-red-50 to-rose-100 border-2 border-red-200 text-red-700 flex items-center justify-center shrink-0 shadow-xs">
+            <IconComp className="w-7 h-7 sm:w-8 sm:h-8 text-[#c8102e]" />
           </div>
 
-          <div className="space-y-2 flex-1">
+          <div className="space-y-2.5 flex-1">
             <div className="flex items-center gap-2.5 flex-wrap">
-              <h1 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight">
-                {page?.title || pageId}
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-stone-900 tracking-tight leading-snug">
+                {page?.title || seoItem?.h1 || seoItem?.title || "راهنما و خدمات تخصصی اتریش"}
               </h1>
 
               {category && (
-                <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-200">
+                <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-rose-100 text-red-900 border border-red-200">
                   {category.title} 🇦🇹
                 </span>
               )}
 
               {page?.badge && (
                 <span className={`text-[10px] font-black px-2 py-0.5 rounded-md ${
-                  page.badge === "پربازدید" ? "bg-amber-100 text-amber-800" :
-                  page.badge === "هوشمند" ? "bg-purple-100 text-purple-800" :
-                  page.badge === "ضروری" ? "bg-red-100 text-red-700" :
-                  "bg-emerald-100 text-emerald-800"
+                  page.badge === "پربازدید" ? "bg-amber-400 text-stone-950 font-black shadow-xs" :
+                  page.badge === "هوشمند" ? "bg-purple-700 text-white shadow-xs" :
+                  page.badge === "ضروری" ? "bg-red-700 text-white shadow-xs" :
+                  "bg-emerald-700 text-white shadow-xs"
                 }`}>
                   {page.badge}
                 </span>
               )}
 
-              <span className="text-[10px] font-mono text-stone-400 font-bold">
+              <span className="text-[10px] font-mono text-stone-700 font-bold bg-stone-100 px-2 py-0.5 rounded border border-stone-200">
                 بروزرسانی رسمی ۲۰۲۶
               </span>
             </div>
 
-            {page?.description && (
-              <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed max-w-3xl">
-                {page.description}
+            {(page?.description || seoItem?.description) && (
+              <p className="text-xs sm:text-sm text-stone-700 font-semibold leading-relaxed max-w-3xl">
+                {page?.description || seoItem?.description}
               </p>
             )}
           </div>
@@ -275,16 +275,16 @@ export default function SuperAppPageLayout({
                       <ItemIcon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-black text-stone-900 group-hover:text-red-650 transition-colors truncate">
+                      <h4 className="text-xs font-black text-stone-900 group-hover:text-red-700 transition-colors truncate">
                         {item.shortTitle || item.title}
                       </h4>
-                      <p className="text-[10px] text-stone-400 line-clamp-1">
+                      <p className="text-[11px] text-stone-700 font-medium line-clamp-1">
                         {item.description}
                       </p>
                     </div>
                   </div>
 
-                  <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-[10px] font-bold text-stone-400 group-hover:text-red-650">
+                  <div className="pt-2 border-t border-stone-200 flex items-center justify-between text-[11px] font-bold text-stone-700 group-hover:text-red-700">
                     <span>اجرای ابزار</span>
                     <ChevronLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" />
                   </div>
@@ -314,17 +314,17 @@ export default function SuperAppPageLayout({
                   onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
                   className="w-full p-4 text-right flex items-center justify-between gap-3 bg-stone-50/70 hover:bg-stone-100/70 transition-colors"
                 >
-                  <span className="text-xs sm:text-sm font-black text-stone-800 leading-snug">
+                  <span className="text-xs sm:text-sm font-black text-stone-900 leading-snug">
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-stone-500 shrink-0 transition-transform ${
+                    className={`w-4 h-4 text-stone-700 shrink-0 transition-transform ${
                       openFaqIndex === idx ? "rotate-180 text-red-650" : ""
                     }`}
                   />
                 </button>
                 {openFaqIndex === idx && (
-                  <div className="p-4 pt-3 bg-white text-xs sm:text-sm text-stone-600 font-medium leading-relaxed border-t border-stone-100 animate-fadeIn">
+                  <div className="p-4 pt-3 bg-white text-xs sm:text-sm text-stone-800 font-medium leading-relaxed border-t border-stone-100 animate-fadeIn">
                     {faq.a}
                   </div>
                 )}

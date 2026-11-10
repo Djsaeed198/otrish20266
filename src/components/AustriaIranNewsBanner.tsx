@@ -146,7 +146,7 @@ export default function AustriaIranNewsBanner() {
     "slider" | "style" | "navigation" | null
   >(null);
   const [autoplaySpeed, setAutoplaySpeed] = useState<number>(6000);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [isPaused, setIsPaused] = useState<boolean>(true);
   const [slideTransition, setSlideTransition] = useState<
     "slide" | "fade" | "scale"
   >("slide");
@@ -180,16 +180,16 @@ export default function AustriaIranNewsBanner() {
      ========================================================= */
   const themes = {
     blue_royal:
-      "bg-gradient-to-br from-[#0c142c] via-[#001f54] to-[#040c1e] text-white border-blue-900/40 shadow-[0_18px_55px_rgba(23,39,181,0.28)]",
+      "bg-gradient-to-br from-[#0c232d] via-[#102b38] to-[#07171e] text-white border-[#1a4253] shadow-[0_18px_55px_rgba(0,0,0,0.55)]",
     teal_alpine:
-      "bg-gradient-to-br from-teal-950 via-slate-900 to-stone-950 text-white border-teal-800/40 shadow-[0_18px_55px_rgba(20,184,166,0.22)]",
+      "bg-gradient-to-br from-[#061e27] via-[#0b2834] to-[#041217] text-white border-[#14b8a6]/40 shadow-[0_18px_55px_rgba(20,184,166,0.22)]",
     midnight:
       "bg-gradient-to-br from-[#08080a] via-[#121318] to-[#09090b] text-white border-white/5 shadow-[0_18px_55px_rgba(0,0,0,0.55)]",
   } as const;
 
   const accentByTheme = {
-    blue_royal: "from-blue-400 to-amber-400",
-    teal_alpine: "from-teal-300 to-amber-300",
+    blue_royal: "from-[#f5c46b] via-[#e5a93c] to-[#14b8a6]",
+    teal_alpine: "from-[#14b8a6] to-[#f5c46b]",
     midnight: "from-amber-300 to-rose-400",
   } as const;
 

@@ -563,7 +563,7 @@ const ExchangeRateWidget: React.FC = () => {
             <div className="flex-1">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-[11px] font-black backdrop-blur-sm mb-3">
                 <Euro className="w-3.5 h-3.5 text-amber-300" />
-                Währungsumrechnung Österreich 2026
+                سامانه رسمی تبدیل و برابری ارز اتریش ۲۰۲۶
               </div>
 
               <h1 className="text-2xl md:text-4xl font-black leading-tight mb-3">

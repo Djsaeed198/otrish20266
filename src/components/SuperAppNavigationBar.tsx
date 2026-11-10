@@ -939,10 +939,12 @@ export default function SuperAppNavigationBar({
       {/* ============================================================ */}
       <nav
         aria-label="منوی اصلی ناوبری اتریش‌نشین"
-        className={`w-full bg-white/95 border border-stone-200/90 rounded-2xl desktop:rounded-3xl p-1.5 backdrop-blur-md transition-all duration-300 shadow-md ${
-          isDocked ? "shadow-xl border-stone-300 ring-1 ring-stone-900/5 bg-white/98" : ""
+        className={`w-full bg-white/95 backdrop-blur-xl border border-stone-200/90 rounded-2xl desktop:rounded-3xl p-1.5 sm:p-2 transition-all duration-300 shadow-lg shadow-stone-900/5 relative overflow-hidden ${
+          isDocked ? "shadow-2xl border-stone-300 ring-2 ring-red-500/10 bg-white" : ""
         }`}
       >
+        {/* Subtle decorative accent highlight */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c8102e]/60 to-transparent pointer-events-none" />
         {/* 📱 MOBILE / TABLET VIEW (< 1024px: flex desktop:hidden):
             Completely hides the horizontal list to prevent any scrolling. Replaces with a sleek hamburger bar */}
         <div className="flex desktop:hidden items-center justify-between px-2.5 py-1 gap-2">
@@ -956,12 +958,12 @@ export default function SuperAppNavigationBar({
               <div className="text-xs font-black text-stone-900 truncate flex items-center gap-1.5">
                 <span>{activeCategory.label}</span>
                 {activeCategory.contextBadge && (
-                  <span className="text-[8.5px] px-1.5 py-0.5 rounded-md bg-stone-100 text-stone-600 font-bold">
+                  <span className="text-[8.5px] px-1.5 py-0.5 rounded-md bg-stone-100 text-stone-700 font-bold border border-stone-200/60">
                     {activeCategory.contextBadge}
                   </span>
                 )}
               </div>
-              <div className="text-[10px] text-stone-500 font-medium truncate">
+              <div className="text-[10px] text-stone-600 font-medium truncate">
                 {activeCategory.description}
               </div>
             </div>
@@ -972,7 +974,7 @@ export default function SuperAppNavigationBar({
               type="button"
               onClick={onOpenSearch}
               aria-label="جستجو در سامانه"
-              className="p-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 transition-transform active:scale-95 cursor-pointer border border-stone-200"
+              className="p-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 transition-transform active:scale-95 cursor-pointer border border-stone-200"
               title="جستجو (⌘K)"
             >
               <Search className="w-4 h-4 text-stone-700" />
@@ -1012,29 +1014,29 @@ export default function SuperAppNavigationBar({
                   className="relative shrink desktop:flex-1 min-w-0 group/navitem"
                   onMouseEnter={() => handleLevel1MouseEnter(cat)}
                 >
-                  <button
-                    type="button"
-                    onClick={() => handleCategoryClick(cat)}
-                    aria-expanded={hasSubmenu ? isOpen : undefined}
-                    className={`w-full px-2 desktop:px-2.5 py-2 desktop:py-2.5 rounded-xl desktop:rounded-2xl text-[11px] desktop:text-xs font-black flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap active:scale-95 ${
-                      isCategoryActive
-                        ? `bg-gradient-to-r ${cat.color} text-white shadow-md shadow-stone-900/10 scale-102`
-                        : isOpen
-                        ? "bg-stone-100 text-stone-950 ring-1 ring-stone-300"
-                        : "text-stone-700 hover:bg-stone-100 hover:text-stone-950"
-                    }`}
-                    title={cat.description}
-                  >
-                    <Icon
-                      className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${
+                    <button
+                      type="button"
+                      onClick={() => handleCategoryClick(cat)}
+                      aria-expanded={hasSubmenu ? isOpen : undefined}
+                      className={`w-full px-2 desktop:px-2.5 py-2 desktop:py-2.5 rounded-xl desktop:rounded-2xl text-[11px] desktop:text-xs font-black flex items-center justify-center gap-1.5 transition-all cursor-pointer whitespace-nowrap active:scale-95 ${
                         isCategoryActive
-                          ? "text-white"
+                          ? "bg-gradient-to-r from-[#c8102e] via-red-650 to-rose-750 text-white shadow-md shadow-red-600/25 font-black scale-102"
                           : isOpen
-                          ? "text-stone-950 scale-110"
-                          : cat.textColor
+                          ? "bg-stone-100 text-stone-900 border border-stone-300"
+                          : "text-stone-700 hover:bg-stone-100 hover:text-stone-950"
                       }`}
-                    />
-                    <span className="leading-none tracking-tight truncate">{cat.label}</span>
+                      title={cat.description}
+                    >
+                      <Icon
+                        className={`w-3.5 h-3.5 shrink-0 transition-transform duration-200 ${
+                          isCategoryActive
+                            ? "text-white"
+                            : isOpen
+                            ? "text-[#c8102e] scale-110"
+                            : "text-stone-500 group-hover/navitem:text-[#c8102e]"
+                        }`}
+                      />
+                      <span className="leading-none tracking-tight truncate">{cat.label}</span>
 
                     {/* Small Context-Aware Micro-Icon / Mini-Badge */}
                     {ContextIcon && (
@@ -1042,7 +1044,7 @@ export default function SuperAppNavigationBar({
                         className={`hidden xl:inline-flex items-center gap-0.5 px-1 py-0.5 rounded text-[8.5px] font-bold shrink-0 transition-colors leading-none ${
                           isCategoryActive
                             ? "bg-white/20 text-white"
-                            : "bg-stone-200/60 text-stone-600 group-hover/navitem:bg-white group-hover/navitem:text-stone-900"
+                            : "bg-stone-100 text-stone-600 group-hover/navitem:bg-stone-200 group-hover/navitem:text-stone-900"
                         }`}
                         title={cat.contextBadge ? `${cat.label} — ${cat.contextBadge}` : undefined}
                       >
@@ -1057,9 +1059,9 @@ export default function SuperAppNavigationBar({
                       <ChevronDown
                         className={`w-3 h-3 transition-transform duration-200 shrink-0 ${
                           isOpen
-                            ? "rotate-180 text-stone-950"
+                            ? "rotate-180 text-stone-900"
                             : isCategoryActive
-                            ? "text-white/80"
+                            ? "text-white/90"
                             : "text-stone-400 group-hover/navitem:text-stone-700"
                         }`}
                       />
@@ -1079,7 +1081,7 @@ export default function SuperAppNavigationBar({
           <button
             type="button"
             onClick={onOpenSearch}
-            className="px-2.5 py-2 rounded-xl desktop:rounded-2xl bg-stone-100/90 hover:bg-stone-200 text-stone-700 hover:text-stone-950 text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 shrink-0 border border-stone-200/80 mr-1 shadow-2xs group/searchnav"
+            className="px-2.5 py-2 rounded-xl desktop:rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-700 hover:text-stone-950 text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 shrink-0 border border-stone-200 mr-1 shadow-2xs group/searchnav"
             title="جستجوی هوشمند در خدمات، مدارک و راهنماها (Ctrl+K / ⌘K)"
           >
             <Search className="w-3.5 h-3.5 text-stone-500 group-hover/searchnav:text-stone-950 transition-colors" />

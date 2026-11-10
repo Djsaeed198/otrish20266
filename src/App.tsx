@@ -5,7 +5,7 @@ import {
   Send, Instagram, Facebook, Phone, ExternalLink, Award, Calculator,
   Newspaper, RefreshCw, Share2, BarChart3, FileText, GraduationCap, Globe,
   UserCheck, CheckCircle, ShoppingBag, Heart, Building, Car, ShoppingCart,
-  Train, Smile, Stethoscope, Ticket, Search, IdCard, KeyRound
+  Train, Smile, Stethoscope, Ticket, Search, IdCard, KeyRound, BadgeCheck
 } from "lucide-react";
 import {
   getActiveSession,
@@ -115,12 +115,10 @@ import { motion, AnimatePresence } from "motion/react";
 import WhatsAppConsultButton from "./components/WhatsAppConsultButton";
 import SuperAppHeader from "./components/SuperAppHeader";
 import SuperAppNavigationBar from "./components/SuperAppNavigationBar";
-import SuperAppQuickHeroStrip from "./components/SuperAppQuickHeroStrip";
 import SuperAppLauncher from "./components/SuperAppLauncher";
 import SuperAppPageLayout from "./components/SuperAppPageLayout";
 import SuperAppSearchModal from "./components/SuperAppSearchModal";
 import SuperAppMobileBottomNav from "./components/SuperAppMobileBottomNav";
-import DynamicBreadcrumb from "./components/DynamicBreadcrumb";
 import ContentClustersSection from "./components/ContentClustersSection";
 import InternationalSeoSection from "./components/InternationalSeoSection";
 import AustrianGermanPage from "./components/AustrianGermanPage";
@@ -130,6 +128,7 @@ import { getGeoFaqPageSchema, getGeoHowToSchema } from "./data/geoOptimizationDa
 import { getSeoForSegment } from "./data/seoCatalog";
 import MobileNavigationDrawer from "./components/MobileNavigationDrawer";
 import LiveNewsTicker from "./components/LiveNewsTicker";
+import { AustriaResidentLogo } from "./components/AustriaSmartSuite";
 
 /* ============================================================================
    🎯 CONSTANTS: Site Identity & Canonical Domain (Diako Immigration Holding)
@@ -549,7 +548,7 @@ export default function App() {
   const [optimizationToast, setOptimizationToast] = useState<string | null>(null);
 
   const [austriaNews, setAustriaNews] = useState<any[]>(COMPREHENSIVE_NEWS_ARCHIVE);
-  const [newsLastUpdated, setNewsLastUpdated] = useState<string>("۱۴۰۵ (به‌روزرسانی پیوسته)");
+  const [newsLastUpdated, setNewsLastUpdated] = useState<string>("امروز - زنده");
   const [newsSourceText, setNewsSourceText] = useState<string>("۱۰ رسانه رسمی فدرال و شهری اتریش");
   const [isNewsLoading, setIsNewsLoading] = useState<boolean>(false);
   const [selectedArticle, setSelectedArticle] = useState<any>(null);
@@ -581,7 +580,7 @@ export default function App() {
     // Simulate real-time sync with Austrian official news feeds
     setTimeout(() => {
       setAustriaNews(COMPREHENSIVE_NEWS_ARCHIVE);
-      setNewsLastUpdated(new Date().toLocaleTimeString("fa-IR", { hour: "2-digit", minute: "2-digit" }));
+      setNewsLastUpdated("امروز ساعت " + new Date().toLocaleTimeString("fa-IR", { hour: "2-digit", minute: "2-digit" }));
       setIsNewsLoading(false);
       setIsForcingNewsRefresh(false);
     }, 400);
@@ -1091,8 +1090,6 @@ export default function App() {
       />
 
       <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col justify-between font-sans selection:bg-red-200" dir="rtl">
-        <WelcomeNotification />
-
         {/* 🇦🇹 Austrian flag bar */}
         <div className="h-1.5 w-full bg-gradient-to-r from-red-600 via-white to-red-600 block" aria-hidden="true" />
 
@@ -1155,21 +1152,6 @@ export default function App() {
               }}
             />
           </div>
-
-          <SuperAppQuickHeroStrip
-            onSelectSegment={(segment) => {
-              setActiveSegment(segment);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          />
-
-          <DynamicBreadcrumb
-            activeSegment={activeSegment}
-            onSelectSegment={(seg) => {
-              setActiveSegment(seg);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          />
 
           <main className="space-y-8 min-h-[400px]">
             <Suspense
@@ -1745,198 +1727,325 @@ export default function App() {
           </section>
         </div>
 
-        {/* 🏢 FOOTER — Diako Immigration Holding */}
+        {/* 🏢 MINIMALIST MODERN FOOTER */}
         <footer
-          className={`transition-all duration-500 border-t mt-16 w-full relative overflow-hidden text-right ${
-            isHeaderFooterUpdated
-              ? "bg-gradient-to-br from-[#0a1128] via-[#001f54] to-[#0a1128] border-blue-900/40 text-stone-200 py-6 px-6 md:px-12 shadow-[0_-12px_40px_rgba(23,39,181,0.2)]"
-              : "bg-gradient-to-br from-[#0c1b40] to-[#040a1c] border-blue-950/80 text-stone-300 py-6 px-6 md:px-12"
-          }`}
+          className="bg-[#0c0d10] border-t border-stone-800/80 text-stone-400 text-right mt-16 w-full text-xs font-sans selection:bg-red-900/50"
+          dir="rtl"
         >
-          <div className="absolute bottom-0 right-10 w-80 h-80 rounded-full bg-[#1727b5]/10 blur-[120px] pointer-events-none" />
-          <div className="absolute top-0 left-10 w-64 h-64 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" />
-
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 relative z-10 pb-4">
-            {/* Column 1: Brand Info */}
-            <div className="lg:col-span-7 space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-white border border-blue-400/50 rounded-full p-0.5 flex items-center justify-center shadow-lg transform rotate-[-6deg] hover:rotate-[6deg] transition-transform overflow-hidden shrink-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+            {/* Top Row: Brand & Socials */}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-stone-800/60">
+              {/* Brand info */}
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-stone-900 border border-stone-700/60 p-1 flex items-center justify-center shrink-0 shadow-sm">
                   <img
                     src={otrishLogo}
                     alt={`لوگوی رسمی ${SITE_NAME_FA}`}
-                    title={`${SITE_NAME_FA} - پورتال تخصصی مهاجرت و اقامت اتریش`}
-                    referrerPolicy="no-referrer"
-                    width="40"
-                    height="40"
+                    width="28"
+                    height="28"
                     loading="lazy"
-                    decoding="async"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src = "/otrish_logo.png";
                     }}
-                    className="w-full h-full object-contain rounded-full"
+                    className="w-full h-full object-contain rounded-lg"
                   />
                 </div>
                 <div>
-                  <h4 className="text-sm font-black text-white">{SITE_NAME_FA}</h4>
-                  <p className="text-[9px] text-zinc-400 font-bold">پورتال تخصصی مهاجرت و اقامت اتریش</p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-black text-stone-100 tracking-tight">{SITE_NAME_FA}</span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-red-950/80 text-red-300 border border-red-800/50 font-black">
+                      اتریش 🇦🇹
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-stone-400 font-bold mt-0.5">
+                    سامانه مستقل همیاری ایرانیان و فارسی‌زبانان مقیم اتریش — ۶۰+ ابزار و سرویس تخصصی رایگان
+                  </p>
                 </div>
               </div>
 
-              <p className="text-[10px] text-zinc-300 leading-snug font-bold">
-                «{SITE_NAME_FA}» پورتالی تخصصی برای هم‌افزایی هموطنان و راهنمای دانشجویان و خانواده‌هاست. ابزارهای هوشمند، محاسبات Brutto-Netto، و تسهیل مسیرهای اداری را برای شما آسان کرده‌ایم.
-              </p>
-
-              <div className="bg-white/5 border border-white/5 p-2 rounded-xl flex items-center gap-2">
-                <Award className="w-4 h-4 text-amber-400 shrink-0" />
-                <p className="text-[9px] text-zinc-400 leading-snug font-bold">
-                  حامی مستقل و کاربردی شما در تمامی گام‌های زندگی در اتریش.
-                </p>
-              </div>
-            </div>
-
-            {/* Column 2: Networks */}
-            <div className="lg:col-span-5 space-y-2">
-              <h5 className="text-[10px] font-black text-white uppercase tracking-wider flex items-center gap-1 justify-end">
-                <span className="w-1 h-2 bg-blue-600 rounded-xs" />
-                🔗 شبکه‌های ما:
-              </h5>
-
-              <div className="grid grid-cols-2 gap-2">
+              {/* Minimal Social & Contact Links */}
+              <div className="flex items-center gap-1.5 flex-wrap">
                 <a
                   href="https://t.me/OTRISH_IRAN"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  aria-label="تلگرام اتریش‌نشین"
-                  className="flex items-center justify-between p-2 bg-sky-500/10 hover:bg-sky-500/15 border border-sky-500/20 rounded-lg transition-all font-black text-[9px] text-sky-300 hover:scale-102"
+                  className="inline-flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-stone-900/90 hover:bg-stone-800 border border-stone-800 text-stone-300 hover:text-sky-400 transition-colors text-[10px] font-bold"
+                  aria-label="کانال تلگرام اتریش‌نشین"
                 >
                   <Send className="w-3 h-3 text-sky-400 shrink-0" />
-                  <span className="font-mono">OTRISH_IRAN@</span>
+                  <span className="font-mono text-[9px] dir-ltr">OTRISH_IRAN@</span>
                 </a>
 
                 <a
                   href="https://instagram.com/otrish__iran"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
+                  className="inline-flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-stone-900/90 hover:bg-stone-800 border border-stone-800 text-stone-300 hover:text-pink-400 transition-colors text-[10px] font-bold"
                   aria-label="اینستاگرام اتریش‌نشین"
-                  className="flex items-center justify-between p-2 bg-pink-500/10 hover:bg-pink-500/15 border border-pink-500/20 rounded-lg transition-all font-black text-[9px] text-pink-300 hover:scale-102"
                 >
                   <Instagram className="w-3 h-3 text-pink-400 shrink-0" />
-                  <span className="font-mono">otrish__iran@</span>
+                  <span className="font-mono text-[9px] dir-ltr">otrish__iran@</span>
                 </a>
 
                 <a
-                  href="https://t.me/Otrish_neshin"
+                  href="https://wa.me/436889763256"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  aria-label="کانال اطلاع‌رسانی اتریش‌نشین"
-                  className="flex items-center justify-between p-2 bg-indigo-500/10 hover:bg-indigo-500/15 border border-indigo-500/20 rounded-lg transition-all font-black text-[9px] text-indigo-300 hover:scale-102"
+                  className="inline-flex items-center gap-1.5 h-8 px-2.5 rounded-lg bg-stone-900/90 hover:bg-stone-800 border border-stone-800 text-stone-300 hover:text-emerald-400 transition-colors text-[10px] font-bold"
+                  aria-label="واتس‌اپ اتریش‌نشین"
                 >
-                  <ExternalLink className="w-3 h-3 text-indigo-400 shrink-0" />
-                  <span className="font-mono">Otrish_neshin@</span>
+                  <Phone className="w-3 h-3 text-emerald-400 shrink-0" />
+                  <span className="font-mono text-[9px] dir-ltr">+43 688 9763256</span>
                 </a>
 
                 <a
                   href="https://www.facebook.com/otrish.neshin"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
+                  className="inline-flex items-center gap-1.5 h-8 px-2 rounded-lg bg-stone-900/90 hover:bg-stone-800 border border-stone-800 text-stone-400 hover:text-blue-400 transition-colors text-[10px] font-bold"
                   aria-label="فیسبوک اتریش‌نشین"
-                  className="flex items-center justify-between p-2 bg-blue-600/10 hover:bg-blue-600/15 border border-blue-500/20 rounded-lg transition-all font-black text-[9px] text-blue-300 hover:scale-102"
                 >
                   <Facebook className="w-3 h-3 text-blue-400 shrink-0" />
-                  <span className="font-mono">otrish.neshin@</span>
                 </a>
               </div>
+            </div>
 
-              <div className="bg-stone-900/50 border border-white/5 rounded-lg p-2 text-right space-y-1">
-                <h6 className="text-[9px] font-black text-stone-300">📱 تماس واتس‌اپ:</h6>
-                <div className="grid grid-cols-2 gap-1">
-                  <a
-                    href="https://wa.me/436889763256"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="واتس‌اپ اتریش"
-                    className="flex flex-col items-center justify-center p-1 bg-emerald-500/10 hover:bg-emerald-500/15 border border-emerald-500/20 rounded-lg transition-all text-[8px] font-semibold font-mono text-emerald-300 hover:scale-102 text-center"
-                  >
-                    <span className="font-sans text-[7px] text-stone-400 font-bold">اتریش</span>
-                    <span>00436889763256</span>
-                  </a>
-                  <a
-                    href="https://wa.me/989306229790"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    aria-label="واتس‌اپ ایران"
-                    className="flex flex-col items-center justify-center p-1 bg-emerald-500/10 hover:bg-emerald-500/15 border border-emerald-500/20 rounded-lg transition-all text-[8px] font-semibold font-mono text-emerald-300 hover:scale-102 text-center"
-                  >
-                    <span className="font-sans text-[7px] text-stone-400 font-bold">ایران</span>
-                    <span>989306229790+</span>
-                  </a>
-                </div>
+            {/* Middle Row: Minimal Quick Navigation Links */}
+            <div className="flex flex-wrap items-center justify-between gap-y-2 gap-x-4 text-[11px] font-bold text-stone-400">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <button
+                  onClick={() => {
+                    setActiveSegment("rwr-calculator");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="hover:text-stone-100 transition-colors cursor-pointer"
+                >
+                  کارت سرخ-سفید-سرخ
+                </button>
+                <span className="text-stone-700">•</span>
+                <button
+                  onClick={() => {
+                    setActiveSegment("finance");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="hover:text-stone-100 transition-colors cursor-pointer"
+                >
+                  محاسبه حقوق Brutto-Netto
+                </button>
+                <span className="text-stone-700">•</span>
+                <button
+                  onClick={() => {
+                    setActiveSegment("ma35");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="hover:text-stone-100 transition-colors cursor-pointer"
+                >
+                  پایش نوبت MA35
+                </button>
+                <span className="text-stone-700">•</span>
+                <button
+                  onClick={() => {
+                    setActiveSegment("kassenarzt-directory");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="hover:text-stone-100 transition-colors cursor-pointer"
+                >
+                  پزشکان بیمه ÖGK
+                </button>
+                <span className="text-stone-700">•</span>
+                <button
+                  onClick={() => {
+                    setActiveSegment("housesearch");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="hover:text-stone-100 transition-colors cursor-pointer"
+                >
+                  راهنمای مسکن وین
+                </button>
+                <span className="text-stone-700">•</span>
+                <button
+                  onClick={() => {
+                    setActiveSegment("german");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="hover:text-stone-100 transition-colors cursor-pointer"
+                >
+                  آموزش زبان آلمانی
+                </button>
+                <span className="text-stone-700">•</span>
+                <button
+                  onClick={() => {
+                    setIsNewsModalOpen(true);
+                  }}
+                  className="hover:text-stone-100 transition-colors cursor-pointer"
+                >
+                  اخبار و قوانین اتریش
+                </button>
+              </div>
+
+              <div className="font-mono text-[10px] text-stone-400 dir-ltr">
+                https://otrish-iran.ir
               </div>
             </div>
-          </div>
 
-          {/* Credits */}
-          <div className="max-w-7xl mx-auto border-t border-zinc-900 mt-6 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10.5px] font-black text-stone-500">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="w-2 h-2 rounded-full bg-blue-600" />
-              <span>
-                طراحی اختصاصی {SITE_NAME_FA} © {new Date().getFullYear()}
-              </span>
-              <span className="text-blue-500 opacity-60">🇦🇹</span>
-              <button
-                onClick={() => {
-                  if (navigator.share) {
-                    navigator
-                      .share({
-                        title: SITE_NAME_FA,
-                        url: window.location.href,
-                        text: `${SITE_NAME_FA} — همیار همه‌جانبه فارسی‌زبانان مقیم اتریش`
-                      })
-                      .catch(console.error);
-                  } else {
-                    navigator.clipboard.writeText(window.location.href);
-                    toast.success("لینک سایت کپی شد!");
-                  }
-                }}
-                className="flex items-center gap-1.5 bg-red-100/50 hover:bg-red-200/50 text-red-700 px-3 py-1.5 rounded-full font-black text-[10px] transition-all"
-                aria-label="اشتراک‌گذاری سایت"
-              >
-                <Share2 className="w-3 h-3" />
-                اشتراک‌گذاری سایت
-              </button>
+            {/* Bottom Row: Minimal Copyright & Utilities */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-4 border-t border-stone-800/60 text-[10.5px] text-stone-400">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
+                <span>
+                  © ۲۰۲۶ {SITE_NAME_FA} — تمام حقوق محفوظ است. خدمات و ابزارها رایگان می‌باشند.
+                </span>
+              </div>
 
-              {/* 🔐 Security Center & Audit Logs Button (security.md) */}
-              <button
-                onClick={() => setIsAuditModalOpen(true)}
-                className="flex items-center gap-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-full font-black text-[10px] transition-all cursor-pointer"
-                title="مشاهده لاگ‌های امنیتی سامانه (Security Audit Logs)"
-              >
-                <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                <span>مرکز پایش و لاگ‌های امنیتی</span>
-              </button>
+              {/* Utility buttons */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <button
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator
+                        .share({
+                          title: SITE_NAME_FA,
+                          url: window.location.href,
+                          text: `${SITE_NAME_FA} — پورتال خدمات فارسی‌زبانان مقیم اتریش`
+                        })
+                        .catch(console.error);
+                    } else {
+                      navigator.clipboard.writeText(window.location.href);
+                      toast.success("لینک سایت کپی شد!");
+                    }
+                  }}
+                  className="inline-flex items-center gap-1 h-7 px-2.5 rounded-md bg-stone-900 hover:bg-stone-800 border border-stone-800 text-stone-400 hover:text-stone-200 transition-colors text-[9.5px] font-bold cursor-pointer"
+                >
+                  <Share2 className="w-3 h-3" />
+                  <span>اشتراک‌گذاری</span>
+                </button>
 
-              {/* 🔐 Admin Authentication Button (auth.md) */}
-              <button
-                onClick={() => {
-                  setAuthModalTargetAction("ورود به پنل مدیریت و نظارت");
-                  setIsAuthModalOpen(true);
-                }}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full font-black text-[10px] transition-all cursor-pointer border ${
-                  activeSession
-                    ? "bg-amber-400/15 text-amber-300 border-amber-400/40 hover:bg-amber-400/25"
-                    : "bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border-blue-500/30"
-                }`}
-                title="ورود امن مدیریت و مدیریت نشست (PBKDF2/auth.md)"
-              >
-                <KeyRound className="w-3 h-3 text-blue-400" />
-                <span>{activeSession ? `مدیر آنلاین (${activeSession.username})` : "ورود امن مدیریت"}</span>
-              </button>
-            </div>
-            <div className="font-mono text-[9px] text-stone-400">
-              {SITE_NAME_EN} — {SITE_DOMAIN}
+                <button
+                  onClick={() => setIsAuditModalOpen(true)}
+                  className="inline-flex items-center gap-1 h-7 px-2.5 rounded-md bg-stone-900 hover:bg-stone-800 border border-stone-800 text-stone-400 hover:text-emerald-400 transition-colors text-[9.5px] font-bold cursor-pointer"
+                  title="مشاهده لاگ‌های امنیتی سامانه"
+                >
+                  <ShieldCheck className="w-3 h-3 text-emerald-500" />
+                  <span>امنیت</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setAuthModalTargetAction("ورود به پنل مدیریت و نظارت");
+                    setIsAuthModalOpen(true);
+                  }}
+                  className={`inline-flex items-center gap-1 h-7 px-2.5 rounded-md transition-colors text-[9.5px] font-bold cursor-pointer border ${
+                    activeSession
+                      ? "bg-amber-950/40 text-amber-300 border-amber-800/60 hover:bg-amber-900/40"
+                      : "bg-stone-900 hover:bg-stone-800 border-stone-800 text-stone-400 hover:text-blue-400"
+                  }`}
+                  title="ورود مدیریت"
+                >
+                  <KeyRound className="w-3 h-3 text-blue-400" />
+                  <span>{activeSession ? `مدیر (${activeSession.username})` : "ورود مدیریت"}</span>
+                </button>
+              </div>
             </div>
           </div>
         </footer>
+
+        {/* 🇦🇹 TRANSFERRED AUSTRIA RESIDENT BRAND & COMMUNITY STRIP (زیر فوتر اصلی) */}
+        <div className="bg-[#0f1015] border-t border-stone-800/90 py-5 px-4 sm:px-6 lg:px-8 text-right font-sans" dir="rtl">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 order-2 md:order-1">
+              <AustriaResidentLogo size={32} variant="light" />
+            </div>
+            <div className="text-center md:text-right text-[11px] text-stone-400 font-bold order-1 md:order-2 leading-relaxed">
+              <p className="text-stone-300">© ۲۰۲۶ اتریش‌نشین | Austria Resident — تمام حقوق محفوظ است.</p>
+              <p className="font-mono text-stone-500 text-[10px] mt-0.5" dir="ltr">Made with ❤️ for Iranian expats in Austria</p>
+            </div>
+            <div className="flex items-center gap-2 order-3">
+              <a
+                href="https://t.me/OTRISH_IRAN"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full border border-stone-700 bg-stone-900/80 flex items-center justify-center text-stone-400 hover:text-red-400 hover:border-red-500/50 transition-colors cursor-pointer"
+                title="کانال تلگرام اتریش‌نشین"
+              >
+                <Send className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://wa.me/436889763256"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full border border-stone-700 bg-stone-900/80 flex items-center justify-center text-stone-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors cursor-pointer"
+                title="پشتیبانی واتس‌اپ"
+              >
+                <Phone className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://www.dia-co.ir"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full border border-stone-700 bg-stone-900/80 flex items-center justify-center text-stone-400 hover:text-amber-400 hover:border-amber-500/50 transition-colors cursor-pointer"
+                title="وبسایت هولدینگ مهاجرتی دیاکو"
+              >
+                <Globe className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================================
+            14) SEO-RICH FOOTER CONTENT (زیر بخش فوتر اصلی)
+           ============================================================ */}
+        <div className="bg-[#08090b] border-t border-stone-850 py-8 px-4 sm:px-6 lg:px-8 text-right text-xs font-sans selection:bg-red-900/50" dir="rtl" itemScope itemType="https://schema.org/WPFooter">
+          <div className="max-w-7xl mx-auto space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-stone-400">
+              <div className="space-y-2">
+                <h4 className="text-xs font-black text-stone-200 flex items-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5 text-[#C8102E]" />
+                  درباره اتریش‌نشین
+                </h4>
+                <p className="text-[11px] text-stone-400 font-medium leading-relaxed">
+                  اتریش‌نشین یک پلتفرم مستقل و غیرانتفاعی است که به منظور تسهیل مسیر ادغام، اقامت و زندگی فارسی‌زبانان در اتریش طراحی شده است.
+                  تمام اطلاعات بر اساس منابع رسمی اتریش (migration.gv.at, ÖGK, AMS, MA35, Wien.gv.at) به‌روزرسانی می‌شود.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-xs font-black text-stone-200 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
+                  شهرهای تحت پوشش
+                </h4>
+                <ul className="text-[11px] text-stone-400 font-medium leading-relaxed space-y-1">
+                  <li>• وین (Wien) — پایتخت و بزرگترین شهر اتریش</li>
+                  <li>• گراتس (Graz) — پایتخت ایالت اشتایرمارک</li>
+                  <li>• لینتس (Linz) — اتریش علیا</li>
+                  <li>• سالزبورگ (Salzburg) — شهر موتزارت</li>
+                  <li>• اینسبروک (Innsbruck) — قلب آلپ</li>
+                </ul>
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-xs font-black text-stone-200 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
+                  خدمات کلیدی
+                </h4>
+                <ul className="text-[11px] text-stone-400 font-medium leading-relaxed space-y-1">
+                  <li>• مشاوره اقامت و ویزا</li>
+                  <li>• محاسبه‌گر Brutto-Netto و مالیات</li>
+                  <li>• دایرکتوری پزشکان فارسی‌زبان ÖGK</li>
+                  <li>• مسکن و Gemeindewohnung</li>
+                  <li>• آموزش آلمانی اتریشی</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-stone-850/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-stone-450 font-bold">
+              <div className="flex items-center gap-2">
+                <span>© ۲۰۲۶ اتریش‌نشین · OTRISH-IRAN.IR</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="flex items-center gap-1 text-stone-400"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> اطلاعات مستقل و بدون وابستگی</span>
+                <span className="flex items-center gap-1 text-stone-400"><BadgeCheck className="w-3.5 h-3.5 text-blue-400" /> به‌روز ۲۰۲۶</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Modals & Overlays */}
         <SuperAppSearchModal

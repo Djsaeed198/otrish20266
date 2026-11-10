@@ -11,6 +11,14 @@ body {
   direction: rtl;
   background-color: #fafaf9;
   color: #1c1917;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Custom scrollbars for the elegant dashboard boxes */
@@ -23,12 +31,14 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: #e7e5e4;
-  border-radius: 4px;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #d6d3d1;
 }
 
+/* Refined Keyframe Animations */
 @keyframes marqueeRtl {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-50%, 0, 0); }
@@ -46,7 +56,79 @@ body {
   animation-play-state: paused;
 }
 
-/* Safe semantic element visibility utilities (avoiding brittle nth-of-type selector conflicts) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; filter: blur(12px); }
+  50% { opacity: 0.9; filter: blur(16px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Modern Card Glow & Hover Effects */
+.card-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+}
+
+/* Glassmorphic Panel Surface */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(229, 231, 235, 0.85);
+}
+
+.dark .glass-panel {
+  background: rgba(24, 19, 16, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(43, 33, 29, 0.8);
+}
+
+/* Interactive Ripple & Press Effect */
+button:active:not(:disabled),
+a[role="button"]:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Safe semantic element visibility utilities */
 .is-hidden,
 [data-hidden="true"],
 [hidden] {
@@ -64,4 +146,193 @@ body {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border-width: 0 !important;
+}
+
+/* ============================================================
+   🎨 USER CUSTOM CSS SUITE: GRADIENT TEXT, GLOW BUTTON & CARDS
+   ============================================================ */
+
+/* انیمیشن حرکت گرادیانت */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* افکت گرادیانت متحرک روی متن هدر با کنتراست بالا */
+.hero-section {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.gradient-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #e11d48, #c8102e, #059669, #2563eb);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s ease infinite;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+}
+
+.hero-section p {
+  color: #0f172a;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+/* افکت دکمه‌ی نورانی (Glow Button) */
+.glow-button {
+  background: linear-gradient(135deg, #c8102e, #990011);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 900;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.glow-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(200, 16, 46, 0.7);
+}
+
+/* بخش کارت‌ها با افکت شناور و کنتراست فوق‌العاده */
+.custom-card-container,
+.card-hover-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.custom-glow-card,
+.card {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 16px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.custom-glow-card:hover,
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
+  border-color: rgba(200, 16, 46, 0.6);
+}
+
+.card-content h3 {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.card-content p {
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   🌟 HIGH CONTRAST READABILITY & SHARPNESS ENHANCEMENTS
+   ============================================================ */
+
+/* Ensure dark cards and image overlays have pure white readable text with soft shadow */
+.text-on-dark,
+[class*="bg-stone-900"] h1,
+[class*="bg-stone-900"] h2,
+[class*="bg-stone-900"] h3,
+[class*="bg-stone-900"] h4,
+[class*="bg-stone-950"] h1,
+[class*="bg-stone-950"] h2,
+[class*="bg-stone-950"] h3,
+[class*="bg-stone-950"] h4,
+[class*="bg-gradient-to"] h1,
+[class*="bg-gradient-to"] h2 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* Global text contrast baseline */
+p, span, li, button, input, label {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure no muted text on light backgrounds falls below contrast threshold */
+.bg-white p,
+.bg-stone-50 p {
+  color: #1e293b;
+}
+.bg-white h1,
+.bg-white h2,
+.bg-white h3,
+.bg-white h4,
+.bg-white h5,
+.bg-stone-50 h1,
+.bg-stone-50 h2,
+.bg-stone-50 h3,
+.bg-stone-50 h4,
+.bg-stone-50 h5 {
+  color: #0f172a;
+}
+
+/* ============================================================
+   🌟 AUSTRIA SMART SUITE EXPLICIT CONTRAST ENHANCEMENTS
+   Ensures any light card or element inside dark module has deep dark readable text
+   ============================================================ */
+#austria-smart-suite-module .bg-white,
+#austria-smart-suite-module .bg-stone-50,
+#austria-smart-suite-module .bg-stone-100,
+#austria-smart-suite-module .bg-amber-50,
+#austria-smart-suite-module .bg-rose-50,
+#austria-smart-suite-module .bg-red-50,
+#austria-smart-suite-module .bg-emerald-50 {
+  color: #0f172a !important;
+}
+
+#austria-smart-suite-module .bg-white h1,
+#austria-smart-suite-module .bg-white h2,
+#austria-smart-suite-module .bg-white h3,
+#austria-smart-suite-module .bg-white h4,
+#austria-smart-suite-module .bg-white h5,
+#austria-smart-suite-module .bg-white p,
+#austria-smart-suite-module .bg-white li,
+#austria-smart-suite-module .bg-stone-50 h1,
+#austria-smart-suite-module .bg-stone-50 h2,
+#austria-smart-suite-module .bg-stone-50 h3,
+#austria-smart-suite-module .bg-stone-50 h4,
+#austria-smart-suite-module .bg-stone-50 h5,
+#austria-smart-suite-module .bg-stone-50 p,
+#austria-smart-suite-module .bg-stone-50 li {
+  color: #0f172a !important;
+}
+
+#austria-smart-suite-module input,
+#austria-smart-suite-module select,
+#austria-smart-suite-module textarea {
+  color: #0f172a !important;
+  background-color: #ffffff;
+}
+
+#austria-smart-suite-module input::placeholder,
+#austria-smart-suite-module textarea::placeholder {
+  color: #64748b !important;
+  opacity: 1;
 }
